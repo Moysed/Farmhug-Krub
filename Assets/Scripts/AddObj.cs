@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class AddObj : MonoBehaviour
 {
-    public List<GameObject> plantGmaeobj = new List<GameObject>();
-
+    public List<GameObject> planTobjects = new List<GameObject>();
+    public Vector3 plantpos;
     float growTime;
     bool isDisplay = false;
-    GameObject currentPlant;
-    Animator m_animator;
+    List<GameObject> spawnedPlants = new List<GameObject>(); // Track all spawned plants
 
     PlantInventory plantInventory;
 
     void Start()
     {
-        m_animator = GetComponent<Animator>();
         plantInventory = FindObjectOfType<PlantInventory>();
         growTime = 10f; // Adjust the initial grow time as needed
         SpawnPlant();
@@ -34,18 +32,13 @@ public class AddObj : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == "Animal")
+                if (hit.collider.CompareTag("Animal"))
                 {
-                    m_animator.SetBool("IsCall", true);
-
-                    if (isDisplay)
-                    {
-                        Debug.Log("Tapped");
-                        Destroy(currentPlant);
-                        isDisplay = false;
-                        plantInventory.AddToInventory(currentPlant.name);
-                        growTime = 10f; // Reset grow time
-                    }
+                    Debug.Log("Tapped");
+                    Destroy(hit.collider.gameObject); // Destroy the touched plant
+                    isDisplay = false;
+                    plantInventory.AddToInventory(hit.collider.gameObject.name);
+                    growTime = 10f; // Reset grow time
                 }
             }
         }
@@ -60,13 +53,9 @@ public class AddObj : MonoBehaviour
 
     void SpawnPlant()
     {
-        if (currentPlant != null)
-        {
-            Destroy(currentPlant);
-        }
-
-        currentPlant = Instantiate(plantGmaeobj[Random.Range(0, 1)], new Vector3(Random.Range(0, 2), Random.Range(0, 2)), Quaternion.identity);
-        currentPlant.tag = "Animal";
+        GameObject newPlant = Instantiate(planTobjects[Random.Range(0, 2)], plantpos, Quaternion.identity);
+        newPlant.tag = "Animal";
+        spawnedPlants.Add(newPlant); // Add the new plant to the list
         isDisplay = true;
         growTime = 10f; // Reset grow time for the new plant
     }
@@ -75,6 +64,7 @@ public class AddObj : MonoBehaviour
     {
         int amountToSell = 5;
 
+        // Assuming you have a method in PlantInventory to handle selling from the inventory
         plantInventory.SellFromInventory(plantInventory.name, amountToSell);
     }
 }

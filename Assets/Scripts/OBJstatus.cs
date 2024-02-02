@@ -7,6 +7,7 @@ public class OBJstatus : MonoBehaviour
     public float growTime;
     public GameObject Prefab;
     private GameObject obj;
+    public Vector2 pos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class OBJstatus : MonoBehaviour
             growTime = 10;
             if (obj == null)
             {
-                obj = Instantiate(Prefab, Vector2.zero, Quaternion.identity);
+                obj = Instantiate(Prefab, pos, Quaternion.identity);
                 Debug.Log("Create");
             }
         }
@@ -49,14 +50,14 @@ public class OBJstatus : MonoBehaviour
                     Debug.Log("Using DestroyThisObject");
                 }
             }
-        } */
+        } 
 
          else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && obj != null)
         {
             growTime = 10;
             DestroyThisObject();
             Debug.Log("Using DestroyThisObject");
-        }
+        } */
     }
 
     public void DestroyThisObject()

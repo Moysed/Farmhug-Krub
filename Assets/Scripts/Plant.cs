@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddObj : MonoBehaviour
+public class Plant : MonoBehaviour
 {
-    public List<GameObject> planTobjects = new List<GameObject>();
-    public Vector3 plantpos;
+    public GameObject plantObjectPrefabs;
+    public Vector3 plantPos;
     float growTime;
-    bool isDisplay = false;
-    List<GameObject> spawnedPlants = new List<GameObject>(); // Track all spawned plants
-
     PlantInventory plantInventory;
+
+    public enum InstanceMode
+    {
+        Instance,
+        Pool
+    }
+
+    public InstanceMode instanceMode = InstanceMode.Pool;
 
     void Start()
     {
@@ -32,32 +37,44 @@ public class AddObj : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Animal"))
+                if (hit.collider.CompareTag("Plant"))
                 {
                     Debug.Log("Tapped");
-                    Destroy(hit.collider.gameObject); // Destroy the touched plant
-                    isDisplay = false;
+                    Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
                     plantInventory.AddToInventory(hit.collider.gameObject.name);
                     growTime = 10f; // Reset grow time
                 }
             }
         }
 
-        if (growTime <= 0 && !isDisplay)
+        if (growTime <= 0)
         {
             Debug.Log("Spawned");
             SpawnPlant();
-            isDisplay = true;
+            growTime = 10f; // Reset grow time for the new plant
         }
     }
 
     void SpawnPlant()
     {
-        GameObject newPlant = Instantiate(planTobjects[Random.Range(0, 2)], plantpos, Quaternion.identity);
-        newPlant.tag = "Animal";
-        spawnedPlants.Add(newPlant); // Add the new plant to the list
-        isDisplay = true;
-        growTime = 10f; // Reset grow time for the new plant
+        GameObject newPlant = InstantiateObject(plantObjectPrefabs);
+        newPlant.tag = "Plant";
+
+        // Set the new plant's position
+        newPlant.transform.position = plantPos;
+
+        // Reset grow time for the new plant
+        growTime = 10f;
+    }
+
+    GameObject InstantiateObject(GameObject obj)
+    {
+        if (instanceMode == InstanceMode.Instance)
+            return Instantiate(obj);
+        else if (instanceMode == InstanceMode.Pool)
+            return Lean.Pool.LeanPool.Spawn(obj);
+
+        return null;
     }
 
     void SellPlantsFromInventory()

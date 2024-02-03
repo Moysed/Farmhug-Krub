@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961c72812816ab14780e7613bcad7603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planTobjects:
+  planobjectPrefabs:
   - {fileID: 399389387357504479, guid: f292e41e7492a48cca965579f7056a24, type: 3}
   - {fileID: 7773399253260385067, guid: fd4f5d5b0d3a44a968ffe2234b2db3fa, type: 3}
-  - {fileID: 3429054618245796624, guid: 7dcb8e4b56b2a46d5ac3fa56d6f853ec, type: 3}
   plantpos: {x: 0, y: 0, z: 0}
+  instanceMode: 1

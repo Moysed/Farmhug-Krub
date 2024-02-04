@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneOnTime : ChangeScene
 {
-    private ChangeScene changeScene;
+    private ChangeScene _changeScene;
     public float startTime;
 
     private void Start()
     {
-        changeScene = new ChangeScene();
+        _changeScene = new ChangeScene();
     }
     // Update is called once per frame
     void Update()

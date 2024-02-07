@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Animal
   - Plant
+  - BGM
   layers:
   - Default
   - TransparentFX

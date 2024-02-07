@@ -7,17 +7,18 @@ public class UI_Management : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject m_StorePanel;
-    public GameObject m_SettingPanel;
+    //public GameObject m_SettingPanel;
     public void OnStoreEvent()
     {
         m_StorePanel.SetActive(true);
-        m_SettingPanel.SetActive(false);
+        //m_SettingPanel.SetActive(false);
     }
-    public void OnOptionEvent()
+
+    /* public void OnOptionEvent()
     {
         m_StorePanel.SetActive(false);
         m_SettingPanel.SetActive(true);
-    }
+    } */
 
     /* public void OnExitEvent()
     {

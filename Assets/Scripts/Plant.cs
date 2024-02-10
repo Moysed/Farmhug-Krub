@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+    
     public GameObject plantObjectPrefabs;
     public Vector3 plantPos;
     float growTime;

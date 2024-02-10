@@ -1,0 +1,115 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GroundMangement : MonoBehaviour
+{
+    protected bool IsPlanted = false;
+    public SpriteRenderer plant;
+    int plantStage = 0;
+    float timer;
+    public GameObject storePanel;
+     PlantObject selectedPlant;
+
+    FarmManager fm;
+
+    BoxCollider2D plantCollider;
+    void Start()
+    {
+        plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>(); 
+        fm = transform.parent.GetComponent<FarmManager>();
+        storePanel.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timer -= Time.deltaTime;
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+            RaycastHit hit;
+
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    Debug.Log("Tapped");
+
+
+                    if (!fm.isPlanting)
+                    {
+                        if (plantStage == 0)
+                        {
+                            storePanel.SetActive(true);
+                        }
+                        
+                    }
+                     if (IsPlanted)
+                    {
+                        if (plantStage == selectedPlant.plantStages.Length - 1)
+                        {
+                            Harvest();
+                        }
+                    }
+                     else if (fm.isPlanting)
+                    {
+
+                        Plant(fm.selectPlant.plant);
+                    }
+                    
+                  
+
+                }
+            }
+        }
+        if (IsPlanted == true)
+        {
+
+            if (timer < 0 && plantStage <= selectedPlant.plantStages.Length - 1)
+            {
+                timer = selectedPlant.timeBtwstage;
+                plantStage++;
+                if(plantStage >= selectedPlant.plantStages.Length)
+                {
+                    plantStage = 1;
+                }
+                UpdatePlant();
+
+            }
+        }
+
+
+    }
+
+
+    void Harvest()
+    {
+        Debug.Log("Harvested");
+        IsPlanted = false;
+        fm.isPlanting = false;
+        plantStage -= 1;
+        plant.gameObject.SetActive(false);
+    }
+
+    void Plant(PlantObject newPlant)
+    {
+        Debug.Log("Planted");
+        selectedPlant = newPlant;
+        IsPlanted = true;  
+        plantStage = 0;
+        UpdatePlant();
+        timer = selectedPlant.timeBtwstage;
+        plant.gameObject.SetActive(true);
+    }
+
+    void UpdatePlant()
+    {
+        plant.sprite = selectedPlant.plantStages[plantStage];
+        plantCollider.size = plant.sprite.bounds.size;
+        plantCollider.offset = new Vector2(0,plant.size.y / 2);
+    }
+}

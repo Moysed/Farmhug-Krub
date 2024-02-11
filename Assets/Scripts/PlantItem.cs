@@ -19,7 +19,6 @@ public class PlantItem : MonoBehaviour
         Debug.Log("Buy :" + plant.plantName);
         farm.SelectPlant(this);
 
-
     }
 
     //void InitializeUI()

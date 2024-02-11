@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class GroundMangement : MonoBehaviour
 {
-    protected bool IsPlanted = false;
+    public bool IsPlanted = false;
     public SpriteRenderer plant;
-    int plantStage = 0;
-    float timer;
+    public int plantStage = 0;
+
     public GameObject storePanel;
-     PlantObject selectedPlant;
+    public PlantObject selectedPlant;
+
+    public PlantStatus status;
+
+    PlantInventory plantInventory;
 
     FarmManager fm;
 
     BoxCollider2D plantCollider;
     void Start()
     {
+        status = transform.parent.GetComponent<PlantStatus>();
+        plantInventory = FindObjectOfType<PlantInventory>();
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>(); 
         fm = transform.parent.GetComponent<FarmManager>();
@@ -25,7 +31,9 @@ public class GroundMangement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
+        Debug.Log(plantStage);
+        Debug.Log(status.isWater);
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -35,7 +43,7 @@ public class GroundMangement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Ground"))
+                if (hit.collider.CompareTag("Ground 1"))
                 {
                     Debug.Log("Tapped");
 
@@ -57,41 +65,64 @@ public class GroundMangement : MonoBehaviour
                     }
                      else if (fm.isPlanting)
                     {
-
                         Plant(fm.selectPlant.plant);
                     }
-                    
-                  
+                }
+/*_____________________________________________________________________________________________________________________________*/
 
+                if (hit.collider.CompareTag("Ground 2"))
+                {
+                    Debug.Log("Tapped");
+
+
+                    if (!fm.isPlanting)
+                    {
+                        if (plantStage == 0)
+                        {
+                            storePanel.SetActive(true);
+                        }
+
+                    }
+                    if (IsPlanted)
+                    {
+                        if (plantStage == selectedPlant.plantStages.Length - 1)
+                        {
+                            Harvest();
+                            plantInventory.AddToInventory(hit.collider.gameObject.name);
+                        }
+                    }
+                    else if (fm.isPlanting)
+                    {
+                        Plant(fm.selectPlant.plant);
+                    }
                 }
             }
         }
         if (IsPlanted == true)
         {
 
-            if (timer < 0 && plantStage <= selectedPlant.plantStages.Length - 1)
+            if (plantStage <= selectedPlant.plantStages.Length - 1)
             {
-                timer = selectedPlant.timeBtwstage;
-                plantStage++;
+                if (status.isWater == true)
+                {
+                    plantStage++;
+                }
+
                 if(plantStage >= selectedPlant.plantStages.Length)
                 {
                     plantStage = 1;
                 }
                 UpdatePlant();
-
             }
         }
-
-
     }
-
 
     void Harvest()
     {
         Debug.Log("Harvested");
         IsPlanted = false;
         fm.isPlanting = false;
-        plantStage -= 1;
+        plantStage = 0;
         plant.gameObject.SetActive(false);
     }
 
@@ -102,7 +133,6 @@ public class GroundMangement : MonoBehaviour
         IsPlanted = true;  
         plantStage = 0;
         UpdatePlant();
-        timer = selectedPlant.timeBtwstage;
         plant.gameObject.SetActive(true);
     }
 
@@ -110,6 +140,6 @@ public class GroundMangement : MonoBehaviour
     {
         plant.sprite = selectedPlant.plantStages[plantStage];
         plantCollider.size = plant.sprite.bounds.size;
-        plantCollider.offset = new Vector2(0,plant.size.y / 2);
+        plantCollider.offset = new Vector2(0, plant.size.y / 2);
     }
 }

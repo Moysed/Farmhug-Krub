@@ -8,6 +8,10 @@ TagManager:
   - Plant
   - BGM
   - Ground
+  - Ground 1
+  - Ground 2
+  - Watering
+  - Status
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantInventory : MonoBehaviour
 {
-    private Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store plant types and quantities
+    public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store plant types and quantities
 
     // Add a plant to the inventory
     public void AddToInventory(string plantType)

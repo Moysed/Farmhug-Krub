@@ -10,7 +10,6 @@ TagManager:
   - Ground
   - Ground 1
   - Ground 2
-  - Watering
   - Status
   layers:
   - Default
@@ -19,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Plant
+  - Status
   - 
   - 
   - 

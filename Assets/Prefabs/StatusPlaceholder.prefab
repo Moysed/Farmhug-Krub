@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6955584968873790722}
   - component: {fileID: 6889429943145136215}
   - component: {fileID: 5465192788559145798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StatusPlaceholder
   m_TagString: Status
   m_Icon: {fileID: 0}

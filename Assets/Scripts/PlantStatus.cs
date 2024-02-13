@@ -9,9 +9,7 @@ public class PlantStatus : MonoBehaviour
     public int waterTime;
     public  bool isWater = false;
 
-    //public FarmManager fm;
-     GroundMangement gm;
-    //PlantInventory plantInventory;
+    GroundMangement gm;
 
     public enum InstanceMode
     {
@@ -23,11 +21,8 @@ public class PlantStatus : MonoBehaviour
 
     void Start()
     {
-        //plantInventory = FindObjectOfType<PlantInventory>();
         gm = GetComponent<GroundMangement>();
-        //fm = transform.parent.GetComponent<FarmManager>();
         waterTime = 0; // Adjust the initial grow time as needed
-        //ShowStatus();
     }
 
     void Update()
@@ -43,13 +38,8 @@ public class PlantStatus : MonoBehaviour
 
         if (waterTime == 600)
         {
-            //waterTime = -1; // Reset grow time for the new plant
-            //if(waterTime == 0)
-            //{
                 Debug.Log("Watering");
                 ShowStatus();
-            
-            //}
         }
         else if(waterTime > 600)
         {
@@ -88,7 +78,6 @@ public class PlantStatus : MonoBehaviour
 
         // Reset grow time for the new plant
         //waterTime = 10f;
-        isWater = false;
     }
 
     GameObject InstantiateObject(GameObject obj)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class GroundMangement : MonoBehaviour
@@ -11,7 +12,7 @@ public class GroundMangement : MonoBehaviour
     public GameObject storePanel;
     public PlantObject selectedPlant;
 
-     PlantStatus status;
+    PlantStatus status;
 
     PlantInventory plantInventory;
 
@@ -88,7 +89,6 @@ public class GroundMangement : MonoBehaviour
                         if (plantStage == selectedPlant.plantStages.Length - 1)
                         {
                             Harvest();
-                            plantInventory.AddToInventory(hit.collider.gameObject.name);
                         }
                     }
                     else if (fm.isPlanting)
@@ -123,7 +123,9 @@ public class GroundMangement : MonoBehaviour
         IsPlanted = false;
         fm.isPlanting = false;
         plantStage = 0;
+        status.isWater = false;
         plant.gameObject.SetActive(false);
+        plantInventory.AddToInventory(selectedPlant.plantName);
     }
 
     void Plant(PlantObject newPlant)

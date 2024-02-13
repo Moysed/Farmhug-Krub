@@ -10,7 +10,7 @@ public class PlantStatus : MonoBehaviour
     public  bool isWater = false;
 
     //public FarmManager fm;
-    public GroundMangement gm;
+     GroundMangement gm;
     //PlantInventory plantInventory;
 
     public enum InstanceMode
@@ -24,7 +24,7 @@ public class PlantStatus : MonoBehaviour
     void Start()
     {
         //plantInventory = FindObjectOfType<PlantInventory>();
-        gm  = transform.parent.GetComponent<GroundMangement>();
+        gm = GetComponent<GroundMangement>();
         //fm = transform.parent.GetComponent<FarmManager>();
         waterTime = 0; // Adjust the initial grow time as needed
         //ShowStatus();

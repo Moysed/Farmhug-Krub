@@ -11,7 +11,7 @@ public class GroundMangement : MonoBehaviour
     public GameObject storePanel;
     public PlantObject selectedPlant;
 
-    public PlantStatus status;
+     PlantStatus status;
 
     PlantInventory plantInventory;
 
@@ -20,7 +20,7 @@ public class GroundMangement : MonoBehaviour
     BoxCollider2D plantCollider;
     void Start()
     {
-        status = transform.parent.GetComponent<PlantStatus>();
+        status = FindObjectOfType<PlantStatus>();
         plantInventory = FindObjectOfType<PlantInventory>();
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>(); 

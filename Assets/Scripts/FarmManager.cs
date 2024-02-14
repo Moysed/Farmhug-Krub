@@ -7,7 +7,8 @@ public class FarmManager : MonoBehaviour
     public PlantItem selectPlant;
     public bool isPlanting = false;
 
-    private CoinManagement coin;
+    public CoinManagement coin;
+    
 
     private PlantInventory inventory;
     void Start()
@@ -17,7 +18,7 @@ public class FarmManager : MonoBehaviour
 
     public void SelectPlant(PlantItem newPlant)
     {
-        {
+        
             selectPlant = newPlant;
             if(inventory.coin >=5)
             {
@@ -29,6 +30,6 @@ public class FarmManager : MonoBehaviour
                 isPlanting = false;
             }
             coin.UpdateCoin(inventory.coin);
-        }
+        
     }
 }

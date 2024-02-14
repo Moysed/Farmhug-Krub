@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6955584968873790722}
   - component: {fileID: 6889429943145136215}
   - component: {fileID: 5465192788559145798}
+  - component: {fileID: -7015913515168155943}
   m_Layer: 8
   m_Name: StatusPlaceholder
   m_TagString: Status
@@ -106,3 +107,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7015913515168155943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388769790734169553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b62a4e14cef44ced81d9fde92a08ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantObjectPrefabs: {fileID: 0}
+  plantPos: {x: 0, y: 0, z: 0}
+  instanceMode: 1

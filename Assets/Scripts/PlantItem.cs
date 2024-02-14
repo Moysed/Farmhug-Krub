@@ -13,12 +13,13 @@ public class PlantItem : MonoBehaviour
     {
         farm = FindObjectOfType<FarmManager>();
     }
+
     public void BuyPlant()
     {
 
         Debug.Log("Buy :" + plant.plantName);
         farm.SelectPlant(this);
-
+        GroundMangement.singleton.tempPlanting();
     }
 
     //void InitializeUI()

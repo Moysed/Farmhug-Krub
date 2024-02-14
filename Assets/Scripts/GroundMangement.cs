@@ -19,6 +19,9 @@ public class GroundMangement : MonoBehaviour
     FarmManager fm;
 
     BoxCollider2D plantCollider;
+
+    public float timer;
+
     void Start()
     {
         status = FindObjectOfType<PlantStatus>();
@@ -27,11 +30,20 @@ public class GroundMangement : MonoBehaviour
         plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>(); 
         fm = transform.parent.GetComponent<FarmManager>();
         storePanel.SetActive(false);
+        timer = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
+            timer -= Time.deltaTime;
+
+        if(timer < 0)
+        {
+            plantInventory.SellFromInventory(selectedPlant.plantName, plantInventory.GetPlantQuantity(selectedPlant.plantName));
+            timer = 5;
+        }
+
         Debug.Log(plantStage);
         Debug.Log(status.isWater);
 

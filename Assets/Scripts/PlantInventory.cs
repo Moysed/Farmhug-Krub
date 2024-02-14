@@ -5,6 +5,26 @@ using UnityEngine;
 public class PlantInventory : MonoBehaviour
 {
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store plant types and quantities
+    private float timer;
+
+    private CoinManagement coinManager;
+    public int coin;
+
+    void Start()
+    {
+        coinManager = FindObjectOfType<CoinManagement>();
+        coin = 5;
+    }
+
+    void Update()
+    {
+        coinManager.UpdateCoin(coin);
+
+        if(coin <= 0)
+        {
+            coin = 0;
+        }
+    }
 
     // Add a plant to the inventory
     public void AddToInventory(string plantType)
@@ -30,6 +50,8 @@ public class PlantInventory : MonoBehaviour
             {
                 inventory[plantType] -= amount;
                 Debug.Log("Sold " + amount + " " + plantType + "(s) from inventory. Remaining: " + inventory[plantType]);
+
+                coin += amount;
             }
             else
             {

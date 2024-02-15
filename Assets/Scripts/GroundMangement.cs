@@ -32,11 +32,7 @@ public class GroundMangement : MonoBehaviour
     {
         status = this.GetComponentsInChildren<PlantStatus>();
         plantInventory = FindObjectOfType<PlantInventory>();
-        //plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        //plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>(); 
-        //fm = transform.parent.GetComponent<FarmManager>();
         storePanel.SetActive(false);
-        timer = 5;
     }
 
     // Update is called once per frame
@@ -62,18 +58,16 @@ public class GroundMangement : MonoBehaviour
                         {
                             storePanel.SetActive(true);
                         }
-                        
                     }
-
 
                      if (_tempPlantStatus.IsPlanted)
-                    {
-                        if (_tempPlantStatus.plantStage == selectedPlant.plantStages.Length - 1)
                         {
-                            _tempPlantStatus.Harvest();
+                            if (_tempPlantStatus.plantStage == selectedPlant.plantStages.Length - 1)
+                            {
+                                _tempPlantStatus.Harvest();
+                            }
                         }
-                    }
-                     else if (fm.isPlanting)
+                    else if (fm.isPlanting)
                     {
                         //_tempPlantStatus.Plant(fm.selectPlant.plant);
                     }

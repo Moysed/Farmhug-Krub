@@ -20,7 +20,7 @@ public class FarmManager : MonoBehaviour
     {
         
             selectPlant = newPlant;
-            if(inventory.coin >=5)
+            if(inventory.coin >= 5)
             {
                 isPlanting = true;
                 inventory.coin -= 5;

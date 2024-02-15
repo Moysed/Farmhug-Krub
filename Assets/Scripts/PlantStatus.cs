@@ -18,7 +18,7 @@ public class PlantStatus : MonoBehaviour
  
     [SerializeField]
      BoxCollider2D plantCollider;
-    float timer = 30;
+    float timer = 5;
     public float afterWatertime = 0;
  
     [SerializeField]

@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 4001810006725526513}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Ground 1
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,10 +157,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2537855371990055262}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.23, y: -0.25016403, z: 0.045643516}
-  m_LocalScale: {x: 3.9125, y: 2.7247, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 1.392818, z: 0.5111821}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6000983630020846147}
   m_Father: {fileID: 0}
@@ -251,10 +251,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
-  statusPos: {x: 0, y: 0, z: 0}
+  statusPos: {x: 3, y: 0, z: 0}
   waterTime: 0
   isWater: 0
   IsPlanted: 0
-  plant: {fileID: 0}
+  plant: {fileID: 6208606215576805197}
   plantStage: 0
+  plantName: 
+  plantCollider: {fileID: 3504059331523778184}
+  _selfPlatObjectInfo: {fileID: 0}
   instanceMode: 1

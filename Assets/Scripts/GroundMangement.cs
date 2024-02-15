@@ -42,11 +42,6 @@ public class GroundMangement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          
-
-        //Debug.Log(status[0].plantStage);
-        //Debug.Log(status[0].isWater);
-
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -56,7 +51,7 @@ public class GroundMangement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Ground 1"))
+                if (hit.collider.CompareTag("Ground"))
                 {
                     //Debug.Log("Tapped");
                     _tempPlantStatus = hit.collider.GetComponent<PlantStatus>();
@@ -83,38 +78,8 @@ public class GroundMangement : MonoBehaviour
                         //_tempPlantStatus.Plant(fm.selectPlant.plant);
                     }
                 }
-/*_____________________________________________________________________________________________________________________________*/
-
-                if (hit.collider.CompareTag("Ground 2"))
-                {
-                    //Debug.Log("Tapped");
-
-                    PlantStatus _tempPlantStatus = hit.collider.GetComponent<PlantStatus>();
-
-
-                    if (!fm.isPlanting)
-                    {
-                        if (_tempPlantStatus.plantStage == 0)
-                        {
-                            storePanel.SetActive(true);
-                        }
-
-                    }
-                    if (_tempPlantStatus.IsPlanted)
-                    {
-                        if (_tempPlantStatus.plantStage == selectedPlant.plantStages.Length - 1)
-                        {
-                            _tempPlantStatus.Harvest();
-                        }
-                    }
-                    else if (fm.isPlanting)
-                    {
-                        
-                    }
-                }
             }
-        }
-        
+        } 
     }
 
     public void tempPlanting()
@@ -122,7 +87,4 @@ public class GroundMangement : MonoBehaviour
         _tempPlantStatus.Plant(fm.selectPlant.plant);
         _tempPlantStatus = null;
     }
-
-
-
 }

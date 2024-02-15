@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plant : MonoBehaviour
+public class Animal : MonoBehaviour
 {
-    
-    public PlantStatus _ownerPlantObjectPrefabs;
-    public Vector3 plantPos;
-    float growTime;
-    PlantInventory plantInventory;
+    public AnimalStatus _ownerAnimalObjectPrefabs;
+    AnimalInventory animalInventory;
 
     public enum InstanceMode
     {
@@ -17,6 +14,4 @@ public class Plant : MonoBehaviour
     }
 
     public InstanceMode instanceMode = InstanceMode.Pool;
-
- 
 }

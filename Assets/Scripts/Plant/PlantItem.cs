@@ -21,9 +21,4 @@ public class PlantItem : MonoBehaviour
         farm.SelectPlant(this);
         GroundMangement.singleton.tempPlanting();
     }
-
-    //void InitializeUI()
-    //{
-
-    //}
 }

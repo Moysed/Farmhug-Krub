@@ -2,32 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FarmManager : MonoBehaviour
+public class CoopManager : MonoBehaviour
 {
-    public PlantItem selectPlant;
-    public bool isPlanting = false;
+    public AnimalItem selectAnimal;
+    public bool isPeting = false;
 
     public CoinManagement coin;
     
 
-    private PlantInventory inventory;
+    private AnimalInventory inventory;
     void Start()
     {
-        inventory = FindObjectOfType<PlantInventory>();
+        inventory = FindObjectOfType<AnimalInventory>();
     }
 
-    public void SelectPlant(PlantItem newPlant)
+    public void SelectAnimal(AnimalItem newAnimal)
     {
         
-            selectPlant = newPlant;
+            selectAnimal = newAnimal;
             if(inventory.coin >= 5)
             {
-                isPlanting = true;
+                isPeting = true;
                 inventory.coin -= 5;
             }
             else
             {
-                isPlanting = false;
+                isPeting = false;
             }
             coin.UpdateCoin(inventory.coin);
         

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class AnimalObject : MonoBehaviour
+[CreateAssetMenu(fileName = "New Animal", menuName = "Animal")]
+public class AnimalObject : ScriptableObject
 {
     public string animalName;
     public Sprite[] animalStages;

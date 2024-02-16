@@ -45,7 +45,7 @@ public class PetManagement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Ground"))
+                if (hit.collider.CompareTag("Animal"))
                 {
                     //Debug.Log("Tapped");
                     _tempAnimalStatus = hit.collider.GetComponent<AnimalStatus>();

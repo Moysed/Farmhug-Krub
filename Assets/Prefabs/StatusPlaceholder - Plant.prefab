@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5465192788559145798}
   - component: {fileID: -7015913515168155943}
   m_Layer: 8
-  m_Name: StatusPlaceholder
+  m_Name: StatusPlaceholder - Plant
   m_TagString: Status
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

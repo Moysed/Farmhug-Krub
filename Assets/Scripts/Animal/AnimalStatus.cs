@@ -57,7 +57,7 @@ public class AnimalStatus : MonoBehaviour
  
         if (feedTime == 600)
         {
-                Debug.Log("Watering");
+                Debug.Log("Feeding");
                 ShowStatus();
         }
         else if(feedTime > 600)
@@ -77,9 +77,9 @@ public class AnimalStatus : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Status"))
                 {
-                    Plant plant = hit.collider.GetComponent<Plant>();
+                    Animal animal = hit.collider.GetComponent<Animal>();
  
-                    if(plant._ownerPlantObjectPrefabs.name.Contains(this.name))
+                    if(animal._ownerAnimalObjectPrefabs.name.Contains(this.name))
                     {
                         Debug.Log("Tapped on Object:" + this.name);
                         afterFeedtime = 5;
@@ -133,7 +133,7 @@ public class AnimalStatus : MonoBehaviour
     public void Animal(AnimalObject newAnimal)
     {
         _selfAnimalObjectInfo = newAnimal;
-        Debug.Log("Planted");
+        Debug.Log("Feeded");
         pm.selectedAnimal = newAnimal;
         IsPeted = true;
         animalStage = 0;

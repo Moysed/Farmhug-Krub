@@ -29,7 +29,7 @@ public class CoopManager : MonoBehaviour
             {
                 isPeting = false;
             }
-            coin.UpdateCoin(inventory.coin);
+            //coin.UpdateCoin(inventory.coin);
         
     }
 }

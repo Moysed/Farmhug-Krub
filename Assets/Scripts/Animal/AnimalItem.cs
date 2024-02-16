@@ -18,6 +18,6 @@ public class AnimalItem : MonoBehaviour
 
         Debug.Log("Buy :" + animal.animalName);
         coop.SelectAnimal(this);
-        GroundMangement.singleton.tempPlanting();
+        PetManagement.singleton.tempPlanting();
     }
 }

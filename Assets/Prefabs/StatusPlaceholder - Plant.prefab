@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7015913515168155943}
   m_Layer: 8
   m_Name: StatusPlaceholder - Plant
-  m_TagString: Status
+  m_TagString: PlantStatus'
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -120,5 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownerPlantObjectPrefabs: {fileID: 0}
-  plantPos: {x: 0, y: 0, z: 0}
   instanceMode: 1

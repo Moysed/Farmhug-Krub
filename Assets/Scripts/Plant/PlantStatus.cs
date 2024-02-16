@@ -40,7 +40,7 @@ public class PlantStatus : MonoBehaviour
  
     void Update()
     {
-        if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
+        if(IsPlanted == true && waterTime >= 0 && waterTime <= 600 )
         {
             if(afterWatertime <= 0)
             waterTime++;
@@ -75,16 +75,18 @@ public class PlantStatus : MonoBehaviour
  
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Status"))
+                if (hit.collider.CompareTag("PlantStatus'"))
                 {
                     Plant plant = hit.collider.GetComponent<Plant>();
- 
-                    if(plant._ownerPlantObjectPrefabs.name.Contains(this.name))
+                    if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
                     {
+                       
                         Debug.Log("Tapped on Object:" + this.name);
-                        afterWatertime = 5;
-                        isWater = true;
                         Debug.Log("Is Water : " + isWater);
+                        afterWatertime = 5;
+                        //isWater = true;
+                        isWater = true;
+                        
  
                         Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
  
@@ -125,7 +127,7 @@ public class PlantStatus : MonoBehaviour
     void ShowStatus()
     {
         Plant newPlant = InstantiateObject(StatusPrefab).GetComponent<Plant>();
-        newPlant.tag = "Status";
+        newPlant.tag = "PlantStatus'";
  
         // Set the new plant's position
         newPlant.transform.position = statusPos;
@@ -137,12 +139,14 @@ public class PlantStatus : MonoBehaviour
     // Single Game Object
     public void Plant(PlantObject newPlant)
     {
+        Debug.Log("Yo");
+        IsPlanted = true;
         _selfPlatObjectInfo = newPlant;
         Debug.Log("Planted");
         gm.selectedPlant = newPlant;
-        IsPlanted = true;
         plantStage = 0;
         plantName = newPlant.name;
+        
         UpdatePlant();
         plant.gameObject.SetActive(true);
     }

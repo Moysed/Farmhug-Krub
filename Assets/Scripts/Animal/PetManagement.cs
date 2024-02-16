@@ -74,8 +74,9 @@ public class PetManagement : MonoBehaviour
         } 
     }
 
-    public void tempPlanting()
+    public void tempAnimal()
     {
+        Debug.Log(_tempAnimalStatus);
         _tempAnimalStatus.Animal(cm.selectAnimal.animal);
         _tempAnimalStatus = null;
     }

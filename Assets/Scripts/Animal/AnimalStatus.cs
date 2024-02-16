@@ -64,31 +64,35 @@ public class AnimalStatus : MonoBehaviour
         {
             feedTime = 601;
         }
- 
- 
+
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
             RaycastHit hit;
- 
+
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
- 
+
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Status"))
                 {
                     Animal animal = hit.collider.GetComponent<Animal>();
- 
-                    if(animal._ownerAnimalObjectPrefabs.name.Contains(this.name))
+
+                    Debug.Log(animal);
+                    if (animal != null)
                     {
-                        Debug.Log("Tapped on Object:" + this.name);
-                        afterFeedtime = 5;
-                        isfeed = true;
-                        Debug.Log("Is Feed : " + isfeed);
- 
-                        Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
- 
-                        feedTime = 0; // Reset grow time
+                        if (animal._ownerAnimalObjectPrefabs.name.Contains(this.name))
+                        {
+                            Debug.Log("Tapped on Object:" + this.name);
+                            afterFeedtime = 5;
+                            isfeed = true;
+                            Debug.Log("Is Feed : " + isfeed);
+
+                            Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
+
+                            feedTime = 0; // Reset grow time
+                        }
                     }
                 }
             }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 103723959031677935}
   - component: {fileID: 1709220337375942307}
   - component: {fileID: 5322213396733376141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animal
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 3180664991968727824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.053, y: 0, z: 0}
+  m_LocalScale: {x: 0.30544797, y: 0.4233, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3326262154729161846}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4092556972270200370}
   - component: {fileID: 8067549656398778007}
   - component: {fileID: 5809725316659769716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnimalContainer
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -159,8 +159,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.13, y: 3.0305, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.2218, y: 4.345187, z: 0.5034737}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 103723959031677935}
   m_Father: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4111c6c4a69e34cd2b6bbbdc4c5ca317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
+  StatusPrefab: {fileID: 433899035083048242, guid: 279eb0acc5bde55448132e54f16de98d, type: 3}
   statusPos: {x: 0, y: 0, z: 0}
   feedTime: 0
   isfeed: 0

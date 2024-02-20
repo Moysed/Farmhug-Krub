@@ -59,7 +59,8 @@ public class GroundMangement : MonoBehaviour
 
                     if (_tempPlantStatus.IsPlanted)
                         {
-                            if (_tempPlantStatus.plantStage == selectedPlant.plantStages.Length - 1)
+                            storePanel.SetActive(false);
+                            if (_tempPlantStatus.plantStage >= 1)
                             {
                                 _tempPlantStatus.Harvest();
                             }

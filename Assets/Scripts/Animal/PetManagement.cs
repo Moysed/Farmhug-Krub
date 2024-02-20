@@ -68,7 +68,7 @@ public class PetManagement : MonoBehaviour
                      if (_tempAnimalStatus.IsPeted)
                         {
                             //_tempAnimalStatus.timer -= Time.deltaTime;
-                            //storePanel.SetActive(false);
+                            storePanel.SetActive(false);
                             if (_tempAnimalStatus.animalStage >= 1)
                             {
                                 _tempAnimalStatus.Harvest();

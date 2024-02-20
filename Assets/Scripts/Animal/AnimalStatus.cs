@@ -109,7 +109,7 @@ public class AnimalStatus : MonoBehaviour
             if ( afterFeedtime <= 0 && isfeed == true )  
             {
              
-                        animalStage+= 1;
+                        animalStage++;
              
 
  

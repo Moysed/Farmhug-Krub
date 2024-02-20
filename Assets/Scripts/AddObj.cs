@@ -10,11 +10,11 @@ public class AddObj : MonoBehaviour
     bool isDisplay = false;
     List<GameObject> spawnedPlants = new List<GameObject>(); // Track all spawned plants
 
-    PlantInventory plantInventory;
+    Inventory inventory;
 
     void Start()
     {
-        plantInventory = FindObjectOfType<PlantInventory>();
+        inventory = FindObjectOfType<Inventory>();
         growTime = 10f; // Adjust the initial grow time as needed
         SpawnPlant();
     }
@@ -37,7 +37,7 @@ public class AddObj : MonoBehaviour
                     Debug.Log("Tapped");
                     Destroy(hit.collider.gameObject); // Destroy the touched plant
                     isDisplay = false;
-                    plantInventory.AddToInventory(hit.collider.gameObject.name);
+                    inventory.AddToInventory(hit.collider.gameObject.name);
                     growTime = 10f; // Reset grow time
                 }
             }
@@ -65,6 +65,6 @@ public class AddObj : MonoBehaviour
         int amountToSell = 5;
 
         // Assuming you have a method in PlantInventory to handle selling from the inventory
-        plantInventory.SellFromInventory(plantInventory.name, amountToSell);
+        inventory.SellFromInventory(inventory.name, amountToSell);
     }
 }

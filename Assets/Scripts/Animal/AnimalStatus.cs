@@ -19,7 +19,6 @@ public class AnimalStatus : MonoBehaviour
  
     [SerializeField]
     BoxCollider2D animalCollider;
-    public float timer = 30;
     public float afterFeedtime = 0;
  
     [SerializeField]
@@ -41,12 +40,13 @@ public class AnimalStatus : MonoBehaviour
  
     void Update()
     {
-
-        timer -= Time.deltaTime;
         if(IsPeted && feedTime >= 0 && feedTime <= 600 )
         {
             if(afterFeedtime <= 0)
-            feedTime++;
+            {
+                feedTime++;
+            }
+
         }
         if (IsPeted == true)
         {
@@ -82,16 +82,16 @@ public class AnimalStatus : MonoBehaviour
                 {
                     Animal animal = hit.collider.GetComponent<Animal>();
 
-                    Debug.Log(animal);
+                    //Debug.Log(animal);
                     if (animal != null)
                     {
                         if (animal._ownerAnimalObjectPrefabs.name.Contains(this.name))
                         {
-                            Debug.Log("Tapped on Object:" + this.name);
+                            //Debug.Log("Tapped on Object:" + this.name);
                             afterFeedtime = 5;
                             
                             isfeed = true;
-                            Debug.Log("Is Feed : " + isfeed);
+                            //Debug.Log("Is Feed : " + isfeed);
 
                             Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
 
@@ -122,10 +122,9 @@ public class AnimalStatus : MonoBehaviour
         }
  
        
-        if (timer < 0)
+        if (pm.inventory.sellTime < 0)
         {
-            pm.animalInventory.SellFromInventory(animalName, pm.animalInventory.GetPlantQuantity(animalName));
-            timer = 30;
+            pm.inventory.SellFromInventory(animalName, pm.inventory.GetPlantQuantity(animalName));
         }
     }
  
@@ -159,14 +158,12 @@ public class AnimalStatus : MonoBehaviour
         animalStage = 0;
         isfeed = false;
         animal.gameObject.SetActive(false);
-        pm.animalInventory.AddToInventory(pm.selectedAnimal.animalName);
+        pm.inventory.AddToInventory(pm.selectedAnimal.animalName);
     }
  
     // Single Game object
     void UpdateAnimal()
-    {
-      
-            
+    {     
         if (animalStage >= _selfAnimalObjectInfo.animalStages.Length)
             animalStage = _selfAnimalObjectInfo.animalStages.Length;
  

@@ -10,7 +10,7 @@ public class GroundMangement : MonoBehaviour
     
     PlantStatus[] status;
 
-    public PlantInventory plantInventory;
+    public Inventory inventory;
 
     public FarmManager fm;
 
@@ -28,7 +28,7 @@ public class GroundMangement : MonoBehaviour
     void Start()
    {
         status = this.GetComponentsInChildren<PlantStatus>();
-        plantInventory = FindObjectOfType<PlantInventory>();
+        inventory = FindObjectOfType<Inventory>();
         storePanel.SetActive(false);
     }
 

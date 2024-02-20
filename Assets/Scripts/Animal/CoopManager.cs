@@ -10,10 +10,10 @@ public class CoopManager : MonoBehaviour
     public CoinManagement coin;
     
 
-    private AnimalInventory inventory;
+    private Inventory inventory;
     void Start()
     {
-        inventory = FindObjectOfType<AnimalInventory>();
+        inventory = FindObjectOfType<Inventory>();
     }
 
     public void SelectAnimal(AnimalItem newAnimal)

@@ -9,10 +9,9 @@ public class PetManagement : MonoBehaviour
 
     public GameObject storePanel;
     
-
     AnimalStatus[] status;
 
-    public AnimalInventory animalInventory;
+    public Inventory inventory;
 
     public CoopManager cm;
 
@@ -30,7 +29,7 @@ public class PetManagement : MonoBehaviour
     void Start()
     {
         status = this.GetComponentsInChildren<AnimalStatus>();
-        animalInventory = FindObjectOfType<AnimalInventory>();
+        inventory = FindObjectOfType<Inventory>();
         storePanel.SetActive(false);
     }
 

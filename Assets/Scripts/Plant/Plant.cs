@@ -6,7 +6,7 @@ public class Plant : MonoBehaviour
 {
     
     public PlantStatus _ownerPlantObjectPrefabs;
-    PlantInventory plantInventory;
+    Inventory inventory;
 
     public enum InstanceMode
     {

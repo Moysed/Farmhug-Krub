@@ -18,11 +18,10 @@ public class PlantStatus : MonoBehaviour
  
     [SerializeField]
      BoxCollider2D plantCollider;
-    float timer = 5;
     public float afterWatertime = 0;
  
     [SerializeField]
-    PlantObject _selfPlatObjectInfo;
+    PlantObject _selfPlantObjectInfo;
  
     public enum InstanceMode
     {
@@ -40,10 +39,13 @@ public class PlantStatus : MonoBehaviour
  
     void Update()
     {
-        if(IsPlanted == true && waterTime >= 0 && waterTime <= 600 )
+        if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
         {
             if(afterWatertime <= 0)
-            waterTime++;
+            {
+                waterTime++;
+            }
+
         }
         if (IsPlanted == true)
         {
@@ -81,8 +83,8 @@ public class PlantStatus : MonoBehaviour
                     if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
                     {
                        
-                        Debug.Log("Tapped on Object:" + this.name);
-                        Debug.Log("Is Water : " + isWater);
+                        //Debug.Log("Tapped on Object:" + this.name);
+                        //Debug.Log("Is Water : " + isWater);
                         afterWatertime = 5;
                         //isWater = true;
                         isWater = true;
@@ -115,12 +117,10 @@ public class PlantStatus : MonoBehaviour
                 UpdatePlant();
             }
         }
- 
-        timer -= Time.deltaTime;
-        if (timer < 0)
+
+        if (gm.inventory.sellTime < 0)
         {
-            gm.plantInventory.SellFromInventory(plantName, gm.plantInventory.GetPlantQuantity(plantName));
-            timer = 30;
+            gm.inventory.SellFromInventory(plantName, gm.inventory.GetPlantQuantity(plantName));
         }
     }
  
@@ -139,10 +139,10 @@ public class PlantStatus : MonoBehaviour
     // Single Game Object
     public void Plant(PlantObject newPlant)
     {
-        Debug.Log("Yo");
+        //Debug.Log("Yo");
         IsPlanted = true;
-        _selfPlatObjectInfo = newPlant;
-        Debug.Log("Planted");
+        _selfPlantObjectInfo = newPlant;
+        //Debug.Log("Planted");
         gm.selectedPlant = newPlant;
         plantStage = 0;
         plantName = newPlant.name;
@@ -159,18 +159,16 @@ public class PlantStatus : MonoBehaviour
         plantStage = 0;
         isWater = false;
         plant.gameObject.SetActive(false);
-        gm.plantInventory.AddToInventory(gm.selectedPlant.plantName);
+        gm.inventory.AddToInventory(gm.selectedPlant.plantName);
     }
  
     // Single Game object
     void UpdatePlant()
     {
-
+        if (plantStage >= _selfPlantObjectInfo.plantStages.Length)
+            plantStage = _selfPlantObjectInfo.plantStages.Length;
  
-        if (plantStage >= _selfPlatObjectInfo.plantStages.Length)
-            plantStage = _selfPlatObjectInfo.plantStages.Length - 1;
- 
-        plant.sprite = _selfPlatObjectInfo.plantStages[plantStage];
+        plant.sprite = _selfPlantObjectInfo.plantStages[plantStage];
         plantCollider.size = plant.sprite.bounds.size;
         plantCollider.offset = new Vector2(0, plant.size.y / 2);
     }

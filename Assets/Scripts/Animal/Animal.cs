@@ -5,7 +5,7 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
     public AnimalStatus _ownerAnimalObjectPrefabs;
-    AnimalInventory animalInventory;
+    Inventory inventory;
 
     public enum InstanceMode
     {

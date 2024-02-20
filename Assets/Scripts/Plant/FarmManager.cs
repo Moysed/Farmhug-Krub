@@ -10,10 +10,10 @@ public class FarmManager : MonoBehaviour
     public CoinManagement coin;
     
 
-    private PlantInventory inventory;
+    private Inventory inventory;
     void Start()
     {
-        inventory = FindObjectOfType<PlantInventory>();
+        inventory = FindObjectOfType<Inventory>();
     }
 
     public void SelectPlant(PlantItem newPlant)

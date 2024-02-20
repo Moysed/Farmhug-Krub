@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 0206dfbd82753ea42bff2c1b0a56966d, type: 3}
   - {fileID: 21300014, guid: 0206dfbd82753ea42bff2c1b0a56966d, type: 3}
   - {fileID: 21300016, guid: 0206dfbd82753ea42bff2c1b0a56966d, type: 3}
-  timeBtwstage: 2
+  timeBtwstage: 5

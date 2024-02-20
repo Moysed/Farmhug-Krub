@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PetManagement : MonoBehaviour
@@ -52,29 +53,32 @@ public class PetManagement : MonoBehaviour
 
                     if (!cm.isPeting)
                     {
+                        
                         if (_tempAnimalStatus.animalStage == 0)
                         {
                             storePanel.SetActive(true);
                         }
                     }
+                    /*else if (cm.isPeting)
+                    {
+                        //_tempPlantStatus.Plant(fm.selectPlant.plant);
+                        //storePanel.SetActive(false);
+                    }*/
 
                      if (_tempAnimalStatus.IsPeted)
                         {
+                            //_tempAnimalStatus.timer -= Time.deltaTime;
+                            //storePanel.SetActive(false);
                             if (_tempAnimalStatus.animalStage == selectedAnimal.animalStages.Length - 1)
                             {
                                 _tempAnimalStatus.Harvest();
-                            }
+                            }                                
                         }
-                    else if (cm.isPeting)
-                    {
-                        //_tempPlantStatus.Plant(fm.selectPlant.plant);
                     }
                 }
             }
-        } 
-    }
-
-    public void tempAnimal()
+        }   
+     public void tempAnimal()
     {
         Debug.Log(_tempAnimalStatus);
         _tempAnimalStatus.Animal(cm.selectAnimal.animal);

@@ -4,49 +4,23 @@ using UnityEngine;
 
 public class TouchInput : MonoBehaviour
 {
-
     Camera _Camera;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+    public RaycastHit hit;
+    public Touch myTouch;
 
     // Update is called once per frame
-    void Update()
+    public void Detect()
     {
         if (Input.touches.Length > 0) 
         { 
-            Touch myTouch = Input.GetTouch(0); 
-            if (myTouch.phase == TouchPhase.Began) 
+            myTouch = Input.GetTouch(0); 
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
+            /*if (myTouch.phase == TouchPhase.Began) 
             { 
-                /*if (obj == null) 
-                { 
-                    obj = Instantiate (PrefabSprite); 
-                    obj.name = myTouch.fingerId.ToString(); 
-                    Vector3 newPosition = _Camera.ScreenToWorldPoint (myTouch.position); 
-                    newPosition.z = 0; obj.transform.position = newPosition; 
-                    SpriteRenderer spr = obj.GetComponent<SpriteRenderer>(); 
-                    if (spr != null) 
-                    { 
-                        spr.color = new Color (Random.Range (0, 100) / 100f, Random.Range (0, 100) / 100f, Random.Range (0, 100) / 100f);
-                    } 
-                } */
-            } 
-            
-            if (myTouch.phase == TouchPhase.Moved) 
-            { 
-                /*if (obj != null) 
-                { 
-                    if (obj.name.Contains(myTouch.fingerId.ToString()))
-                    { 
-                        Vector3 newPosition = _Camera.ScreenToWorldPoint (myTouch.position); 
-                        newPosition.z = 0; 
-                        obj.transform.position = newPosition; 
-                    } 
-                }*/
-            } 
+                Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
+            } */
             if (myTouch.phase == TouchPhase.Ended || myTouch.phase == TouchPhase.Canceled) 
             { 
                 /*if (obj != null)

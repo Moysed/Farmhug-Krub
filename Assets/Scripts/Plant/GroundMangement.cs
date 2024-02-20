@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GroundMangement : MonoBehaviour
@@ -10,7 +8,6 @@ public class GroundMangement : MonoBehaviour
 
     public GameObject storePanel;
     
-
     PlantStatus[] status;
 
     public PlantInventory plantInventory;
@@ -29,7 +26,7 @@ public class GroundMangement : MonoBehaviour
     }
 
     void Start()
-    {
+   {
         status = this.GetComponentsInChildren<PlantStatus>();
         plantInventory = FindObjectOfType<PlantInventory>();
         storePanel.SetActive(false);
@@ -60,20 +57,20 @@ public class GroundMangement : MonoBehaviour
                         }
                     }
 
-                     if (_tempPlantStatus.IsPlanted)
+                    if (_tempPlantStatus.IsPlanted)
                         {
                             if (_tempPlantStatus.plantStage == selectedPlant.plantStages.Length - 1)
                             {
                                 _tempPlantStatus.Harvest();
                             }
                         }
-                    else if (fm.isPlanting)
+                    /*else if (fm.isPlanting)
                     {
                         //_tempPlantStatus.Plant(fm.selectPlant.plant);
-                    }
+                    }*/
                 }
             }
-        } 
+        }
     }
 
     public void tempPlanting()

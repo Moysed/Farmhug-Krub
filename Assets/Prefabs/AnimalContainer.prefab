@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 103723959031677935}
   - component: {fileID: 1709220337375942307}
   - component: {fileID: 5322213396733376141}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Animal
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 3180664991968727824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.053, y: 0, z: 0}
-  m_LocalScale: {x: 0.30544797, y: 0.4233, z: 1}
+  m_LocalPosition: {x: -0.001, y: 0, z: 0}
+  m_LocalScale: {x: 0.6934146, y: 0.4233, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3326262154729161846}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300020, guid: 1577f106ceccd624895112215c69960a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4092556972270200370}
   - component: {fileID: 8067549656398778007}
   - component: {fileID: 5809725316659769716}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: AnimalContainer
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatusPrefab: {fileID: 433899035083048242, guid: 279eb0acc5bde55448132e54f16de98d, type: 3}
-  statusPos: {x: 0, y: 0, z: 0}
+  statusPos: {x: 0.03, y: 2.52, z: 0}
   feedTime: 0
   isfeed: 0
   IsPeted: 0
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300026, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

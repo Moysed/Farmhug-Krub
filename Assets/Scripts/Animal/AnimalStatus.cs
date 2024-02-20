@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimalStatus : MonoBehaviour
@@ -8,9 +10,8 @@ public class AnimalStatus : MonoBehaviour
     public Vector3 statusPos;
     public int feedTime;
     public  bool isfeed = false;
- 
     PetManagement pm;
- 
+   
     public bool IsPeted = false;
     public SpriteRenderer animal;
     public int animalStage = 0;
@@ -18,7 +19,7 @@ public class AnimalStatus : MonoBehaviour
  
     [SerializeField]
     BoxCollider2D animalCollider;
-    float timer = 5;
+    public float timer = 30;
     public float afterFeedtime = 0;
  
     [SerializeField]
@@ -40,6 +41,8 @@ public class AnimalStatus : MonoBehaviour
  
     void Update()
     {
+
+        timer -= Time.deltaTime;
         if(IsPeted && feedTime >= 0 && feedTime <= 600 )
         {
             if(afterFeedtime <= 0)
@@ -86,6 +89,7 @@ public class AnimalStatus : MonoBehaviour
                         {
                             Debug.Log("Tapped on Object:" + this.name);
                             afterFeedtime = 5;
+                            
                             isfeed = true;
                             Debug.Log("Is Feed : " + isfeed);
 
@@ -100,11 +104,13 @@ public class AnimalStatus : MonoBehaviour
  
         if (IsPeted == true)
         {
-            if ( afterFeedtime <= 0 && isfeed == true)
+            
+         
+            if ( afterFeedtime <= 0 && isfeed == true )  
             {
-
-                        animalStage++;
-
+             
+                        animalStage+= 1;
+             
 
  
                 if (animalStage >= pm.selectedAnimal.animalStages.Length)
@@ -115,7 +121,7 @@ public class AnimalStatus : MonoBehaviour
             }
         }
  
-        timer -= Time.deltaTime;
+       
         if (timer < 0)
         {
             pm.animalInventory.SellFromInventory(animalName, pm.animalInventory.GetPlantQuantity(animalName));
@@ -137,7 +143,6 @@ public class AnimalStatus : MonoBehaviour
     public void Animal(AnimalObject newAnimal)
     {
         _selfAnimalObjectInfo = newAnimal;
-        Debug.Log("Feeded");
         pm.selectedAnimal = newAnimal;
         IsPeted = true;
         animalStage = 0;
@@ -160,12 +165,15 @@ public class AnimalStatus : MonoBehaviour
     // Single Game object
     void UpdateAnimal()
     {
+      
+            
         if (animalStage >= _selfAnimalObjectInfo.animalStages.Length)
-            animalStage = _selfAnimalObjectInfo.animalStages.Length - 1;
+            animalStage = _selfAnimalObjectInfo.animalStages.Length;
  
         animal.sprite = _selfAnimalObjectInfo.animalStages[animalStage];
-        animalCollider.size = animal.sprite.bounds.size;
+        animalCollider.size = animal.bounds.size;
         animalCollider.offset = new Vector2(0, animal.size.y / 2);
+        
     }
  
     GameObject InstantiateObject(GameObject obj)

@@ -1825,16 +1825,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624168397}
   m_CullTransparentMesh: 1
---- !u!61 &638100170 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3504059331523778184, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-  m_PrefabInstance: {fileID: 1620907767525832931}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &638100171 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6208606215576805197, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-  m_PrefabInstance: {fileID: 1620907767525832931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &778613455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4263,14 +4253,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2049931395}
     m_Modifications:
-    - target: {fileID: 756567569539054912, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 756567569539054912, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2354406988577056568, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -4315,32 +4297,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 3464439705561674835, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: storePanel
-      value: 
-      objectReference: {fileID: 1719748177}
-    - target: {fileID: 3464439705561674835, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: selectedPlant
-      value: 
-      objectReference: {fileID: 11400000, guid: d3c9cd16218d05b41a2b089611d48a6a, type: 2}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: plant
-      value: 
-      objectReference: {fileID: 638100171}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.x
-      value: -7.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.y
-      value: 2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: plantCollider
-      value: 
-      objectReference: {fileID: 638100170}
-    m_RemovedComponents:
-    - {fileID: 3464439705561674835, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

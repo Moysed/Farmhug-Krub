@@ -54,7 +54,7 @@ public class PetManagement : MonoBehaviour
                     if (!cm.isPeting)
                     {
                         
-                        if (_tempAnimalStatus.animalStage == 0)
+                        if (_tempAnimalStatus.animalStage <= 0)
                         {
                             storePanel.SetActive(true);
                         }
@@ -69,7 +69,7 @@ public class PetManagement : MonoBehaviour
                         {
                             //_tempAnimalStatus.timer -= Time.deltaTime;
                             //storePanel.SetActive(false);
-                            if (_tempAnimalStatus.animalStage == selectedAnimal.animalStages.Length - 1)
+                            if (_tempAnimalStatus.animalStage >= 1)
                             {
                                 _tempAnimalStatus.Harvest();
                             }                                

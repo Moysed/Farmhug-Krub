@@ -51,7 +51,7 @@ public class GroundMangement : MonoBehaviour
 
                     if (!fm.isPlanting)
                     {
-                        if (_tempPlantStatus.plantStage == 0)
+                        if (_tempPlantStatus.plantStage <= 0)
                         {
                             storePanel.SetActive(true);
                         }

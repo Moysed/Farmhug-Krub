@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -75415025
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300082, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,8 +203,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1865209227
+  m_SortingLayer: 1
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
-  statusPos: {x: 3, y: 0, z: 0}
+  statusPos: {x: -7.76, y: 2.6, z: 0}
   waterTime: 0
   isWater: 0
   IsPlanted: 0
@@ -259,5 +259,6 @@ MonoBehaviour:
   plantStage: 0
   plantName: 
   plantCollider: {fileID: 3504059331523778184}
+  afterWatertime: 0
   _selfPlatObjectInfo: {fileID: 0}
   instanceMode: 1

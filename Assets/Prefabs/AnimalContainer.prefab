@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -75415025
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300020, guid: 1577f106ceccd624895112215c69960a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,6 +186,7 @@ MonoBehaviour:
   animalStage: 0
   animalName: 
   animalCollider: {fileID: 5322213396733376141}
+  timer: 30
   afterFeedtime: 0
   _selfAnimalObjectInfo: {fileID: 0}
   instanceMode: 1
@@ -227,8 +228,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1865209227
+  m_SortingLayer: 1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300026, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

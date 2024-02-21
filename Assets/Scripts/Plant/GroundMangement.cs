@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class GroundMangement : MonoBehaviour
@@ -14,9 +15,9 @@ public class GroundMangement : MonoBehaviour
 
     public FarmManager fm;
 
-    public PlantObject selectedPlant;
+    public InfoObject selectedPlant;
 
-    PlantStatus _tempPlantStatus;
+    BaseStatus _tempPlantStatus;
 
     public float timer;
 
@@ -39,7 +40,7 @@ public class GroundMangement : MonoBehaviour
         {
             fm.isPlanting = false;
         }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        /*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
             RaycastHit hit;
@@ -69,18 +70,41 @@ public class GroundMangement : MonoBehaviour
                                 _tempPlantStatus.Harvest();
                             }
                         }
-                    /*else if (fm.isPlanting)
+                    else if (fm.isPlanting)
                     {
                         //_tempPlantStatus.Plant(fm.selectPlant.plant);
-                    }*/
-                }
+                    }
+                
+            }
+        }*/
+    }
+
+    public void Isplanted(BaseStatus _objBase)
+    {
+        _tempPlantStatus = (BaseStatus)_objBase;
+
+        if (!fm.isPlanting)
+        {
+            if (_tempPlantStatus.plantStage == 0)
+            {
+                storePanel.SetActive(true);
+            }
+        }
+
+        if (_tempPlantStatus.IsPlanted)
+        {
+            storePanel.SetActive(false);
+            if (_tempPlantStatus.plantStage >= 1)
+            {
+                _tempPlantStatus.Collected();
             }
         }
     }
 
     public void tempPlanting()
     {
-        _tempPlantStatus.Plant(fm.selectPlant.plant);
+        Debug.Log(fm.selectPlant.plant);
+        _tempPlantStatus.UpdateInfo(fm.selectPlant.plant);
         _tempPlantStatus = null;
     }
 }

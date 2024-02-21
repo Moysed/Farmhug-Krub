@@ -4,25 +4,22 @@ using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlantStatus : MonoBehaviour
+public class PlantStatus : BaseStatus
 {
     public GameObject StatusPrefab;
     public Vector3 statusPos;
     public int waterTime;
     public  bool isWater = false;
     GroundMangement gm;
- 
-    public bool IsPlanted = false;
     public SpriteRenderer plant;
-    public int plantStage = 0;
-    public string plantName;
+ 
  
     [SerializeField]
      BoxCollider2D plantCollider;
     public float afterWatertime = 0;
  
     [SerializeField]
-    PlantObject _selfPlantObjectInfo;
+    InfoObject _selfPlantObjectInfo;
  
     public enum InstanceMode
     {
@@ -53,7 +50,7 @@ public class PlantStatus : MonoBehaviour
             afterWatertime -= Time.deltaTime;
         }
         if(gm.selectedPlant != null)
-            if (plantStage == gm.selectedPlant.plantStages.Length - 1)
+            if (plantStage == gm.selectedPlant.ObjectStages.Length - 1)
             {
                 waterTime = 0;
             }
@@ -109,7 +106,7 @@ public class PlantStatus : MonoBehaviour
 
 
  
-                if (plantStage >= gm.selectedPlant.plantStages.Length)
+                if (plantStage >= gm.selectedPlant.ObjectStages.Length)
                 {
                     plantStage = 1;
                 }
@@ -119,7 +116,7 @@ public class PlantStatus : MonoBehaviour
 
         if (gm.inventory.autoSell.sellTime <= 0)
         {
-            gm.inventory.SellFromInventory(_selfPlantObjectInfo.plantName, gm.inventory.GetPlantQuantity(plantName));
+            gm.inventory.SellFromInventory(_selfPlantObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(plantName));
         }
     }
  
@@ -136,7 +133,7 @@ public class PlantStatus : MonoBehaviour
     }
  
     // Single Game Object
-    public void Plant(PlantObject newPlant)
+    public override void UpdateInfo(InfoObject newPlant)
     {
         //Debug.Log("Yo");
         IsPlanted = true;
@@ -150,7 +147,7 @@ public class PlantStatus : MonoBehaviour
         plant.gameObject.SetActive(true);
     }
  
-    public void Harvest()
+    public override void Collected()
     {
         Debug.Log("Harvested");
         IsPlanted = false;
@@ -158,16 +155,16 @@ public class PlantStatus : MonoBehaviour
         plantStage = 0;
         isWater = false;
         plant.gameObject.SetActive(false);
-        gm.inventory.AddToInventory(_selfPlantObjectInfo.plantName);
+        gm.inventory.AddToInventory(_selfPlantObjectInfo.ObjectName);
     }
  
     // Single Game object
     void UpdatePlant()
     {
-        if (plantStage >= _selfPlantObjectInfo.plantStages.Length)
-            plantStage = _selfPlantObjectInfo.plantStages.Length;
+        if (plantStage >= _selfPlantObjectInfo.ObjectStages.Length)
+            plantStage = _selfPlantObjectInfo.ObjectStages.Length;
  
-        plant.sprite = _selfPlantObjectInfo.plantStages[plantStage];
+        plant.sprite = _selfPlantObjectInfo.ObjectStages[plantStage];
         plantCollider.size = plant.sprite.bounds.size;
         plantCollider.offset = new Vector2(0, plant.size.y / 2);
     }
@@ -180,6 +177,12 @@ public class PlantStatus : MonoBehaviour
             return Lean.Pool.LeanPool.Spawn(obj);
  
         return null;
+    }
+
+    public override void CallUpdate()
+    {
+        //waterCheck
+        //base.CallUpdate();
     }
 
     public void waterCheck()
@@ -197,4 +200,6 @@ public class PlantStatus : MonoBehaviour
             waterTime = 0; // Reset grow time
         }
     }
+
+
 }

@@ -8,18 +8,17 @@ public class TouchIdentifier : MonoBehaviour {
     public float timeCreated;
     public Vector2 startPosition;
     public Vector3 deltaPosition;
-    public Collider2D collider;
-
-    private void Start()
-    {
-        collider = GetComponent<Collider2D>();
-    }
+   
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        collider = collision;
-        if (gameObject.tag == "Ground")
+        //collider = collision;
+        if (collision.tag == "Ground")
         {
-            Debug.Log("Hi");
+            Debug.Log(collision.name);
+            PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
+
+            Debug.Log(_tempPlantStatus);
+            GroundMangement.singleton.Isplanted(_tempPlantStatus);
         }
     }
 }

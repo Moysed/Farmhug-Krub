@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlantItem : MonoBehaviour
 {
-    public PlantObject plant;
+    public InfoObject plant;
 
     FarmManager farm;
 
@@ -17,7 +17,7 @@ public class PlantItem : MonoBehaviour
     public void BuyPlant()
     {
         Inventory.singleton.coin -= plant.price;
-        Debug.Log("Buy :" + plant.plantName);
+        Debug.Log("Buy :" + plant.ObjectName);
         farm.SelectPlant(this);
         GroundMangement.singleton.tempPlanting();
     }

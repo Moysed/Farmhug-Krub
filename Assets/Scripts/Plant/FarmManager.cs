@@ -11,7 +11,7 @@ public class FarmManager : MonoBehaviour
     
     private Inventory inventory;
 
-    public PlantObject plant;
+    public InfoObject plant;
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class PetManagement : MonoBehaviour
+public class PetManagement : BaseStatus
 {
     public static PetManagement singleton;
 

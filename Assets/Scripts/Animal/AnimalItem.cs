@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimalItem : MonoBehaviour
 {
-    public AnimalObject animal;
+    public InfoObject animal;
 
     CoopManager coop;
 
@@ -16,7 +16,7 @@ public class AnimalItem : MonoBehaviour
     public void BuyAnimal()
     {
         Inventory.singleton.coin -= animal.price;
-        Debug.Log("Buy :" + animal.animalName);
+        Debug.Log("Buy :" + animal.ObjectName);
         coop.SelectAnimal(this);
         PetManagement.singleton.tempAnimal();
     }

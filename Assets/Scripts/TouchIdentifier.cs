@@ -20,5 +20,24 @@ public class TouchIdentifier : MonoBehaviour {
             Debug.Log(_tempPlantStatus);
             GroundMangement.singleton.Isplanted(_tempPlantStatus);
         }
+        
+        if (collision.tag == "Animal")
+        {
+            Debug.Log(collision.name);
+            AnimalStatus _tempAnimalStatus = collision.GetComponent<AnimalStatus>();
+
+            Debug.Log(_tempAnimalStatus);
+            PetManagement.singleton.IsPeted(_tempAnimalStatus);
+        }
+
+        if(collision.tag == "Status")
+        {
+            //Animal
+        }
+
+        if(collision.tag == "PlantStatus'")
+        {
+            //Plant
+        }
     }
 }

@@ -8,18 +8,16 @@ public class PlantStatus : BaseStatus
 {
     public GameObject StatusPrefab;
     public Vector3 statusPos;
-    public int waterTime;
-    public  bool isWater = false;
     GroundMangement gm;
     public SpriteRenderer plant;
  
  
     [SerializeField]
      BoxCollider2D plantCollider;
-    public float afterWatertime = 0;
  
     [SerializeField]
     InfoObject _selfPlantObjectInfo;
+    Object Plant;
  
     public enum InstanceMode
     {
@@ -65,38 +63,6 @@ public class PlantStatus : BaseStatus
             waterTime = 601;
         }
  
- 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit hit;
- 
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
- 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.CompareTag("PlantStatus'"))
-                {
-                    Plant plant = hit.collider.GetComponent<Plant>();
-                    if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
-                    {
-                       
-                        //Debug.Log("Tapped on Object:" + this.name);
-                        //Debug.Log("Is Water : " + isWater);
-                        afterWatertime = 5;
-                        //isWater = true;
-                        isWater = true;
-                        
- 
-                        Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
- 
-                        //plantInventory.AddToInventory(hit.collider.gameObject.name);
-                        waterTime = 0; // Reset grow time
-                    } 
-                }
-            }
-        }
- 
         if (IsPlanted == true)
         {
             if ( afterWatertime <= 0 && isWater == true)
@@ -121,7 +87,7 @@ public class PlantStatus : BaseStatus
     }
     void ShowStatus()
     {
-        Plant newPlant = InstantiateObject(StatusPrefab).GetComponent<Plant>();
+        Object newPlant = InstantiateObject(StatusPrefab).GetComponent<Object>();
         newPlant.tag = "PlantStatus'";
  
         // Set the new plant's position
@@ -132,19 +98,6 @@ public class PlantStatus : BaseStatus
     }
  
     // Single Game Object
-    public override void UpdateInfo(InfoObject newPlant)
-    {
-        //Debug.Log("Yo");
-        IsPlanted = true;
-        _selfPlantObjectInfo = newPlant;
-        //Debug.Log("Planted");
-        gm.selectedPlant = newPlant;
-        plantStage = 0;
-        plantName = newPlant.name;
-        
-        UpdatePlant();
-        plant.gameObject.SetActive(true);
-    }
  
     public override void Collected()
     {
@@ -184,21 +137,35 @@ public class PlantStatus : BaseStatus
         //base.CallUpdate();
     }
 
-    public void waterCheck()
+    public override void UpdateInfo(InfoObject newPlant)
     {
-        Plant plant = GetComponent<Plant>();
-        if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
-        {
-
-            //Debug.Log("Tapped on Object:" + this.name);
-            //Debug.Log("Is Water : " + isWater);
-            afterWatertime = 5;
-            //isWater = true;
-            isWater = true;
-
-            waterTime = 0; // Reset grow time
-        }
+        //Debug.Log("Yo");
+        IsPlanted = true;
+        _selfPlantObjectInfo = newPlant;
+        //Debug.Log("Planted");
+        gm.selectedPlant = newPlant;
+        plantStage = 0;
+        plantName = newPlant.name;
+        
+        UpdatePlant();
+        plant.gameObject.SetActive(true);
     }
 
-
+    public override void statusTap(Object plant)
+    {
+        
+        Plant = plant;
+        if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
+        {
+            afterWatertime = 5;
+            //isWater = true;
+            isWater = true;            
+ 
+            Lean.Pool.LeanPool.Despawn(plant);
+ 
+            //plantInventory.AddToInventory(hit.collider.gameObject.name);
+            waterTime = 0; // Reset grow time
+        } 
+                
+    }
 }

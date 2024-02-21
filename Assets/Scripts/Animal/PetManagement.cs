@@ -36,6 +36,10 @@ public class PetManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_tempAnimalStatus == null)
+        {
+            cm.isPeting = false;
+        }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -79,7 +83,7 @@ public class PetManagement : MonoBehaviour
         }   
      public void tempAnimal()
     {
-        Debug.Log(_tempAnimalStatus);
+  
         _tempAnimalStatus.Animal(cm.selectAnimal.animal);
         _tempAnimalStatus = null;
     }

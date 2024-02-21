@@ -13,6 +13,7 @@ public class CoinManagement : MonoBehaviour
         //Make this active and only instance 
         singleton = this;
     }
+   
     public void UpdateCoin(int _coin)
     { 
         coin.text = _coin.ToString();

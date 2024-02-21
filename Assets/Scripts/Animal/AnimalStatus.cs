@@ -122,10 +122,7 @@ public class AnimalStatus : MonoBehaviour
         }
  
        
-        if (pm.inventory.sellTime < 0)
-        {
-            pm.inventory.SellFromInventory(animalName, pm.inventory.GetPlantQuantity(animalName));
-        }
+       
     }
  
     void ShowStatus()
@@ -158,7 +155,7 @@ public class AnimalStatus : MonoBehaviour
         animalStage = 0;
         isfeed = false;
         animal.gameObject.SetActive(false);
-        pm.inventory.AddToInventory(pm.selectedAnimal.animalName);
+        pm.inventory.AddToInventory(_selfAnimalObjectInfo.animalName);
     }
  
     // Single Game object

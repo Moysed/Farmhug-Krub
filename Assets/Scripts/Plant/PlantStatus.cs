@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlantStatus : MonoBehaviour
@@ -94,16 +96,14 @@ public class PlantStatus : MonoBehaviour
  
                         //plantInventory.AddToInventory(hit.collider.gameObject.name);
                         waterTime = 0; // Reset grow time
-                    }
- 
-                    
+                    } 
                 }
             }
         }
  
         if (IsPlanted == true)
         {
-            if ( afterWatertime <= 0 && isWater ==true)
+            if ( afterWatertime <= 0 && isWater == true)
             {
 
                         plantStage++;
@@ -116,12 +116,7 @@ public class PlantStatus : MonoBehaviour
                 }
                 UpdatePlant();
             }
-        }
-
-        if (gm.inventory.sellTime < 0)
-        {
-            gm.inventory.SellFromInventory(plantName, gm.inventory.GetPlantQuantity(plantName));
-        }
+        }   
     }
  
     void ShowStatus()
@@ -159,7 +154,7 @@ public class PlantStatus : MonoBehaviour
         plantStage = 0;
         isWater = false;
         plant.gameObject.SetActive(false);
-        gm.inventory.AddToInventory(gm.selectedPlant.plantName);
+        gm.inventory.AddToInventory(_selfPlantObjectInfo.plantName);
     }
  
     // Single Game object
@@ -181,5 +176,21 @@ public class PlantStatus : MonoBehaviour
             return Lean.Pool.LeanPool.Spawn(obj);
  
         return null;
+    }
+
+    public void waterCheck()
+    {
+        Plant plant = GetComponent<Plant>();
+        if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
+        {
+
+            //Debug.Log("Tapped on Object:" + this.name);
+            //Debug.Log("Is Water : " + isWater);
+            afterWatertime = 5;
+            //isWater = true;
+            isWater = true;
+
+            waterTime = 0; // Reset grow time
+        }
     }
 }

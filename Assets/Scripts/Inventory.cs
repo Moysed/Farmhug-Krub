@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory singleton;
     public float sellTime;
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store product types and quantities
 
     private CoinManagement coinManager;
     public int coin;
 
+    private void Awake()
+    {
+        singleton = this;
+    }
     void Start()
     {
+        
         coinManager = FindObjectOfType<CoinManagement>();
         coin = 15;
         sellTime = 30;
@@ -31,6 +37,8 @@ public class Inventory : MonoBehaviour
         {
             sellTime = 30;
         }
+
+        
     }
 
     // Add a plant to the inventory

@@ -35,6 +35,10 @@ public class GroundMangement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_tempPlantStatus == null)
+        {
+            fm.isPlanting = false;
+        }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -51,7 +55,7 @@ public class GroundMangement : MonoBehaviour
 
                     if (!fm.isPlanting)
                     {
-                        if (_tempPlantStatus.plantStage <= 0)
+                        if (_tempPlantStatus.plantStage == 0)
                         {
                             storePanel.SetActive(true);
                         }

@@ -119,7 +119,6 @@ public class PlantStatus : BaseStatus
             gm.inventory.SellFromInventory(_selfPlantObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(plantName));
         }
     }
- 
     void ShowStatus()
     {
         Plant newPlant = InstantiateObject(StatusPrefab).GetComponent<Plant>();

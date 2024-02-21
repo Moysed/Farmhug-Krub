@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 21300084, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   timeBtwstage: 1
   price: 3
+  sellPrice: 4

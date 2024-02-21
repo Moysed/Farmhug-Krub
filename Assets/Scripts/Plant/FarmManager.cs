@@ -9,8 +9,9 @@ public class FarmManager : MonoBehaviour
 
     public CoinManagement coin;
     
-
     private Inventory inventory;
+
+    public PlantObject plant;
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -19,9 +20,10 @@ public class FarmManager : MonoBehaviour
     public void SelectPlant(PlantItem newPlant)
     {
             selectPlant = newPlant;
-            if(inventory.coin >= 0)
+            if(inventory.coin >= selectPlant.plant.price)
             {
                 isPlanting = true;
+                //inventory.coin -= selectPlant.plant.price;
             }
             else
             {

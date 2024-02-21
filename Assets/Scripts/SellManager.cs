@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class SellManager : MonoBehaviour
 {
+    //public static SellManager singleton;
     CoinManagement CoinManagement;
     Inventory inventory;
-    void Start()
-    {
-        
-    }
+
+    public float sellTime = 30;
 
     // Update is called once per frame
-    void Update()
+    public void AutoSell()
     {
-        
+        sellTime -= Time.deltaTime;
+        if (sellTime <= -1)
+        {
+            sellTime = 30;
+        }
     }
 }

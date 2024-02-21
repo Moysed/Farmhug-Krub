@@ -5,11 +5,17 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory singleton;
-    public float sellTime;
+    //public float sellTime;
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store product types and quantities
 
     private CoinManagement coinManager;
+    public SellManager autoSell;
+
+    private CoopManager cm;
+    private FarmManager fm;
     public int coin;
+
+    int totalIncome;
 
     private void Awake()
     {
@@ -17,28 +23,30 @@ public class Inventory : MonoBehaviour
     }
     void Start()
     {
-        
+        cm = FindObjectOfType<CoopManager>();
+        fm = FindObjectOfType<FarmManager>();
+        autoSell = FindObjectOfType<SellManager>();
         coinManager = FindObjectOfType<CoinManagement>();
         coin = 15;
-        sellTime = 30;
+        //sellTime = 30;
     }
 
     void Update()
     {
         coinManager.UpdateCoin(coin);
-        sellTime -= Time.deltaTime;
+        //sellTime -= Time.deltaTime;
 
         if(coin <= 0)
         {
             coin = 0;
         }
 
-        if (sellTime < 0)
+        /*if (sellTime < 0)
         {
             sellTime = 30;
-        }
+        } */ 
 
-        
+        autoSell.AutoSell();
     }
 
     // Add a plant to the inventory
@@ -66,7 +74,8 @@ public class Inventory : MonoBehaviour
                 inventory[productType] -= amount;
                 Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
 
-                coin += amount;
+                totalIncome += cm.selectAnimal.animal.sellPrice * amount;
+                coin += totalIncome;
             }
             else
             {

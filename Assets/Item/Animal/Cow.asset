@@ -24,3 +24,5 @@ MonoBehaviour:
   - {fileID: 21300014, guid: e2bde586482642d44a270276574c0129, type: 3}
   - {fileID: 21300016, guid: e2bde586482642d44a270276574c0129, type: 3}
   timeBtwstage: 5
+  price: 6
+  sellPrice: 7

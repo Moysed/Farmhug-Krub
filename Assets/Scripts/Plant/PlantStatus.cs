@@ -10,7 +10,6 @@ public class PlantStatus : MonoBehaviour
     public Vector3 statusPos;
     public int waterTime;
     public  bool isWater = false;
- 
     GroundMangement gm;
  
     public bool IsPlanted = false;
@@ -117,6 +116,11 @@ public class PlantStatus : MonoBehaviour
                 UpdatePlant();
             }
         }   
+
+        if (gm.inventory.autoSell.sellTime <= 0)
+        {
+            gm.inventory.SellFromInventory(_selfPlantObjectInfo.plantName, gm.inventory.GetPlantQuantity(plantName));
+        }
     }
  
     void ShowStatus()

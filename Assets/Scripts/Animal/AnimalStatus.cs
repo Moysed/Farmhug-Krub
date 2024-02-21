@@ -120,8 +120,11 @@ public class AnimalStatus : MonoBehaviour
                 UpdateAnimal();
             }
         }
- 
-       
+
+       if (pm.inventory.autoSell.sellTime <= 0)
+        {
+            pm.inventory.SellFromInventory(animalName, pm.inventory.GetPlantQuantity(animalName));
+        }
        
     }
  

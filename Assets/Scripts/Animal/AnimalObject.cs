@@ -7,4 +7,6 @@ public class AnimalObject : ScriptableObject
     public string animalName;
     public Sprite[] animalStages;
     public float timeBtwstage = 2f;
+    public int price;
+    public int sellPrice;
 }

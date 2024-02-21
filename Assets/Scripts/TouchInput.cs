@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TouchInput : TouchDetector
 {
+    /*
     public override void OnTouchBegan(Touch touch)
     {
         base.OnTouchBegan(touch);
@@ -12,5 +13,5 @@ public class TouchInput : TouchDetector
         
     }
 
-
+*/
 }

@@ -914,8 +914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7b68059e74e0d4ca1c4d8fa9b090b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_touchIdentifier: {fileID: 0}
-  _Camera: {fileID: 0}
 --- !u!1 &529436406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2129,6 @@ GameObject:
   - component: {fileID: 1294587174}
   - component: {fileID: 1294587173}
   - component: {fileID: 1294587177}
-  - component: {fileID: 1294587178}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2234,20 +2231,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1294587178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294587171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bcba8355be10a43898f6427d235f11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p_touchIdentifier: {fileID: -3821773328986792409, guid: a0f1d1171d059504d90ab550dd9fc4c1, type: 3}
-  _Camera: {fileID: 0}
 --- !u!1 &1311342555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,21 +2630,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707548813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35c4f75aaad14638800661c4cfa136b, type: 3}
+  m_Script: {fileID: 11500000, guid: 49ceb1206f561c8419291a0da58999f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusPrefab: {fileID: 0}
-  statusPos: {x: 0, y: 0, z: 0}
-  waterTime: 0
-  isWater: 0
-  IsPlanted: 0
-  plant: {fileID: 0}
-  plantStage: 0
-  plantName: 
-  plantCollider: {fileID: 0}
-  afterWatertime: 0
-  _selfPlantObjectInfo: {fileID: 0}
-  instanceMode: 1
+  sellTime: 30
 --- !u!1 &1719748177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,7 +2851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0cc5c0306d7b4ad6b49cfed07cc1f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sellTime: 0
+  autoSell: {fileID: 0}
   coin: 0
 --- !u!1001 &1789411645
 PrefabInstance:
@@ -3173,7 +3145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1707548815}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlantStatus, Assembly-CSharp
         m_MethodName: Sell
         m_Mode: 1
@@ -3617,6 +3589,7 @@ MonoBehaviour:
   selectPlant: {fileID: 0}
   isPlanting: 0
   coin: {fileID: 1163576973}
+  plant: {fileID: 0}
 --- !u!4 &2049931395
 Transform:
   m_ObjectHideFlags: 0
@@ -3728,6 +3701,7 @@ MonoBehaviour:
   selectAnimal: {fileID: 0}
   isPeting: 0
   coin: {fileID: 1163576973}
+  animal: {fileID: 0}
 --- !u!1001 &2121246312
 PrefabInstance:
   m_ObjectHideFlags: 0

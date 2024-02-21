@@ -15,7 +15,7 @@ public class AnimalItem : MonoBehaviour
 
     public void BuyAnimal()
     {
-
+        Inventory.singleton.coin -= animal.price;
         Debug.Log("Buy :" + animal.animalName);
         coop.SelectAnimal(this);
         PetManagement.singleton.tempAnimal();

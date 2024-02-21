@@ -83,7 +83,6 @@ public class PetManagement : MonoBehaviour
         }   
      public void tempAnimal()
     {
-  
         _tempAnimalStatus.Animal(cm.selectAnimal.animal);
         _tempAnimalStatus = null;
     }

@@ -9,7 +9,8 @@ public class CoopManager : MonoBehaviour
 
     public CoinManagement coin;
     
-
+    public AnimalObject animal;
+    
     private Inventory inventory;
     void Start()
     {
@@ -20,10 +21,10 @@ public class CoopManager : MonoBehaviour
     {
         
             selectAnimal = newAnimal;
-            if(inventory.coin >= 5)
+            if(inventory.coin >= selectAnimal.animal.price)
             {
                 isPeting = true;
-                inventory.coin -= 5;
+                //inventory.coin -= selectAnimal.animal.price;
             }
             else
             {

@@ -302,16 +302,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.x
-      value: 2.52
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: 0.85
+      value: 0.92
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (5)
@@ -460,6 +456,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155182234}
   m_CullTransparentMesh: 1
+--- !u!1 &182060799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2537855371990055262, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+  m_PrefabInstance: {fileID: 1882532869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &206289573
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +902,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2354406988577056568, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
   m_PrefabInstance: {fileID: 1882532869}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &498699099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182060799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7b68059e74e0d4ca1c4d8fa9b090b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &529436406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,16 +1281,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: statusPos.x
-      value: -5.15
+      value: -5.16
       objectReference: {fileID: 0}
     - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: statusPos.y
-      value: 0.61
+      value: 0.63
       objectReference: {fileID: 0}
-    - target: {fileID: 5390750596338965213, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1490,16 +1499,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.x
-      value: 2.52
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: 2.54
+      value: 2.52
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (4)
@@ -1955,17 +1960,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: statusPos.x
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: -0.77
+      value: -0.72
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (2)
@@ -2363,16 +2360,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.x
-      value: 2.52
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: -0.77
+      value: -0.72
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (6)
@@ -2591,18 +2584,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.x
-      value: -7.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.y
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 5390750596338965213, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2806,16 +2787,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.x
-      value: 2.52
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: -2.43
+      value: -2.36
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (7)
@@ -2930,16 +2907,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: statusPos.x
-      value: -5.03
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: statusPos.y
-      value: -1.32
+      value: -1.35
       objectReference: {fileID: 0}
-    - target: {fileID: 5390750596338965213, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2999,16 +2972,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: statusPos.x
-      value: -7.61
+      value: -7.59
       objectReference: {fileID: 0}
     - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: statusPos.y
-      value: -1.26
+      value: -1.35
       objectReference: {fileID: 0}
-    - target: {fileID: 5390750596338965213, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3357,22 +3326,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.x
-      value: -7.73068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.y
-      value: 2.578396
-      objectReference: {fileID: 0}
-    - target: {fileID: 5390750596338965213, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2537855371990055262, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 498699099}
   m_SourcePrefab: {fileID: 100100000, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
 --- !u!1 &1910915890
 GameObject:
@@ -3579,17 +3539,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: statusPos.x
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: 0.85
+      value: 0.92
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (1)
@@ -3799,17 +3751,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: statusPos.x
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: statusPos.y
-      value: -2.43
+      value: -2.36
       objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer (3)
@@ -3876,18 +3820,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.x
-      value: -5.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: statusPos.y
-      value: 2.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 5390750596338965213, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3941,18 +3873,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: statusPos.x
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092556972270200370, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: statusPos.y
-      value: 2.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298994100476273419, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
-      propertyPath: _Camera
-      value: 
-      objectReference: {fileID: 1294587174}
     - target: {fileID: 5399816546053161224, guid: 2bbe0f68aae10944a8dfe5192d77b73f, type: 3}
       propertyPath: m_Name
       value: AnimalContainer

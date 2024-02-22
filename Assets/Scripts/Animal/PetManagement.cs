@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class PetManagement : MonoBehaviour
+public class PetManagement : BaseStatus
 {
     public static PetManagement singleton;
 
@@ -15,9 +15,9 @@ public class PetManagement : MonoBehaviour
 
     public CoopManager cm;
 
-    public InfoObject selectedAnimal;
+    public AnimalObject selectedAnimal;
 
-    BaseStatus _tempAnimalStatus;
+    AnimalStatus _tempAnimalStatus;
 
     public float timer;
 
@@ -40,12 +40,19 @@ public class PetManagement : MonoBehaviour
         {
             cm.isPeting = false;
         }
-    }
-
-
-        public void IsPeted(BaseStatus _objBase)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            _tempAnimalStatus =(BaseStatus)_objBase;
+            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+            RaycastHit hit;
+
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Animal"))
+                {
+                    //Debug.Log("Tapped");
+                    _tempAnimalStatus = hit.collider.GetComponent<AnimalStatus>();
 
                     if (!cm.isPeting)
                     {
@@ -55,6 +62,11 @@ public class PetManagement : MonoBehaviour
                             storePanel.SetActive(true);
                         }
                     }
+                    /*else if (cm.isPeting)
+                    {
+                        //_tempPlantStatus.Plant(fm.selectPlant.plant);
+                        //storePanel.SetActive(false);
+                    }*/
 
                      if (_tempAnimalStatus.IsPeted)
                         {
@@ -62,14 +74,16 @@ public class PetManagement : MonoBehaviour
                             storePanel.SetActive(false);
                             if (_tempAnimalStatus.animalStage >= 1)
                             {
-                                _tempAnimalStatus.Collected();
+                                _tempAnimalStatus.Harvest();
                             }                                
                         }
                     }
-
+                }
+            }
+        }   
      public void tempAnimal()
     {
-        _tempAnimalStatus.UpdateInfo(cm.selectAnimal.animal);
+        _tempAnimalStatus.Animal(cm.selectAnimal.animal);
         _tempAnimalStatus = null;
     }
 }

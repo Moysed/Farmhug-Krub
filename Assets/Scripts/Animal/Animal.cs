@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object : MonoBehaviour
+public class Animal : MonoBehaviour
 {
     public AnimalStatus _ownerAnimalObjectPrefabs;
-    public PlantStatus _ownerPlantObjectPrefabs;
     Inventory inventory;
 
     public enum InstanceMode

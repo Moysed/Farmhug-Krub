@@ -40,6 +40,43 @@ public class GroundMangement : MonoBehaviour
         {
             fm.isPlanting = false;
         }
+        /*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+            RaycastHit hit;
+
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    //Debug.Log("Tapped");
+                    _tempPlantStatus = hit.collider.GetComponent<PlantStatus>();
+
+                    if (!fm.isPlanting)
+                    {
+                        if (_tempPlantStatus.plantStage == 0)
+                        {
+                            storePanel.SetActive(true);
+                        }
+                    }
+
+                    if (_tempPlantStatus.IsPlanted)
+                        {
+                            storePanel.SetActive(false);
+                            if (_tempPlantStatus.plantStage >= 1)
+                            {
+                                _tempPlantStatus.Harvest();
+                            }
+                        }
+                    else if (fm.isPlanting)
+                    {
+                        //_tempPlantStatus.Plant(fm.selectPlant.plant);
+                    }
+                
+            }
+        }*/
     }
 
     public void Isplanted(BaseStatus _objBase)

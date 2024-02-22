@@ -9,7 +9,7 @@ public class CoopManager : MonoBehaviour
 
     public CoinManagement coin;
     
-    public InfoObject animal;
+    public AnimalObject animal;
     
     private Inventory inventory;
     void Start()

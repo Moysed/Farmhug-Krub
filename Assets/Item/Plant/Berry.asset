@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d2563fa243f694d8d767660de20935, type: 3}
   m_Name: Berry
   m_EditorClassIdentifier: 
-  ObjectName: Berry
-  ObjectStages:
+  plantName: Berry
+  plantStages:
   - {fileID: 21300058, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
-  - {fileID: 21300096, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
+  - {fileID: 21300084, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   timeBtwstage: 1
   price: 3
   sellPrice: 4

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d2563fa243f694d8d767660de20935, type: 3}
+  m_Script: {fileID: 11500000, guid: 42b69d691be614e14913b12147ae1bec, type: 3}
   m_Name: Pig
   m_EditorClassIdentifier: 
-  ObjectName: Pig
-  ObjectStages:
+  animalName: Pig
+  animalStages:
   - {fileID: 21300000, guid: 0206dfbd82753ea42bff2c1b0a56966d, type: 3}
   - {fileID: 21300002, guid: 0206dfbd82753ea42bff2c1b0a56966d, type: 3}
   - {fileID: 21300004, guid: 0206dfbd82753ea42bff2c1b0a56966d, type: 3}

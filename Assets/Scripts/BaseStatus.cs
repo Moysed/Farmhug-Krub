@@ -9,6 +9,8 @@ public class BaseStatus : MonoBehaviour
     public bool IsPlanted = false;
 
     public int ObjectStage = 0;
+
+    public bool collectCheck = false;
     //public int animalStage = 0;
 
     public string ObjectName;
@@ -32,6 +34,8 @@ public class BaseStatus : MonoBehaviour
     {
 
     }
+
+    public virtual void OnSell() { }
 
     
 }

@@ -15,21 +15,40 @@ public class TouchIdentifier : MonoBehaviour {
         if (collision.tag == "Ground")
         {
 
-            Debug.Log(collision.name);
+            //Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
 
-            Debug.Log(_tempStatus);
+            //ebug.Log(_tempStatus);
             GroundMangement.singleton.Isplanted(_tempStatus);
+        }
+
+        if(collision.tag == "ANimalContainer")
+        {
+            //Debug.Log(collision.name);
+            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+            //Debug.Log(_tempStatus);
+
+            if(_tempStatus == null)
+                _tempStatus = collision.GetComponentInParent<BaseStatus>();
+
+            PetManagement.singleton.IsPeted(_tempStatus);
+            //Debug.Log(_tempStatus);
         }
 
         if(collision.tag == "Animal")
         {
-            Debug.Log(collision.name);
-            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+            BaseStatus status = collision.GetComponent<BaseStatus>();
 
-            Debug.Log(_tempStatus);
-            PetManagement.singleton.IsPeted(_tempStatus);
-            Debug.Log(_tempStatus);
+            if (status == null)
+                status = collision.GetComponentInParent<BaseStatus>();
+            if (status.collectCheck == true)
+            {
+                
+
+                PetManagement.singleton._tempAnimalStatus.Collected();
+                status.collectCheck = false;
+            }
+                
         }
 
     }

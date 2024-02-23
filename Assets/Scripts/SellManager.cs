@@ -14,7 +14,7 @@ public class SellManager : MonoBehaviour
     public void AutoSell()
     {
         sellTime -= Time.deltaTime;
-        if (sellTime <= -1)
+        if (sellTime <= 0)
         {
             sellTime = 30;
         }

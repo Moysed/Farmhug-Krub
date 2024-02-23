@@ -17,9 +17,10 @@ public class PetManagement : MonoBehaviour
 
     public InfoObject selectedAnimal;
 
-    BaseStatus _tempAnimalStatus;
+    public BaseStatus _tempAnimalStatus;
 
     public float timer;
+    
 
     void Awake()
     {
@@ -48,6 +49,13 @@ public class PetManagement : MonoBehaviour
 
         _tempAnimalStatus = (BaseStatus)_objBase;
 
+        if(_tempAnimalStatus == null )
+        {
+            Debug.Log(_tempAnimalStatus);
+            return;
+        }
+
+        Debug.Log(_tempAnimalStatus);
         if (!cm.isPeting)
         {
             if (_tempAnimalStatus.ObjectStage == 0)
@@ -61,7 +69,8 @@ public class PetManagement : MonoBehaviour
             storePanel.SetActive(false);
             if (_tempAnimalStatus.ObjectStage >= 1)
             {
-                _tempAnimalStatus.Collected();
+                //_tempAnimalStatus.Collected();
+                _tempAnimalStatus.collectCheck = true;
             }
         }
     }

@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour
     // Sell a specific amount of a product type from the inventory
     public void SellFromInventory(string productType, int amount)
     {
-        if (inventory.ContainsKey(productType))
+        if (inventory.ContainsKey(productType) )
         {
             if (inventory[productType] >= amount)
             {

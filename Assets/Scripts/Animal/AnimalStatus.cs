@@ -10,9 +10,10 @@ public class AnimalStatus : BaseStatus
     public Vector3 statusPos;
     public int feedTime;
     public  bool isfeed = false;
+    public bool isSell = false;
     PetManagement pm;
-   
-   
+    
+
     public SpriteRenderer animal;
    
  
@@ -120,11 +121,14 @@ public class AnimalStatus : BaseStatus
             }
         }
 
-       if (pm.inventory.autoSell.sellTime <= 0)
+       
+        if(pm.inventory.autoSell.sellTime <= 0)
         {
-            //animalName
-            pm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, pm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
+            OnSell();
+            
         }
+
+       
        
     }
  
@@ -180,6 +184,17 @@ public class AnimalStatus : BaseStatus
         ObjectName = newAnimal.name;
         UpdateAnimal();
         animal.gameObject.SetActive(true);
+    }
+
+    public override void OnSell()
+    {
+      
+            Debug.Log(pm.inventory);
+
+            pm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, pm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
+            isSell = false;
+            
+        
     }
 
     public override void Collected()

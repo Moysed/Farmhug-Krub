@@ -10,10 +10,10 @@ public class CoopManager : MonoBehaviour
     public CoinManagement coin;
     
     public InfoObject animal;
-    
+    private Inventory inventory;
     void Start()
     {
-        
+        inventory = FindObjectOfType<Inventory>();
     }
 
     public void SelectAnimal(AnimalItem newAnimal)
@@ -21,7 +21,7 @@ public class CoopManager : MonoBehaviour
         
             selectAnimal = newAnimal;
         Debug.Log(selectAnimal.name);
-            if(Inventory.singleton.coin >= selectAnimal.animal.price)
+            if(inventory.coin >= selectAnimal.animal.price)
             {
                 isPeting = true;
                 //inventory.coin -= selectAnimal.animal.price;
@@ -30,7 +30,7 @@ public class CoopManager : MonoBehaviour
             {
                 isPeting = false;
             }
-            //coin.UpdateCoin(inventory.coin);
+            coin.UpdateCoin(inventory.coin);
         
     }
 }

@@ -9,7 +9,7 @@ public class TouchDetector : MonoBehaviour {
     protected int _lastIndex = 0;
 
     public Camera _Camera;
-    public float swipeSpeed = 1f; 
+    public float swipeSpeed = 0.1f; 
 
     private Vector2 lastTouchPosition;
 
@@ -46,7 +46,7 @@ public class TouchDetector : MonoBehaviour {
             }
         }
 
-        if (Input.touchCount >= 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             Vector2 currentTouchPosition = Input.GetTouch(0).position;
 

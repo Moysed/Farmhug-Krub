@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     private FarmManager fm;
     public int coin;
 
+    //private int[] amountSellPrice;
+
     int totalIncome;
 
     private void Awake()
@@ -26,25 +28,20 @@ public class Inventory : MonoBehaviour
         cm = FindObjectOfType<CoopManager>();
         fm = FindObjectOfType<FarmManager>();
         autoSell = FindObjectOfType<SellManager>();
-        coinManager = FindObjectOfType<CoinManagement>();
+        
         coin = 15;
         //sellTime = 30;
     }
 
     void Update()
     {
-        coinManager.UpdateCoin(coin);
+        CoinManagement.singleton.UpdateCoin(coin);
         //sellTime -= Time.deltaTime;
 
-        if(coin <= 0)
+        if (coin <= 0)
         {
             coin = 0;
         }
-
-        /*if (sellTime < 0)
-        {
-            sellTime = 30;
-        } */ 
 
         autoSell.AutoSell();
     }
@@ -71,9 +68,34 @@ public class Inventory : MonoBehaviour
         {
             if (inventory[productType] >= amount)
             {
-                inventory[productType] -= amount;
-                Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                //inventory[productType] -= amount;
+                //Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
 
+                //for(int i = 0; i < 5; i++)
+                /*if(productType == "Corn")
+                {
+                    if (inventory.ContainsKey(productType))
+                    {
+                        inventory[productType]++;
+                    }
+                    amountSellPrice[1] += inventory[productType] * amount;
+                }
+                else if(productType == "Berry")
+                {
+ 
+                }
+                else if(productType == "Pig")
+                {
+                    
+                }
+                else if(productType == "Chicken")
+                {
+                    
+                }
+                else if(productType == "Cow")
+                {
+                    
+                }
                 totalIncome += cm.selectAnimal.animal.sellPrice * amount;
                 coin += totalIncome;
             }
@@ -85,6 +107,62 @@ public class Inventory : MonoBehaviour
         else
         {
             Debug.Log("Plant type " + productType + " not found in inventory.");
+        }*/
+
+                if (inventory.ContainsKey(productType))
+                {
+                    if (inventory[productType] >= amount)
+                    {
+                        inventory[productType] -= amount;
+                        Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+
+                        int sellPrice = 0; // ราคารวมที่ขายได้จากสินค้าชนิดนี้
+                        if (productType == "Corn")
+                        {
+                            // คำนวณราคารวมที่ขายได้จาก Corn
+                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
+                            Debug.Log(sellPrice);
+                        }
+                        else if (productType == "Berry")
+                        {
+                            // คำนวณราคารวมที่ขายได้จาก Berry
+                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
+                            Debug.Log(sellPrice);
+                        }
+                        else if (productType == "Pig")
+                        {
+                            // คำนวณราคารวมที่ขายได้จาก Pig
+                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
+                            Debug.Log(sellPrice);
+                        }
+                        else if (productType == "Chicken")
+                        {
+                            // คำนวณราคารวมที่ขายได้จาก Chicken
+                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
+                            Debug.Log(sellPrice);
+                        }
+                        else if (productType == "Cow")
+                        {
+                            // คำนวณราคารวมที่ขายได้จาก Cow
+                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
+                            Debug.Log(sellPrice);
+                        }
+
+                        totalIncome += sellPrice;
+                        coin += sellPrice;
+
+                        Debug.Log("Total income: " + totalIncome + ", Total coin: " + coin);
+                    }
+                    else
+                    {
+                        Debug.Log("Not enough " + productType + " in inventory to sell.");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Plant type " + productType + " not found in inventory.");
+                }
+            }
         }
     }
 

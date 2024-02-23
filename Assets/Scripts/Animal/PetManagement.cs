@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class PetManagement : BaseStatus
+public class PetManagement : MonoBehaviour
 {
     public static PetManagement singleton;
 
     public GameObject storePanel;
-    
+
     AnimalStatus[] status;
 
     public Inventory inventory;
 
     public CoopManager cm;
 
-    public AnimalObject selectedAnimal;
+    public InfoObject selectedAnimal;
 
-    AnimalStatus _tempAnimalStatus;
+    BaseStatus _tempAnimalStatus;
 
     public float timer;
 
-     void Awake()
+    void Awake()
     {
         singleton = this;
     }
@@ -36,54 +36,39 @@ public class PetManagement : BaseStatus
     // Update is called once per frame
     void Update()
     {
-        if(_tempAnimalStatus == null)
+        if (_tempAnimalStatus == null)
         {
             cm.isPeting = false;
         }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit hit;
+    }
 
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.CompareTag("Animal"))
-                {
-                    //Debug.Log("Tapped");
-                    _tempAnimalStatus = hit.collider.GetComponent<AnimalStatus>();
-
-                    if (!cm.isPeting)
-                    {
-                        
-                        if (_tempAnimalStatus.animalStage <= 0)
-                        {
-                            storePanel.SetActive(true);
-                        }
-                    }
-                    /*else if (cm.isPeting)
-                    {
-                        //_tempPlantStatus.Plant(fm.selectPlant.plant);
-                        //storePanel.SetActive(false);
-                    }*/
-
-                     if (_tempAnimalStatus.IsPeted)
-                        {
-                            //_tempAnimalStatus.timer -= Time.deltaTime;
-                            storePanel.SetActive(false);
-                            if (_tempAnimalStatus.animalStage >= 1)
-                            {
-                                _tempAnimalStatus.Harvest();
-                            }                                
-                        }
-                    }
-                }
-            }
-        }   
-     public void tempAnimal()
+    public void IsPeted(BaseStatus _objBase)
     {
-        _tempAnimalStatus.Animal(cm.selectAnimal.animal);
+
+        _tempAnimalStatus = (BaseStatus)_objBase;
+
+        if (!cm.isPeting)
+        {
+            if (_tempAnimalStatus.ObjectStage == 0)
+            {
+                storePanel.SetActive(true);
+            }
+        }
+
+        if (_tempAnimalStatus.IsPlanted)
+        {
+            storePanel.SetActive(false);
+            if (_tempAnimalStatus.ObjectStage >= 1)
+            {
+                _tempAnimalStatus.Collected();
+            }
+        }
+    }
+
+    public void tempAnimal()
+    {
+        _tempAnimalStatus.UpdateInfo(cm.selectAnimal.animal);
         _tempAnimalStatus = null;
     }
 }

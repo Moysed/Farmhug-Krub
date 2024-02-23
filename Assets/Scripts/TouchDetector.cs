@@ -9,6 +9,10 @@ public class TouchDetector : MonoBehaviour {
     protected int _lastIndex = 0;
 
     public Camera _Camera;
+    public float swipeSpeed = 1f; 
+
+    private Vector2 lastTouchPosition;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -30,17 +34,35 @@ public class TouchDetector : MonoBehaviour {
                 case TouchPhase.Ended:
                     OnTouchEnded(t);
                     break;
-                /*case TouchPhase.Moved:
+                case TouchPhase.Moved:
                     OnTouchMoved(t);
                     break;
                 case TouchPhase.Stationary:
                     OnTouchStay(t);
-                    break;*/
+                    break;
                 case TouchPhase.Canceled:
                     OnTouchCancel(t);
                     break;
             }
         }
+
+        if (Input.touchCount >= 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            Vector2 currentTouchPosition = Input.GetTouch(0).position;
+
+            if (lastTouchPosition != Vector2.zero)
+            {
+                Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
+
+                
+                _Camera.transform.Translate(Vector3.right * -deltaPosition.x * swipeSpeed * Time.deltaTime , Space.World);
+                _Camera.transform.Translate(Vector3.up * -deltaPosition.y * swipeSpeed * Time.deltaTime , Space.World);
+            }
+
+            lastTouchPosition = currentTouchPosition ;
+        }
+       
+
     }
 
     public virtual void OnTouchBegan(Touch touch)
@@ -53,12 +75,12 @@ public class TouchDetector : MonoBehaviour {
     {
         RemoveTouchIdentifierWithTouch(touch);
     }
-    /*public virtual void OnTouchMoved(Touch touch) {
+    public virtual void OnTouchMoved(Touch touch) {
         UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
     }
     public virtual void OnTouchStay(Touch touch) {
         UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
-    }*/
+    }
     public virtual void OnTouchCancel(Touch touch)
     {
         RemoveTouchIdentifierWithTouch(touch);
@@ -73,6 +95,8 @@ public class TouchDetector : MonoBehaviour {
         pos.z = 0;
         return pos;
     }
+
+   
 
     public TouchIdentifier GetTouchIdentifierWithTouch(Touch touch)
     {

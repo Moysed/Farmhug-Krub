@@ -85,7 +85,7 @@ public class GroundMangement : MonoBehaviour
 
         if (!fm.isPlanting)
         {
-            if (_tempPlantStatus.plantStage == 0)
+            if (_tempPlantStatus.ObjectStage == 0)
             {
                 storePanel.SetActive(true);
             }
@@ -94,7 +94,7 @@ public class GroundMangement : MonoBehaviour
         if (_tempPlantStatus.IsPlanted)
         {
             storePanel.SetActive(false);
-            if (_tempPlantStatus.plantStage >= 1)
+            if (_tempPlantStatus.ObjectStage >= 1)
             {
                 _tempPlantStatus.Collected();
             }

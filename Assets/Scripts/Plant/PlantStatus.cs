@@ -18,8 +18,7 @@ public class PlantStatus : BaseStatus
      BoxCollider2D plantCollider;
     public float afterWatertime = 0;
  
-    [SerializeField]
-    InfoObject _selfPlantObjectInfo;
+    
  
     public enum InstanceMode
     {
@@ -50,7 +49,7 @@ public class PlantStatus : BaseStatus
             afterWatertime -= Time.deltaTime;
         }
         if(gm.selectedPlant != null)
-            if (plantStage == gm.selectedPlant.ObjectStages.Length - 1)
+            if (ObjectStage == gm.selectedPlant.ObjectStages.Length - 1)
             {
                 waterTime = 0;
             }
@@ -102,13 +101,13 @@ public class PlantStatus : BaseStatus
             if ( afterWatertime <= 0 && isWater == true)
             {
 
-                        plantStage++;
+                        ObjectStage++;
 
 
  
-                if (plantStage >= gm.selectedPlant.ObjectStages.Length)
+                if (ObjectStage >= gm.selectedPlant.ObjectStages.Length)
                 {
-                    plantStage = 1;
+                    ObjectStage = 1;
                 }
                 UpdatePlant();
             }
@@ -116,14 +115,14 @@ public class PlantStatus : BaseStatus
 
         if (gm.inventory.autoSell.sellTime <= 0)
         {
-            gm.inventory.SellFromInventory(_selfPlantObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(plantName));
+            gm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }
     }
     void ShowStatus()
     {
         Plant newPlant = InstantiateObject(StatusPrefab).GetComponent<Plant>();
         newPlant.tag = "PlantStatus'";
- 
+        
         // Set the new plant's position
         newPlant.transform.position = statusPos;
         newPlant._ownerPlantObjectPrefabs = this;
@@ -136,11 +135,11 @@ public class PlantStatus : BaseStatus
     {
         //Debug.Log("Yo");
         IsPlanted = true;
-        _selfPlantObjectInfo = newPlant;
+        _selfObjectInfo = newPlant;
         //Debug.Log("Planted");
         gm.selectedPlant = newPlant;
-        plantStage = 0;
-        plantName = newPlant.name;
+        ObjectStage = 0;
+        ObjectName = newPlant.name;
         
         UpdatePlant();
         plant.gameObject.SetActive(true);
@@ -151,19 +150,19 @@ public class PlantStatus : BaseStatus
         Debug.Log("Harvested");
         IsPlanted = false;
         gm.fm.isPlanting = false;
-        plantStage = 0;
+        ObjectStage = 0;
         isWater = false;
         plant.gameObject.SetActive(false);
-        gm.inventory.AddToInventory(_selfPlantObjectInfo.ObjectName);
+        gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
     }
  
     // Single Game object
     void UpdatePlant()
     {
-        if (plantStage >= _selfPlantObjectInfo.ObjectStages.Length)
-            plantStage = _selfPlantObjectInfo.ObjectStages.Length;
+        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
+            ObjectStage = _selfObjectInfo.ObjectStages.Length;
  
-        plant.sprite = _selfPlantObjectInfo.ObjectStages[plantStage];
+        plant.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
         plantCollider.size = plant.sprite.bounds.size;
         plantCollider.offset = new Vector2(0, plant.size.y / 2);
     }

@@ -4,7 +4,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AnimalStatus : MonoBehaviour
+public class AnimalStatus : BaseStatus
 {
     public GameObject StatusPrefab;
     public Vector3 statusPos;
@@ -12,17 +12,16 @@ public class AnimalStatus : MonoBehaviour
     public  bool isfeed = false;
     PetManagement pm;
    
-    public bool IsPeted = false;
+   
     public SpriteRenderer animal;
-    public int animalStage = 0;
-    public string animalName;
+   
  
     [SerializeField]
-    BoxCollider2D animalCollider;
+    PolygonCollider2D animalCollider;
     public float afterFeedtime = 0;
  
-    [SerializeField]
-    AnimalObject _selfAnimalObjectInfo;
+    //[SerializeField]
+    //InfoObject _selfAnimalObjectInfo;
  
     public enum InstanceMode
     {
@@ -53,7 +52,7 @@ public class AnimalStatus : MonoBehaviour
             afterFeedtime -= Time.deltaTime;
         }
         if(pm.selectedAnimal != null)
-            if (animalStage == pm.selectedAnimal.animalStages.Length - 1)
+            if (ObjectStage == pm.selectedAnimal.ObjectStages.Length - 1)
             {
                 feedTime = 0;
             }
@@ -109,13 +108,13 @@ public class AnimalStatus : MonoBehaviour
             if ( afterFeedtime <= 0 && isfeed == true )  
             {
              
-                        animalStage++;
+                        ObjectStage++;
              
 
  
-                if (animalStage >= pm.selectedAnimal.animalStages.Length)
+                if (ObjectStage >= pm.selectedAnimal.ObjectStages.Length)
                 {
-                    animalStage = 1;
+                    ObjectStage = 1;
                 }
                 UpdateAnimal();
             }
@@ -123,7 +122,8 @@ public class AnimalStatus : MonoBehaviour
 
        if (pm.inventory.autoSell.sellTime <= 0)
         {
-            pm.inventory.SellFromInventory(animalName, pm.inventory.GetPlantQuantity(animalName));
+            //animalName
+            pm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, pm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }
        
     }
@@ -139,36 +139,24 @@ public class AnimalStatus : MonoBehaviour
     }
  
     // Single Game Object
-    public void Animal(AnimalObject newAnimal)
+    public void Animal(InfoObject newAnimal)
     {
-        _selfAnimalObjectInfo = newAnimal;
+        _selfObjectInfo = newAnimal;
         pm.selectedAnimal = newAnimal;
         IsPeted = true;
-        animalStage = 0;
-        animalName = newAnimal.name;
+        ObjectStage = 0;
+        ObjectName = newAnimal.name;
         UpdateAnimal();
         animal.gameObject.SetActive(true);
-    }
- 
-    public void Harvest()
-    {
-        Debug.Log("Harvested");
-        IsPeted = false;
-        pm.cm.isPeting = false;
-        animalStage = 0;
-        isfeed = false;
-        animal.gameObject.SetActive(false);
-        pm.inventory.AddToInventory(_selfAnimalObjectInfo.animalName);
     }
  
     // Single Game object
     void UpdateAnimal()
     {     
-        if (animalStage >= _selfAnimalObjectInfo.animalStages.Length)
-            animalStage = _selfAnimalObjectInfo.animalStages.Length;
+        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
+            ObjectStage = _selfObjectInfo.ObjectStages.Length;
  
-        animal.sprite = _selfAnimalObjectInfo.animalStages[animalStage];
-        animalCollider.size = animal.bounds.size;
+        animal.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
         animalCollider.offset = new Vector2(0, animal.size.y / 2);
         
     }
@@ -181,5 +169,27 @@ public class AnimalStatus : MonoBehaviour
             return Lean.Pool.LeanPool.Spawn(obj);
  
         return null;
+    }
+
+    public override void UpdateInfo(InfoObject newAnimal)
+    {
+        _selfObjectInfo = newAnimal;
+        pm.selectedAnimal = newAnimal;
+        IsPeted = true;
+        ObjectStage = 0;
+        ObjectName = newAnimal.name;
+        UpdateAnimal();
+        animal.gameObject.SetActive(true);
+    }
+
+    public override void Collected()
+    {
+        Debug.Log("Harvested");
+        IsPeted = false;
+        pm.cm.isPeting = false;
+        ObjectStage = 0;
+        isfeed = false;
+        animal.gameObject.SetActive(false);
+        pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
     }
 }

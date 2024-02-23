@@ -14,11 +14,23 @@ public class TouchIdentifier : MonoBehaviour {
         //collider = collision;
         if (collision.tag == "Ground")
         {
-            Debug.Log(collision.name);
-            PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
 
-            Debug.Log(_tempPlantStatus);
-            GroundMangement.singleton.Isplanted(_tempPlantStatus);
+            Debug.Log(collision.name);
+            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+
+            Debug.Log(_tempStatus);
+            GroundMangement.singleton.Isplanted(_tempStatus);
         }
+
+        if(collision.tag == "Animal")
+        {
+            Debug.Log(collision.name);
+            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+
+            Debug.Log(_tempStatus);
+            PetManagement.singleton.IsPeted(_tempStatus);
+            Debug.Log(_tempStatus);
+        }
+
     }
 }

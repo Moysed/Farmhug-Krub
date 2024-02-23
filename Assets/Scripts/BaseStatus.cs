@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class BaseStatus : MonoBehaviour
 {
+        
+    public bool IsPeted = false;
     public bool IsPlanted = false;
 
-    public int plantStage = 0;
-    public string plantName;
+    public int ObjectStage = 0;
+    //public int animalStage = 0;
+
+    public string ObjectName;
+    //public string plantName;
+
+
+    [SerializeField]
+    protected InfoObject _selfObjectInfo;
+
     public virtual void CallUpdate()
     {
 
@@ -22,4 +32,6 @@ public class BaseStatus : MonoBehaviour
     {
 
     }
+
+    
 }

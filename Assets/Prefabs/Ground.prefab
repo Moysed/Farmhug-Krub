@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 4001810006725526513}
   - component: {fileID: 8392162931535059171}
   - component: {fileID: 5796761773729750156}
+  - component: {fileID: 2716888868635489751}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Ground
@@ -230,14 +231,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35c4f75aaad14638800661c4cfa136b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsPlanted: 0
+  plantStage: 0
+  plantName: 
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
   statusPos: {x: -7.57, y: 0.63, z: 0}
   waterTime: 0
   isWater: 0
-  IsPlanted: 0
   plant: {fileID: 6208606215576805197}
-  plantStage: 0
-  plantName: 
   plantCollider: {fileID: 3504059331523778184}
   afterWatertime: 0
   _selfPlantObjectInfo: {fileID: 0}
@@ -314,3 +315,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2716888868635489751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537855371990055262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7b68059e74e0d4ca1c4d8fa9b090b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_touchIdentifier: {fileID: -3821773328986792409, guid: a0f1d1171d059504d90ab550dd9fc4c1, type: 3}
+  _Camera: {fileID: 0}

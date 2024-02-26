@@ -68,7 +68,7 @@ public class AnimalStatus : BaseStatus
             feedTime = 601;
         }
 
-
+        //Status Touch
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -104,15 +104,10 @@ public class AnimalStatus : BaseStatus
  
         if (IsPeted == true)
         {
-            
-         
             if ( afterFeedtime <= 0 && isfeed == true )  
-            {
-             
-                        ObjectStage++;
-             
+            {   
+                ObjectStage++;
 
- 
                 if (ObjectStage >= pm.selectedAnimal.ObjectStages.Length)
                 {
                     ObjectStage = 1;
@@ -120,16 +115,11 @@ public class AnimalStatus : BaseStatus
                 UpdateAnimal();
             }
         }
-
        
         if(pm.inventory.autoSell.sellTime <= 0)
         {
-            OnSell();
-            
+            OnSell();    
         }
-
-       
-       
     }
  
     void ShowStatus()

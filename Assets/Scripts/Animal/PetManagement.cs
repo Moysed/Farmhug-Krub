@@ -69,7 +69,7 @@ public class PetManagement : MonoBehaviour
             storePanel.SetActive(false);
             if (_tempAnimalStatus.ObjectStage >= 1)
             {
-                //_tempAnimalStatus.Collected();
+                _tempAnimalStatus.Collected();
                 _tempAnimalStatus.collectCheck = true;
             }
         }

@@ -31,6 +31,19 @@ public class CoopManager : MonoBehaviour
                 isPeting = false;
             }
             coin.UpdateCoin(inventory.coin);
+
+            if(selectAnimal.animal.ObjectName == "Pig")
+            {
+                SFXPlaying.singleton.PlayPig();
+            }
+            else if(selectAnimal.animal.ObjectName == "Cow")
+            {
+                SFXPlaying.singleton.PlayCow();
+            }
+            else if(selectAnimal.animal.ObjectName == "Chicken")
+            {
+                SFXPlaying.singleton.PlayDuck();
+            }
         
     }
 }

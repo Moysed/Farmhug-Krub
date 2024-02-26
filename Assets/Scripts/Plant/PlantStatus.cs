@@ -36,6 +36,7 @@ public class PlantStatus : BaseStatus
  
     void Update()
     {
+        //water Time
         if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
         {
             if(afterWatertime <= 0)
@@ -64,7 +65,7 @@ public class PlantStatus : BaseStatus
             waterTime = 601;
         }
  
- 
+        //Status Touch
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -85,7 +86,7 @@ public class PlantStatus : BaseStatus
                         afterWatertime = 5;
                         //isWater = true;
                         isWater = true;
-                        
+                        SFXPlaying.singleton.PlayWatering();
  
                         Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
  
@@ -96,15 +97,13 @@ public class PlantStatus : BaseStatus
             }
         }
  
+        //Stage Update
         if (IsPlanted == true)
         {
             if ( afterWatertime <= 0 && isWater == true)
             {
+                ObjectStage++; 
 
-                        ObjectStage++;
-
-
- 
                 if (ObjectStage >= gm.selectedPlant.ObjectStages.Length)
                 {
                     ObjectStage = 1;
@@ -182,22 +181,4 @@ public class PlantStatus : BaseStatus
         //waterCheck
         //base.CallUpdate();
     }
-
-    public void waterCheck()
-    {
-        Plant plant = GetComponent<Plant>();
-        if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
-        {
-
-            //Debug.Log("Tapped on Object:" + this.name);
-            //Debug.Log("Is Water : " + isWater);
-            afterWatertime = 5;
-            //isWater = true;
-            isWater = true;
-
-            waterTime = 0; // Reset grow time
-        }
-    }
-
-
 }

@@ -12,6 +12,7 @@ public class FarmManager : MonoBehaviour
     private Inventory inventory;
 
     public InfoObject plant;
+
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -30,5 +31,7 @@ public class FarmManager : MonoBehaviour
                 isPlanting = false;
             }
             coin.UpdateCoin(inventory.coin);
+            
+            SFXPlaying.singleton.PlayPlant();
     }
 }

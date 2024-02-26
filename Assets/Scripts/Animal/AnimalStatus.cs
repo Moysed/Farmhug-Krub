@@ -12,6 +12,7 @@ public class AnimalStatus : BaseStatus
     public  bool isfeed = false;
     public bool isSell = false;
     PetManagement pm;
+    float animalAnimTimer;
     
 
     public SpriteRenderer animal;
@@ -40,6 +41,7 @@ public class AnimalStatus : BaseStatus
  
     void Update()
     {
+        
         if(IsPeted && feedTime >= 0 && feedTime <= 600 )
         {
             if(afterFeedtime <= 0)
@@ -58,7 +60,7 @@ public class AnimalStatus : BaseStatus
                 feedTime = 0;
             }
  
-        if (feedTime == 600)
+        if (feedTime == 600 && !isfeed)
         {
                 Debug.Log("Feeding");
                 ShowStatus();
@@ -104,15 +106,23 @@ public class AnimalStatus : BaseStatus
  
         if (IsPeted == true)
         {
+            animalAnimTimer -= Time.deltaTime;
             if ( afterFeedtime <= 0 && isfeed == true )  
             {   
                 ObjectStage++;
 
                 if (ObjectStage >= pm.selectedAnimal.ObjectStages.Length)
                 {
-                    ObjectStage = 1;
+                    ObjectStage = 2;
                 }
-                UpdateAnimal();
+
+                if (animalAnimTimer <= 0)
+                {
+                    UpdateAnimal();
+                    animalAnimTimer = _selfObjectInfo.timeBtwstage;
+                }
+                
+                
             }
         }
        
@@ -133,25 +143,17 @@ public class AnimalStatus : BaseStatus
     }
  
     // Single Game Object
-    public void Animal(InfoObject newAnimal)
-    {
-        _selfObjectInfo = newAnimal;
-        pm.selectedAnimal = newAnimal;
-        IsPeted = true;
-        ObjectStage = 0;
-        ObjectName = newAnimal.name;
-        UpdateAnimal();
-        animal.gameObject.SetActive(true);
-    }
- 
+  
     // Single Game object
     void UpdateAnimal()
-    {     
+    {
+        animal.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
         if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
             ObjectStage = _selfObjectInfo.ObjectStages.Length;
  
-        animal.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
-        animalCollider.offset = new Vector2(0, animal.size.y / 2);
+      
+        
+        animalCollider.offset = new Vector2(0, animal.size.y / 5);
         
     }
  

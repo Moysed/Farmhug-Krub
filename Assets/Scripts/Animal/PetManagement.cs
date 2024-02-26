@@ -58,13 +58,12 @@ public class PetManagement : MonoBehaviour
         Debug.Log(_tempAnimalStatus);
         if (!cm.isPeting)
         {
-            if (_tempAnimalStatus.ObjectStage == 0)
-            {
+            
                 storePanel.SetActive(true);
-            }
+            
         }
 
-        if (_tempAnimalStatus.IsPlanted)
+        if (_tempAnimalStatus.IsPeted)
         {
             storePanel.SetActive(false);
             if (_tempAnimalStatus.ObjectStage >= 1)

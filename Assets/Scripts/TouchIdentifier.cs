@@ -24,7 +24,7 @@ public class TouchIdentifier : MonoBehaviour {
 
         if(collision.tag == "ANimalContainer")
         {
-            //Debug.Log(collision.name);
+            Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
             //Debug.Log(_tempStatus);
 
@@ -37,10 +37,9 @@ public class TouchIdentifier : MonoBehaviour {
 
         if(collision.tag == "Animal")
         {
-            BaseStatus status = collision.GetComponent<BaseStatus>();
+           BaseStatus status = collision.GetComponentInParent<BaseStatus>();
 
-            if (status == null)
-                status = collision.GetComponentInParent<BaseStatus>();
+            Debug.Log(status);
             if (status.collectCheck == true)
             {
                 

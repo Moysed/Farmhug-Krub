@@ -18,6 +18,7 @@ public class AnimalItem : MonoBehaviour
         Inventory.singleton.coin -= animal.price;
         Debug.Log("Buy :" + animal.ObjectName);
         coop.SelectAnimal(this);
+        PetManagement.singleton.closePanel();
         PetManagement.singleton.tempAnimal();
     }
 }

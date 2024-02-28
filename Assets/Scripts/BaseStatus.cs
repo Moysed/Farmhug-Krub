@@ -37,5 +37,10 @@ public class BaseStatus : MonoBehaviour
 
     public virtual void OnSell() { }
 
+    public virtual void CheckISLocked(bool Check)
+    {
+
+    }
+
     
 }

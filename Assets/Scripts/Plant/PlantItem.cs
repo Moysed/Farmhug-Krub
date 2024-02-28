@@ -19,6 +19,7 @@ public class PlantItem : MonoBehaviour
         Inventory.singleton.coin -= plant.price;
         Debug.Log("Buy :" + plant.ObjectName);
         farm.SelectPlant(this);
+        GroundMangement.singleton.closePanel();
         GroundMangement.singleton.tempPlanting();
     }
 }

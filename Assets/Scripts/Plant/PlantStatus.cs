@@ -17,6 +17,8 @@ public class PlantStatus : BaseStatus
     [SerializeField]
      BoxCollider2D plantCollider;
     public float afterWatertime = 0;
+
+    bool lockedstatus;
  
     
  
@@ -180,5 +182,18 @@ public class PlantStatus : BaseStatus
     {
         //waterCheck
         //base.CallUpdate();
+    }
+
+    public override void CheckISLocked(bool Check)
+    {
+        lockedstatus = Check;
+        if( Check == true)
+        {
+            plant.gameObject.SetActive(true);
+        }
+        else
+        {
+            plant.gameObject.SetActive(false);
+        }
     }
 }

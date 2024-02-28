@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using DG.Tweening;
+using System.Threading.Tasks;
 
 public class PetManagement : MonoBehaviour
 {
+
+    [SerializeField] RectTransform storePanelRect;
+    [SerializeField] float topPosY, middlePosY;
+    [SerializeField] float tweenDuration;
+
     public static PetManagement singleton;
 
     public GameObject storePanel;
@@ -59,13 +66,13 @@ public class PetManagement : MonoBehaviour
         if (!cm.isPeting)
         {
             
-                storePanel.SetActive(true);
-            
+            storePanel.SetActive(true);
+            storePanelIntro();
         }
 
         if (_tempAnimalStatus.IsPeted)
         {
-            storePanel.SetActive(false);
+            closePanel();
             if (_tempAnimalStatus.ObjectStage >= 1)
             {
                 _tempAnimalStatus.Collected();
@@ -73,10 +80,25 @@ public class PetManagement : MonoBehaviour
             }
         }
     }
+    public async void closePanel()
+    {
+        await storePanelOuttro();
+        storePanel.SetActive(false);
+    }
 
     public void tempAnimal()
     {
         _tempAnimalStatus.UpdateInfo(cm.selectAnimal.animal);
         _tempAnimalStatus = null;
+    }
+
+    void storePanelIntro()
+    {
+        storePanelRect.DOAnchorPosY(middlePosY, tweenDuration).SetUpdate(true);
+    }
+
+    async Task storePanelOuttro()
+    {
+        await storePanelRect.DOAnchorPosY(topPosY, tweenDuration).SetUpdate(true).AsyncWaitForCompletion();
     }
 }

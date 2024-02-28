@@ -41,6 +41,10 @@ public class PlantStatus : BaseStatus
     void Update()
     {
         CheckIsLocked(_spacePrice);
+        /*if(GroundMangement.singleton.fm.isPlanting == true && isLock == false)
+        {
+            Inventory.singleton.coin -= _spacePrice;
+        }*/
 
         //water Time
         if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
@@ -201,5 +205,14 @@ public class PlantStatus : BaseStatus
             //Inventory.singleton.coin -= _spacePrice;
             isLock = false;
         }
+
+        /*if(isLock == true)
+        {
+            Inventory.singleton.coin -= 0;
+        }
+        else if(isLock == false)
+        {
+            Inventory.singleton.coin -= _spacePrice;
+        }*/
     }
 }

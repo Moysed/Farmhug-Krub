@@ -39,12 +39,12 @@ public class PetManagement : MonoBehaviour
         status = this.GetComponentsInChildren<AnimalStatus>();
         inventory = FindObjectOfType<Inventory>();
 
-        if(_tempAnimalStatus.isLock == true)
-        {
+        //if(_tempAnimalStatus.isLock == true)
+        //{
             //Inventory.singleton.coin -= ;
             storePanel.SetActive(false);
-            Debug.Log(_tempAnimalStatus.isLock);
-        }
+        //    Debug.Log(_tempAnimalStatus.isLock);
+        //}
         //storePanel.SetActive(false);
     }
 

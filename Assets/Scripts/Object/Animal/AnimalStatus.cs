@@ -44,6 +44,11 @@ public class AnimalStatus : BaseStatus
     {
         CheckIsLocked(_spacePrice);
 
+        /*if(PetManagement.singleton.cm.isPeting == true && isLock == false)
+        {
+            Inventory.singleton.coin -= _spacePrice;
+        }*/
+
         if(IsPeted && feedTime >= 0 && feedTime <= 600 )
         {
             if(afterFeedtime <= 0)
@@ -210,5 +215,14 @@ public class AnimalStatus : BaseStatus
             //Inventory.singleton.coin -= _spacePrice;
             isLock = false;
         }
+
+        /*if(isLock == true)
+        {
+            Inventory.singleton.coin -= 0;
+        }
+        else if(isLock == false)
+        {
+            Inventory.singleton.coin -= _spacePrice;
+        }*/
     }
 }

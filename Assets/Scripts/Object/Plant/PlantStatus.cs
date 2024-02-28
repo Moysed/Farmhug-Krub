@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
+    public int _spacePrice;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
     public int waterTime;
     public  bool isWater = false;
     GroundMangement gm;
     public SpriteRenderer plant;
- 
+
+
  
     [SerializeField]
      BoxCollider2D plantCollider;
@@ -38,6 +40,8 @@ public class PlantStatus : BaseStatus
  
     void Update()
     {
+        CheckIsLocked(_spacePrice);
+
         //water Time
         if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
         {
@@ -184,16 +188,18 @@ public class PlantStatus : BaseStatus
         //base.CallUpdate();
     }
 
-    public override void CheckISLocked(bool Check)
+    public override void CheckIsLocked(int spacePrice)
     {
-        lockedstatus = Check;
-        if( Check == true)
+        _spacePrice = spacePrice;
+
+        if(Inventory.singleton.coin < _spacePrice)
         {
-            plant.gameObject.SetActive(true);
+            isLock = true;
         }
-        else
+        else if(Inventory.singleton.coin >= _spacePrice)
         {
-            plant.gameObject.SetActive(false);
+            //Inventory.singleton.coin -= _spacePrice;
+            isLock = false;
         }
     }
 }

@@ -147,6 +147,12 @@ public class Inventory : MonoBehaviour
                             sellPrice += amount * cm.selectAnimal.animal.sellPrice;
                             Debug.Log(sellPrice);
                         }
+                        else if (productType == "Mandrake")
+                        {
+                            // คำนวณราคารวมที่ขายได้จาก Mandrake
+                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
+                            Debug.Log(sellPrice);
+                        }
 
                         totalIncome += sellPrice;
                         coin += sellPrice;

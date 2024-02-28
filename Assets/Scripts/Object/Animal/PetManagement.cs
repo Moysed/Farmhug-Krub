@@ -38,7 +38,14 @@ public class PetManagement : MonoBehaviour
     {
         status = this.GetComponentsInChildren<AnimalStatus>();
         inventory = FindObjectOfType<Inventory>();
-        storePanel.SetActive(false);
+
+        if(_tempAnimalStatus.isLock == true)
+        {
+            //Inventory.singleton.coin -= ;
+            storePanel.SetActive(false);
+            Debug.Log(_tempAnimalStatus.isLock);
+        }
+        //storePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,16 +63,16 @@ public class PetManagement : MonoBehaviour
 
         _tempAnimalStatus = (BaseStatus)_objBase;
 
-        if(_tempAnimalStatus == null )
+        if(_tempAnimalStatus == null)
         {
             Debug.Log(_tempAnimalStatus);
             return;
         }
 
         Debug.Log(_tempAnimalStatus);
-        if (!cm.isPeting)
+        if (!cm.isPeting && _tempAnimalStatus.isLock == false)
         {
-            
+            Debug.Log(_tempAnimalStatus.isLock);
             storePanel.SetActive(true);
             storePanelIntro();
         }

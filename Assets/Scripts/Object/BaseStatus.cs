@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class BaseStatus : MonoBehaviour
 {
-        
-    public bool IsPeted = false;
+    //All Objects
+    [SerializeField] protected InfoObject _selfObjectInfo;
+    public int ObjectStage = 0;
+    public bool collectCheck = false;
+    public string ObjectName;
+    public bool isLock = true;
+
+    //Plant
     public bool IsPlanted = false;
 
-    public int ObjectStage = 0;
 
-    public bool collectCheck = false;
-    //public int animalStage = 0;
-
-    public string ObjectName;
-    //public string plantName;
-
-
-    [SerializeField]
-    protected InfoObject _selfObjectInfo;
+    //Animal
+    public bool IsPeted = false;
 
     public virtual void CallUpdate()
     {
@@ -37,10 +35,8 @@ public class BaseStatus : MonoBehaviour
 
     public virtual void OnSell() { }
 
-    public virtual void CheckISLocked(bool Check)
+    public virtual void CheckIsLocked(int spacePrice)
     {
-
+        
     }
-
-    
 }

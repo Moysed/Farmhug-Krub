@@ -37,7 +37,11 @@ public class GroundMangement : MonoBehaviour
     {
         status = this.GetComponentsInChildren<PlantStatus>();
         inventory = FindObjectOfType<Inventory>();
-        storePanel.SetActive(false);
+        if(_tempPlantStatus.isLock == true)
+        {
+            storePanel.SetActive(false);
+            Debug.Log(_tempPlantStatus.isLock);
+        }
     }
 
     // Update is called once per frame
@@ -90,10 +94,11 @@ public class GroundMangement : MonoBehaviour
     {
         _tempPlantStatus = (BaseStatus)_objBase;
 
-        if (!fm.isPlanting)
+        if (!fm.isPlanting && _tempPlantStatus.isLock == false)
         {
             if (_tempPlantStatus.ObjectStage == 0)
             {
+                Debug.Log(_tempPlantStatus.isLock);
                 storePanel.SetActive(true);
                 storePanelIntro();
             }

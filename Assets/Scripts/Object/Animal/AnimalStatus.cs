@@ -13,6 +13,7 @@ public class AnimalStatus : BaseStatus
     public bool isSell = false;
     PetManagement pm;
     float animalAnimTimer;
+    public int _spacePrice;
     
 
     public SpriteRenderer animal;
@@ -41,7 +42,8 @@ public class AnimalStatus : BaseStatus
  
     void Update()
     {
-        
+        CheckIsLocked(_spacePrice);
+
         if(IsPeted && feedTime >= 0 && feedTime <= 600 )
         {
             if(afterFeedtime <= 0)
@@ -120,9 +122,7 @@ public class AnimalStatus : BaseStatus
                 {
                     UpdateAnimal();
                     animalAnimTimer = _selfObjectInfo.timeBtwstage;
-                }
-                
-                
+                } 
             }
         }
        
@@ -180,13 +180,10 @@ public class AnimalStatus : BaseStatus
 
     public override void OnSell()
     {
-      
             Debug.Log(pm.inventory);
 
             pm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, pm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
             isSell = false;
-            
-        
     }
 
     public override void Collected()
@@ -198,5 +195,20 @@ public class AnimalStatus : BaseStatus
         isfeed = false;
         animal.gameObject.SetActive(false);
         pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+    }
+
+    public override void CheckIsLocked(int spacePrice)
+    {
+        _spacePrice = spacePrice;
+
+        if(Inventory.singleton.coin < _spacePrice)
+        {
+            isLock = true;
+        }
+        else if(Inventory.singleton.coin >= _spacePrice)
+        {
+            //Inventory.singleton.coin -= _spacePrice;
+            isLock = false;
+        }
     }
 }

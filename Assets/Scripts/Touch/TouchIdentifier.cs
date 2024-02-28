@@ -8,12 +8,20 @@ public class TouchIdentifier : MonoBehaviour {
     public float timeCreated;
     public Vector2 startPosition;
     public Vector3 deltaPosition;
+
+    /*private AnimalStatus animal;
+
+    public void Start()
+    {
+        animal = GetComponent<AnimalStatus>();
+    }*/
    
     public void OnTriggerEnter2D(Collider2D collision)
     {
         //collider = collision;
         if (collision.tag == "Ground")
         {
+            //animal.CheckIsLocked(animal._spacePrice);
 
             //Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();

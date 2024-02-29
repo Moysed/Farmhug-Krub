@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
     {
         cm = FindObjectOfType<CoopManager>();
         fm = FindObjectOfType<FarmManager>();
-        autoSell = FindObjectOfType<SellManager>();
+        autoSell = GetComponent<SellManager>();
         sellPrice = new int[5];
         coin = 15;
         //sellTime = 30;

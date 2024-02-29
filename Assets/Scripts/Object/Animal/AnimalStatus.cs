@@ -131,7 +131,7 @@ public class AnimalStatus : BaseStatus
             }
         }
        
-        if(pm.inventory.autoSell.sellTime <= 0)
+        if(pm.inventory.autoSell.sellTime == 0)
         {
             OnSell();    
         }

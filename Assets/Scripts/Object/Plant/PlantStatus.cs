@@ -122,7 +122,7 @@ public class PlantStatus : BaseStatus
             }
         }   
 
-        if (gm.inventory.autoSell.sellTime <= 0)
+        if (gm.inventory.autoSell.sellTime == 0)
         {
             gm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }

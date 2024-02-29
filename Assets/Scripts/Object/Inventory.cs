@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     private FarmManager fm;
     public int coin;
 
+    int[] sellPrice;
+
     //private int[] amountSellPrice;
 
     int totalIncome;
@@ -28,7 +30,7 @@ public class Inventory : MonoBehaviour
         cm = FindObjectOfType<CoopManager>();
         fm = FindObjectOfType<FarmManager>();
         autoSell = FindObjectOfType<SellManager>();
-        
+        sellPrice = new int[5];
         coin = 15;
         //sellTime = 30;
     }
@@ -68,8 +70,54 @@ public class Inventory : MonoBehaviour
         {
             if (inventory[productType] >= amount)
             {
-                //inventory[productType] -= amount;
-                //Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                if(productType == "Mandrake")
+                {
+                    inventory[productType] -= amount;
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 5;
+                    totalIncome += 5;
+                    
+                }
+                if (productType == "Cow")
+                {
+                    inventory[productType] -= amount;
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 2;
+                    totalIncome += 2;
+                    
+                }
+                if (productType == "Pig")
+                {
+                    inventory[productType] -= amount;
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 8;
+                    totalIncome += 8;
+                  
+                }
+                if (productType == "Chicken")
+                {
+                    inventory[productType] -= amount;
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 2;
+                    totalIncome += 2;
+                    
+                }
+                if (productType == "Berry")
+                {
+                    inventory[productType] -= amount;
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 4;
+                    totalIncome += 4;
+
+                }
+                if (productType == "Corn")
+                {
+                    inventory[productType] -= amount;
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 2;
+                    totalIncome += 2;
+
+                }
 
                 //for(int i = 0; i < 5; i++)
                 /*if(productType == "Corn")
@@ -109,56 +157,12 @@ public class Inventory : MonoBehaviour
             Debug.Log("Plant type " + productType + " not found in inventory.");
         }*/
 
-                if (inventory.ContainsKey(productType))
-                {
-                    if (inventory[productType] >= amount)
-                    {
-                        inventory[productType] -= amount;
-                        Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
 
-                        int sellPrice = 0; // ราคารวมที่ขายได้จากสินค้าชนิดนี้
-                        if (productType == "Corn")
-                        {
-                            // คำนวณราคารวมที่ขายได้จาก Corn
-                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
-                            Debug.Log(sellPrice);
-                        }
-                        else if (productType == "Berry")
-                        {
-                            // คำนวณราคารวมที่ขายได้จาก Berry
-                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
-                            Debug.Log(sellPrice);
-                        }
-                        else if (productType == "Pig")
-                        {
-                            // คำนวณราคารวมที่ขายได้จาก Pig
-                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
-                            Debug.Log(sellPrice);
-                        }
-                        else if (productType == "Chicken")
-                        {
-                            // คำนวณราคารวมที่ขายได้จาก Chicken
-                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
-                            Debug.Log(sellPrice);
-                        }
-                        else if (productType == "Cow")
-                        {
-                            // คำนวณราคารวมที่ขายได้จาก Cow
-                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
-                            Debug.Log(sellPrice);
-                        }
-                        else if (productType == "Mandrake")
-                        {
-                            // คำนวณราคารวมที่ขายได้จาก Mandrake
-                            sellPrice += amount * cm.selectAnimal.animal.sellPrice;
-                            Debug.Log(sellPrice);
-                        }
 
-                        totalIncome += sellPrice;
-                        coin += sellPrice;
+                Debug.Log("Total income: " + totalIncome + ", Total coin: " + coin);
+                totalIncome = 0;
 
-                        Debug.Log("Total income: " + totalIncome + ", Total coin: " + coin);
-                    }
+            }
                     else
                     {
                         Debug.Log("Not enough " + productType + " in inventory to sell.");
@@ -169,8 +173,7 @@ public class Inventory : MonoBehaviour
                     Debug.Log("Plant type " + productType + " not found in inventory.");
                 }
             }
-        }
-    }
+        
 
     // Get the quantity of a specific product type in the inventory
     public int GetPlantQuantity(string productType)

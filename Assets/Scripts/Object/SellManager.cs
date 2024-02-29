@@ -8,15 +8,15 @@ public class SellManager : MonoBehaviour
     CoinManagement CoinManagement;
     Inventory inventory;
 
-    public float sellTime = 30;
+    public float sellTime = 0;
 
     // Update is called once per frame
     public void AutoSell()
     {
-        sellTime -= Time.deltaTime;
-        if (sellTime <= 0)
+        sellTime += Time.deltaTime;
+        if (sellTime >= 30)
         {
-            sellTime = 30;
+            sellTime = 0;
         }
     }
 }

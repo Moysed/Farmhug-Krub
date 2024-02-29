@@ -77,6 +77,7 @@ public class TouchDetector : MonoBehaviour {
     }
     public virtual void OnTouchMoved(Touch touch) {
         UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
+        TouchRest(touch);
     }
     public virtual void OnTouchStay(Touch touch) {
         UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
@@ -154,5 +155,12 @@ public class TouchDetector : MonoBehaviour {
         touchId.gameObject.SetActive(false);
         touchId.fingerId = -1;
         Destroy(touchId.gameObject);
+    }
+
+    void TouchRest(Touch touch)
+    {
+        TouchIdentifier touchId = GetTouchIdentifierWithTouch(touch);
+
+        touchId.gameObject.SetActive(false) ;
     }
 }

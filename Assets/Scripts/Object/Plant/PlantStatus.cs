@@ -20,7 +20,7 @@ public class PlantStatus : BaseStatus
      BoxCollider2D plantCollider;
     public float afterWatertime = 0;
 
-    bool lockedstatus;
+    bool _isBought = false;
  
     
  
@@ -40,7 +40,7 @@ public class PlantStatus : BaseStatus
  
     void Update()
     {
-        CheckIsLocked(_spacePrice);
+        
         /*if(GroundMangement.singleton.fm.isPlanting == true && isLock == false)
         {
             Inventory.singleton.coin -= _spacePrice;
@@ -199,12 +199,16 @@ public class PlantStatus : BaseStatus
 
         if(Inventory.singleton.coin < _spacePrice)
         {
+            
             isLock = true;
+            IsBought(isLock);
         }
         else if(Inventory.singleton.coin >= _spacePrice)
         {
             //Inventory.singleton.coin -= _spacePrice;
             isLock = false;
+            
+            IsBought(isLock);
         }
 
         /*if(isLock == true)
@@ -215,5 +219,31 @@ public class PlantStatus : BaseStatus
         {
             Inventory.singleton.coin -= _spacePrice;
         }*/
+    }
+
+    public override void IsBought(bool b)
+    {
+        if (!b && _isBought == false)
+        {
+            Inventory.singleton.coin -= _spacePrice;
+            _isBought = true;
+        }
+        else if (_isBought)
+        {
+            Debug.Log("Already bought");
+        }
+        else
+        {
+            Debug.Log("Not enough coin");
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "enemy")
+        {
+            plant.gameObject.SetActive(false);
+        }
     }
 }

@@ -61,7 +61,7 @@ public class GroundMangement : MonoBehaviour
         {
             if (_tempPlantStatus.ObjectStage == 0)
             {
-                Debug.Log(_tempPlantStatus.isLock);
+                //Debug.Log(_tempPlantStatus.isLock);
                 storePanel.SetActive(true);
                 storePanelIntro();
             }

@@ -39,4 +39,9 @@ public class BaseStatus : MonoBehaviour
     {
         
     }
+
+    public virtual void IsBought(bool buy)
+    {
+
+    }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Status
   - PlantStatus'
   - ANimalContainer
+  - enemy
   layers:
   - Default
   - TransparentFX

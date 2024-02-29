@@ -25,8 +25,10 @@ public class TouchIdentifier : MonoBehaviour {
 
             //Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+            PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
 
             //ebug.Log(_tempStatus);
+            _tempPlantStatus.CheckIsLocked(_tempPlantStatus._spacePrice);
             GroundMangement.singleton.Isplanted(_tempStatus);
         }
 
@@ -34,11 +36,12 @@ public class TouchIdentifier : MonoBehaviour {
         {
             Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+            AnimalStatus _tempAnimalStatus = collision.GetComponent<AnimalStatus>();
             //Debug.Log(_tempStatus);
 
             if(_tempStatus == null)
                 _tempStatus = collision.GetComponentInParent<BaseStatus>();
-
+            _tempAnimalStatus.CheckIsLocked(_tempAnimalStatus._spacePrice);
             PetManagement.singleton.IsPeted(_tempStatus);
             //Debug.Log(_tempStatus);
         }

@@ -15,7 +15,7 @@ public class AnimalStatus : BaseStatus
     float animalAnimTimer;
     public int _spacePrice;
     
-
+    bool _isBought = false;
     public SpriteRenderer animal;
    
  
@@ -42,7 +42,7 @@ public class AnimalStatus : BaseStatus
  
     void Update()
     {
-        CheckIsLocked(_spacePrice);
+//CheckIsLocked(_spacePrice);
 
         /*if(PetManagement.singleton.cm.isPeting == true && isLock == false)
         {
@@ -209,23 +209,42 @@ public class AnimalStatus : BaseStatus
     {
         _spacePrice = spacePrice;
 
-        if(Inventory.singleton.coin < _spacePrice)
+        if (Inventory.singleton.coin < _spacePrice)
         {
             isLock = true;
+            IsBought(isLock);
         }
-        else if(Inventory.singleton.coin >= _spacePrice)
+        else if (Inventory.singleton.coin >= _spacePrice)
         {
             //Inventory.singleton.coin -= _spacePrice;
             isLock = false;
+            IsBought(isLock);
         }
-
-        /*if(isLock == true)
-        {
-            Inventory.singleton.coin -= 0;
-        }
-        else if(isLock == false)
+    }
+        public override void IsBought(bool b)
+    {
+        if (!b && _isBought == false)
         {
             Inventory.singleton.coin -= _spacePrice;
-        }*/
+            _isBought = true;
+        }
+        else if (_isBought)
+        {
+            Debug.Log("Already bought");
+        }
+        else
+        {
+            Debug.Log("Not enough coin");
+        }
+
     }
+    /*if(isLock == true)
+    {
+        Inventory.singleton.coin -= 0;
+    }
+    else if(isLock == false)
+    {
+        Inventory.singleton.coin -= _spacePrice;
+    }*/
 }
+

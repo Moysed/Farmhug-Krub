@@ -70,52 +70,56 @@ public class Inventory : MonoBehaviour
         {
             if (inventory[productType] >= amount)
             {
-                if(productType == "Mandrake")
+                if(productType == "Mandrake" && amount != 0 && inventory[productType] != 0)
                 {
-                    inventory[productType] -= amount;
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 5;
-                    totalIncome += 5;
-                    
+                    coin += 5 * inventory[productType];
+                    totalIncome += 5 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
                 }
-                if (productType == "Cow")
+                if (productType == "Cow" && amount != 0 && inventory[productType] != 0)
                 {
-                    inventory[productType] -= amount;
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 2;
-                    totalIncome += 2;
-                    
-                }
-                if (productType == "Pig")
-                {
-                    inventory[productType] -= amount;
-                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 8;
-                    totalIncome += 8;
-                  
-                }
-                if (productType == "Chicken")
-                {
-                    inventory[productType] -= amount;
-                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 2;
-                    totalIncome += 2;
-                    
-                }
-                if (productType == "Berry")
-                {
-                    inventory[productType] -= amount;
-                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 4;
-                    totalIncome += 4;
+                    coin += 0 * inventory[productType];
+                    totalIncome += 2 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
 
                 }
-                if (productType == "Corn")
+                if (productType == "Pig" && amount != 0 && inventory[productType] != 0)
                 {
-                    inventory[productType] -= amount;
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 2;
-                    totalIncome += 2;
+                    coin += 8 * inventory[productType];
+                    totalIncome += 8 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
+                }
+                if (productType == "Chicken" && amount != 0 && inventory[productType] != 0)
+                {
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 2 * inventory[productType];
+                    totalIncome += 2 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
+
+                }
+                if (productType == "Berry" && amount != 0 && inventory[productType] != 0)
+                {
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 4 * inventory[productType];
+                    totalIncome += 4 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
+
+                }
+                if (productType == "Corn" && amount != 0 && inventory[productType] != 0)
+                {
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 2 * inventory[productType];
+                    totalIncome += 2 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
 
                 }
 

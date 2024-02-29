@@ -186,9 +186,12 @@ public class AnimalStatus : BaseStatus
     public override void OnSell()
     {
             Debug.Log(pm.inventory);
-
+        if(_selfObjectInfo != null)
+        {
             pm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, pm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
             isSell = false;
+        }
+           
     }
 
     public override void Collected()

@@ -120,10 +120,11 @@ public class PlantStatus : BaseStatus
                 }
                 UpdatePlant();
             }
-        }   
+        }
 
         if (gm.inventory.autoSell.sellTime == 0)
         {
+            if(_selfObjectInfo != null)
             gm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }
     }

@@ -15,10 +15,17 @@ public class AnimalItem : MonoBehaviour
 
     public void BuyAnimal()
     {
+        if(Inventory.singleton.coin >= animal.price)
+        {
         Inventory.singleton.coin -= animal.price;
         Debug.Log("Buy :" + animal.ObjectName);
         coop.SelectAnimal(this);
         PetManagement.singleton.closePanel();
         PetManagement.singleton.tempAnimal();
+        }
+        else
+        {
+            Debug.Log("Not Enough Coin");
+        }
     }
 }

@@ -67,6 +67,16 @@ public class GroundMangement : MonoBehaviour
             }
         }
 
+        /* if (!fm.isPlanting && _tempPlantStatus._isBought == true)
+        {
+            if (_tempPlantStatus.ObjectStage == 0)
+            {
+                //Debug.Log(_tempPlantStatus.isLock);
+                storePanel.SetActive(true);
+                storePanelIntro();
+            }
+        } */
+
         if (_tempPlantStatus.IsPlanted)
         {
            closePanel();

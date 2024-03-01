@@ -15,7 +15,7 @@ public class AnimalStatus : BaseStatus
     float animalAnimTimer;
     public int _spacePrice;
     
-    bool _isBought = false;
+    public bool _isBought = false;
     public SpriteRenderer animal;
    
  

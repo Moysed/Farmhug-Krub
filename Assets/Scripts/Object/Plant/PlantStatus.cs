@@ -13,14 +13,13 @@ public class PlantStatus : BaseStatus
     public  bool isWater = false;
     GroundMangement gm;
     public SpriteRenderer plant;
-
-
- 
+    float destroyTime = 0;
+    
     [SerializeField]
      BoxCollider2D plantCollider;
     public float afterWatertime = 0;
 
-    bool _isBought = false;
+    public bool _isBought = false;
  
     
  
@@ -40,7 +39,6 @@ public class PlantStatus : BaseStatus
  
     void Update()
     {
-        
         /*if(GroundMangement.singleton.fm.isPlanting == true && isLock == false)
         {
             Inventory.singleton.coin -= _spacePrice;
@@ -243,7 +241,11 @@ public class PlantStatus : BaseStatus
     {
         if(collision.tag == "enemy")
         {
-            plant.gameObject.SetActive(false);
+            //destroyTime += Time.deltaTime;
+            //if(destroyTime >= 5)
+            //{
+                plant.gameObject.SetActive(false);
+            //}
         }
     }
 }

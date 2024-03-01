@@ -16,10 +16,18 @@ public class PlantItem : MonoBehaviour
 
     public void BuyPlant()
     {
-        Inventory.singleton.coin -= plant.price;
-        Debug.Log("Buy :" + plant.ObjectName);
-        farm.SelectPlant(this);
-        GroundMangement.singleton.closePanel();
-        GroundMangement.singleton.tempPlanting();
+        if(Inventory.singleton.coin >= plant.price)
+        {
+            Inventory.singleton.coin -= plant.price;
+            Debug.Log("Buy :" + plant.ObjectName);
+            farm.SelectPlant(this);
+            GroundMangement.singleton.closePanel();
+            GroundMangement.singleton.tempPlanting();
+        }
+        else
+        {
+            Debug.Log("Not Enough Coin");
+        }
+        
     }
 }

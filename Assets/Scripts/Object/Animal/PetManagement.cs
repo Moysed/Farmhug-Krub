@@ -77,6 +77,13 @@ public class PetManagement : MonoBehaviour
             storePanelIntro();
         }
 
+        /* if (!cm.isPeting && _tempAnimalStatus._isBought == true)
+        {
+            Debug.Log(_tempAnimalStatus._isBought);
+            storePanel.SetActive(true);
+            storePanelIntro();
+        } */
+
         if (_tempAnimalStatus.IsPeted)
         {
             closePanel();

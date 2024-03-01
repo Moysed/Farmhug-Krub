@@ -73,8 +73,5 @@ public class EnemySpawner : MonoBehaviour
 
         // Increment current enemy count
         currentEnemyCount++;
-
-
-      
     }
 }

@@ -2944,7 +2944,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4766936144406374861, guid: 124ca1656b970824c87e0e351012ff66, type: 3}
   spawnInterval: 2
   spawnRadius: 5
-  maxEnemyCount: 10
+  maxEnemyCount: 1
 --- !u!4 &1217447273
 Transform:
   m_ObjectHideFlags: 0
@@ -3914,6 +3914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2049931395}
     m_Modifications:
+    - target: {fileID: 756567569539054912, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2354406988577056568, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -4484,6 +4488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2049931395}
     m_Modifications:
+    - target: {fileID: 756567569539054912, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2354406988577056568, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.42

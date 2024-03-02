@@ -12,6 +12,7 @@ TagManager:
   - PlantStatus'
   - ANimalContainer
   - enemy
+  - CamEdge
   layers:
   - Default
   - TransparentFX

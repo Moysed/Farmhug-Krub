@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
 
     private CoopManager cm;
     private FarmManager fm;
-    public int coin;
+    public int coin = 15;
 
     int[] sellPrice;
 
@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
         fm = FindObjectOfType<FarmManager>();
         autoSell = GetComponent<SellManager>();
         sellPrice = new int[5];
-        coin = 15;
+        //coin = 15;
         //sellTime = 30;
     }
 

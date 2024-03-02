@@ -57,8 +57,18 @@ public class TouchIdentifier : MonoBehaviour {
 
                 PetManagement.singleton._tempAnimalStatus.Collected();
                 status.collectCheck = false;
+            } 
+        }
+
+        if(collision.tag == "enemy")
+        {
+            EnemiesFollowing enemy = collision.GetComponent<EnemiesFollowing>();
+            enemy.hp -= 1;
+            if(enemy.hp < 0)
+            {
+                enemy.hp = 0;
             }
-                
+            Debug.Log(enemy.hp);
         }
     }
 }

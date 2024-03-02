@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
+
     public int _spacePrice;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
@@ -30,7 +29,7 @@ public class PlantStatus : BaseStatus
     }
  
     public InstanceMode instanceMode = InstanceMode.Pool;
- 
+
     void Start()
     {
         gm = GroundMangement.singleton;
@@ -241,11 +240,7 @@ public class PlantStatus : BaseStatus
     {
         if(collision.tag == "enemy")
         {
-            //destroyTime += Time.deltaTime;
-            //if(destroyTime >= 5)
-            //{
-                plant.gameObject.SetActive(false);
-            //}
+        plant.gameObject.SetActive(false);
         }
     }
 }

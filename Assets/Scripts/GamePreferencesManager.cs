@@ -8,7 +8,7 @@ public class GamePreferencesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadPrefs();
+        //LoadPrefs();
     }
 
     void OnApplicationQuit()

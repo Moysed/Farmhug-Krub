@@ -9,7 +9,7 @@ public class MusicPlay : MonoBehaviour
     public GameObject ObjMusic;
 
     //Value from slider, and it converts to volume level
-    public float MusicVolume;
+    private float MusicVolume = 0f;
     private AudioSource AudioSource;
 
     // Start is called before the first frame update

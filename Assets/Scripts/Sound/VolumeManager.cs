@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,56 @@ using UnityEngine.UI;
     {
         //public AudioMixer _audio;
         //public AudioClip _audio;
-        public Slider slider;
-        //public float sliderValue;
-        //public GameObject on;
-        //public GameObject off;
+        public Slider volumeSlider;
+    public GameObject ObjMusic;
+    private AudioSource AudioSource;
+    //public float sliderValue;
+    //public GameObject on;
+    //public GameObject off;
+
+    //Value from slider, and it converts to volume level
+    [SerializeField]
+    private float _musicVolume;
+    private float MusicVolume
+    {
+        get
+        {
+            _musicVolume = PlayerPrefs.GetFloat("volume");
+            Debug.Log("Get Volume : " + _musicVolume);
+
+            if(volumeSlider != null )
+            volumeSlider.value = _musicVolume;
+            //if(_musicVolume < )
+            //PlayerPrefs.SetFloat("volume", _musicVolume);
+
+            return _musicVolume;
+        }
+
+        set
+        {
+            _musicVolume = value;
+            Debug.Log("Set Volume : " + _musicVolume);
+
+            PlayerPrefs.SetFloat("volume", _musicVolume);
+
+            if(AudioSource != null )
+            AudioSource.volume = _musicVolume;
+            
+            //volumeSlider.value = _musicVolume;
+        }
+    }
+
 
     void Start()
     {
+        ObjMusic = GameObject.FindWithTag("BGM");
+        AudioSource = ObjMusic.GetComponent<AudioSource>();
+
+        //Set Volume
+        MusicVolume = MusicVolume;
+
+
+        /*
         //slider.value = PlayerPrefs.GetFloat("save", sliderValue);
         if (PlayerPrefs.HasKey("musicVolume"))
         {
@@ -22,7 +66,7 @@ using UnityEngine.UI;
         else
         {
             Load();
-        }
+        }*/
     }
 
     /*public void ChangeSlider(float value)
@@ -31,20 +75,21 @@ using UnityEngine.UI;
         PlayerPrefs.SetFloat("save", sliderValue);
     }*/
 
-    public void SetVolume(/*float vol*/)
+    public void SetVolume()
     {
-      AudioListener.volume = slider.value;
+        // AudioListener.volume = slider.value;
+        MusicVolume = volumeSlider.value;
     }
 
     public void Load()
     {
-        slider.value = PlayerPrefs.GetFloat("musicVolume");
-        Save();
+        //slider.value = PlayerPrefs.GetFloat("musicVolume");
+        //Save();
     }
 
     public void Save()
     {
-        PlayerPrefs.SetFloat("musicVolume", slider.value);
+       // PlayerPrefs.SetFloat("musicVolume", slider.value);
     }
         /* public void On()
         {

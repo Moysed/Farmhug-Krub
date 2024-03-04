@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlantStatus : BaseStatus
@@ -62,7 +63,7 @@ public class PlantStatus : BaseStatus
                 waterTime = 0;
             }
  
-        if (waterTime == 600)
+        if (waterTime == 600 && plant.gameObject.activeSelf)
         {
                 Debug.Log("Watering");
                 ShowStatus();
@@ -72,6 +73,12 @@ public class PlantStatus : BaseStatus
             waterTime = 601;
         }
  
+        if(plant.gameObject.activeSelf == false && IsPlanted == true)
+        {
+            IsPlanted = false;
+            destroyStatus();
+        }
+
         //Status Touch
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -125,16 +132,22 @@ public class PlantStatus : BaseStatus
             gm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }
     }
+    Plant _selfPlantStatus;
     void ShowStatus()
     {
-        Plant newPlant = InstantiateObject(StatusPrefab).GetComponent<Plant>();
-        newPlant.tag = "PlantStatus'";
-        
+        _selfPlantStatus = InstantiateObject(StatusPrefab).GetComponent<Plant>();
+        _selfPlantStatus.tag = "PlantStatus'";
+
         // Set the new plant's position
-        newPlant.transform.position = statusPos;
-        newPlant._ownerPlantObjectPrefabs = this;
+        _selfPlantStatus.transform.position = statusPos;
+        _selfPlantStatus._ownerPlantObjectPrefabs = this;
         // Reset grow time for the new plant
         //waterTime = 10f;
+    }
+
+    void destroyStatus()
+    {
+        Lean.Pool.LeanPool.Despawn(_selfPlantStatus.gameObject);
     }
  
     // Single Game Object
@@ -176,12 +189,12 @@ public class PlantStatus : BaseStatus
  
     GameObject InstantiateObject(GameObject obj)
     {
-        if (instanceMode == InstanceMode.Instance)
-            return Instantiate(obj);
-        else if (instanceMode == InstanceMode.Pool)
+       // if (instanceMode == InstanceMode.Instance)
+       //     return Instantiate(obj);
+       // else if (instanceMode == InstanceMode.Pool)
             return Lean.Pool.LeanPool.Spawn(obj);
  
-        return null;
+       // return null;
     }
 
     public override void CallUpdate()
@@ -238,9 +251,20 @@ public class PlantStatus : BaseStatus
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "enemy")
+        if (collision.tag == "enemy")
         {
-        plant.gameObject.SetActive(false);
+            //Destroy(plant.gameObject, 1);
+            Invoke("destroyPlantFromEnemy", 1);
         }
+    }
+
+    void destroyPlantFromEnemy()
+    {
+        /*if(StatusPrefab.gameObject.active == true)
+        {
+            StatusPrefab.gameObject.SetActive(false);
+        }*/
+        plant.gameObject.SetActive(false);
+        //Lean.Pool.LeanPool.Despawn(StatusPrefab.gameObject);
     }
 }

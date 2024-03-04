@@ -5,13 +5,21 @@ using Lean.Pool;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner singleton;
+
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
     public float spawnRadius = 5f;
     public int maxEnemyCount = 10; // Maximum number of enemies allowed
 
+    [SerializeField]
     private float spawnTimer;
-    private int currentEnemyCount = 0;
+    public int currentEnemyCount = 0;
+
+    void Awake()
+    {
+        singleton = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +40,11 @@ public class EnemySpawner : MonoBehaviour
             // Spawn a new enemy
             SpawnEnemy();
 
+           
+        }
+
+        if(spawnTimer < 0)
+        {
             // Reset the spawn timer
             spawnTimer = spawnInterval;
         }
@@ -70,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Spawn enemy using LeanPool
         GameObject newEnemy = LeanPool.Spawn(enemyPrefab, spawnPosition, Quaternion.identity);
-
+        //LeanPool.Links.Count
         // Increment current enemy count
         currentEnemyCount++;
     }

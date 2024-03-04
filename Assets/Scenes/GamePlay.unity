@@ -990,6 +990,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8327775371774541832, guid: 3ed805c49c4d54c0b81a8763d8182e04, type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 360277384}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1009,6 +1013,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07ce9f952efa34a3085fa8b49d3a5403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &360277384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4049829235989181497, guid: 3ed805c49c4d54c0b81a8763d8182e04, type: 3}
+  m_PrefabInstance: {fileID: 360277381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &371054845 stripped
@@ -3250,9 +3265,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4766936144406374861, guid: 124ca1656b970824c87e0e351012ff66, type: 3}
-  spawnInterval: 2
+  spawnInterval: 10
   spawnRadius: 5
   maxEnemyCount: 1
+  currentEnemyCount: 0
 --- !u!4 &1217447273
 Transform:
   m_ObjectHideFlags: 0
@@ -4829,6 +4845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 4049829235989181497, guid: 3ed805c49c4d54c0b81a8763d8182e04, type: 3}
   ObjMusic: {fileID: 0}
+  _musicVolume: 0
 --- !u!4 &1931172607
 Transform:
   m_ObjectHideFlags: 0
@@ -5181,7 +5198,7 @@ Transform:
   m_GameObject: {fileID: 2062080157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.37, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

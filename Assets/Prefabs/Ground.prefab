@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 756567569539054912}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: -0.027, z: 0}
-  m_LocalScale: {x: 1.687918, y: 2.1216528, z: 1}
+  m_LocalPosition: {x: 0.006, y: -0.346, z: 0}
+  m_LocalScale: {x: 0.5832357, y: 0.66683704, z: 0.44367686}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2354406988577056568}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -75415025
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300082, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6744f7013a0e0c4d9b5f4e12077069b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,18 +117,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    pivot: {x: 0.5, y: 0.032674015}
+    oldSize: {x: 1.92, y: 1.44}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &2537855371990055262
 GameObject:
@@ -230,11 +230,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35c4f75aaad14638800661c4cfa136b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPeted: 0
-  IsPlanted: 0
-  ObjectStage: 0
-  ObjectName: 
   _selfObjectInfo: {fileID: 0}
+  ObjectStage: 0
+  collectCheck: 0
+  ObjectName: 
+  isLock: 1
+  IsPlanted: 0
+  IsPeted: 0
+  _spacePrice: 5
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
   statusPos: {x: -7.57, y: 0.63, z: 0}
   waterTime: 0
@@ -242,6 +245,7 @@ MonoBehaviour:
   plant: {fileID: 6208606215576805197}
   plantCollider: {fileID: 3504059331523778184}
   afterWatertime: 0
+  _isBought: 0
   instanceMode: 1
 --- !u!61 &8392162931535059171
 BoxCollider2D:

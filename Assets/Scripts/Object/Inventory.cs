@@ -122,46 +122,15 @@ public class Inventory : MonoBehaviour
                     amount = 0;
 
                 }
+                if (productType == "Wheat" && amount != 0 && inventory[productType] != 0)
+                {
+                    Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
+                    coin += 4 * inventory[productType];
+                    totalIncome += 4 * inventory[productType];
+                    inventory[productType] = 0;
+                    amount = 0;
 
-                //for(int i = 0; i < 5; i++)
-                /*if(productType == "Corn")
-                {
-                    if (inventory.ContainsKey(productType))
-                    {
-                        inventory[productType]++;
-                    }
-                    amountSellPrice[1] += inventory[productType] * amount;
                 }
-                else if(productType == "Berry")
-                {
- 
-                }
-                else if(productType == "Pig")
-                {
-                    
-                }
-                else if(productType == "Chicken")
-                {
-                    
-                }
-                else if(productType == "Cow")
-                {
-                    
-                }
-                totalIncome += cm.selectAnimal.animal.sellPrice * amount;
-                coin += totalIncome;
-            }
-            else
-            {
-                Debug.Log("Not enough " + productType + " in inventory to sell.");
-            }
-        }
-        else
-        {
-            Debug.Log("Plant type " + productType + " not found in inventory.");
-        }*/
-
-
 
                 Debug.Log("Total income: " + totalIncome + ", Total coin: " + coin);
                 totalIncome = 0;

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: Corn
   ObjectStages:
-  - {fileID: 21300056, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
-  - {fileID: 21300082, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
+  - {fileID: 21300000, guid: a32847caea407534781aa33b4e9f4fc3, type: 3}
+  - {fileID: 21300000, guid: aa71ac71b4b4611438d5a3a9b9401d50, type: 3}
+  - {fileID: 21300000, guid: 2655039b56e68714f987c070487362ef, type: 3}
+  - {fileID: 21300000, guid: c987c4ba699b23d418ae6133bb78dc94, type: 3}
+  - {fileID: 21300000, guid: d6744f7013a0e0c4d9b5f4e12077069b, type: 3}
   timeBtwstage: 2
   price: 1
-  sellPrice: 2

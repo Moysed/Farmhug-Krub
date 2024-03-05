@@ -80,9 +80,10 @@ public class GroundMangement : MonoBehaviour
         if (_tempPlantStatus.IsPlanted)
         {
            closePanel();
-            if (_tempPlantStatus.ObjectStage >= 1)
+            if (_tempPlantStatus.ObjectStage >= 5)
             {
                 _tempPlantStatus.Collected();
+                _tempPlantStatus.collectCheck = true;
             }
         }
     }

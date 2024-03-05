@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
-
+    float plantAnimTimer;
     public int _spacePrice;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
@@ -114,15 +114,22 @@ public class PlantStatus : BaseStatus
         //Stage Update
         if (IsPlanted == true)
         {
+            plantAnimTimer -= Time.deltaTime;
             if ( afterWatertime <= 0 && isWater == true)
             {
                 ObjectStage++; 
 
                 if (ObjectStage >= gm.selectedPlant.ObjectStages.Length)
                 {
-                    ObjectStage = 1;
+                    //collectCheck = true;
+                    ObjectStage = gm.selectedPlant.ObjectStages.Length - 1;
                 }
-                UpdatePlant();
+                
+                if (plantAnimTimer <= 0)
+                {
+                    UpdatePlant();
+                    plantAnimTimer = _selfObjectInfo.timeBtwstage;
+                } 
             }
         }
 

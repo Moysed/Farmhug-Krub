@@ -69,6 +69,11 @@ public class EnemiesFollowing : MonoBehaviour
 
             RandPos();
         }
+        else
+        {
+            RandPos();
+            transform.position = Vector2.MoveTowards(transform.position, spawnPosition, speed * Time.deltaTime);
+        }
 
        
         /*else

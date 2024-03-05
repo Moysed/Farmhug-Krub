@@ -6,11 +6,13 @@ using Lean.Pool;
 public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner singleton;
-
+    public GameObject _plant;
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
     public float spawnRadius = 5f;
     public int maxEnemyCount = 10; // Maximum number of enemies allowed
+
+ 
 
     [SerializeField]
     private float spawnTimer;
@@ -24,29 +26,39 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize the spawn timer
-        spawnTimer = spawnInterval;
+       
+        
+            spawnTimer = spawnInterval;
+        
+    
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Decrement the spawn timer
-        spawnTimer -= Time.deltaTime;
-
-        // If the spawn timer reaches zero or less and current enemy count is less than maximum
-        if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount)
+        _plant = GameObject.FindWithTag("Plant");
+        if (_plant != null && _plant.activeSelf)
         {
-            // Spawn a new enemy
-            SpawnEnemy();
+            spawnTimer -= Time.deltaTime;
 
-           
-        }
 
-        if(spawnTimer < 0)
-        {
-            // Reset the spawn timer
-            spawnTimer = spawnInterval;
+
+            // If the spawn timer reaches zero or less and current enemy count is less than maximum
+            if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount)
+            {
+                // Spawn a new enemy
+                SpawnEnemy();
+
+
+            }
+
+
+            if (spawnTimer < 0)
+            {
+                // Reset the spawn timer
+                spawnTimer = spawnInterval;
+            }
         }
     }
 

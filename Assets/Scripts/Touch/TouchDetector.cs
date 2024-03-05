@@ -9,7 +9,9 @@ public class TouchDetector : MonoBehaviour {
     protected int _lastIndex = 0;
 
     public Camera _Camera;
-    public float swipeSpeed = 0.1f; 
+    public float swipeSpeed = 0.1f;
+
+    public GameObject[] settingPanel;
 
     private Vector2 lastTouchPosition;
 
@@ -50,16 +52,19 @@ public class TouchDetector : MonoBehaviour {
         {
             Vector2 currentTouchPosition = Input.GetTouch(0).position;
 
-            if (lastTouchPosition != Vector2.zero)
+            if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
             {
-                Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
+                if (lastTouchPosition != Vector2.zero)
+                {
+                    Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
 
-                
-                _Camera.transform.Translate(Vector3.right * -deltaPosition.x * swipeSpeed * Time.deltaTime , Space.World);
-                _Camera.transform.Translate(Vector3.up * -deltaPosition.y * swipeSpeed * Time.deltaTime , Space.World);
+
+                    _Camera.transform.Translate(Vector3.right * -deltaPosition.x * swipeSpeed * Time.deltaTime, Space.World);
+                    _Camera.transform.Translate(Vector3.up * -deltaPosition.y * swipeSpeed * Time.deltaTime, Space.World);
+                }
+
+                lastTouchPosition = currentTouchPosition;
             }
-
-            lastTouchPosition = currentTouchPosition ;
         }
        
 
@@ -67,24 +72,29 @@ public class TouchDetector : MonoBehaviour {
 
     public virtual void OnTouchBegan(Touch touch)
     {
+        
         GetTouchIdentifierWithTouch(touch);
 
        
     }
     public virtual void OnTouchEnded(Touch touch)
     {
-        RemoveTouchIdentifierWithTouch(touch);
+      
+            RemoveTouchIdentifierWithTouch(touch);
     }
     public virtual void OnTouchMoved(Touch touch) {
-        UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
+        
+            UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
         TouchRest(touch);
     }
     public virtual void OnTouchStay(Touch touch) {
-        UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
+       
+            UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
     }
     public virtual void OnTouchCancel(Touch touch)
     {
-        RemoveTouchIdentifierWithTouch(touch);
+      
+            RemoveTouchIdentifierWithTouch(touch);
     }
 
     public Vector3 convertScreenToWorld(Vector3 pos)
@@ -159,6 +169,7 @@ public class TouchDetector : MonoBehaviour {
 
     void TouchRest(Touch touch)
     {
+
         TouchIdentifier touchId = GetTouchIdentifierWithTouch(touch);
 
         touchId.gameObject.SetActive(false) ;

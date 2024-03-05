@@ -207,7 +207,7 @@ public class PlantStatus : BaseStatus
     {
         _spacePrice = spacePrice;
 
-        if(Inventory.singleton.coin < _spacePrice)
+        if(Inventory.singleton.coin < _spacePrice && !_isBought)
         {
             
             isLock = true;
@@ -219,6 +219,12 @@ public class PlantStatus : BaseStatus
             isLock = false;
             
             IsBought(isLock);
+        }
+        
+
+        if(_isBought)
+        {
+            isLock = false;
         }
 
         /*if(isLock == true)

@@ -3268,6 +3268,7 @@ MonoBehaviour:
   spawnInterval: 10
   spawnRadius: 5
   maxEnemyCount: 1
+  spawnTimer: 0
   currentEnemyCount: 0
 --- !u!4 &1217447273
 Transform:
@@ -3549,6 +3550,10 @@ MonoBehaviour:
   p_touchIdentifier: {fileID: -3821773328986792409, guid: a0f1d1171d059504d90ab550dd9fc4c1, type: 3}
   _Camera: {fileID: 1294587174}
   swipeSpeed: 1
+  settingPanel:
+  - {fileID: 1531486016}
+  - {fileID: 1719748177}
+  - {fileID: 463767351}
 --- !u!4 &1329089385
 Transform:
   m_ObjectHideFlags: 0

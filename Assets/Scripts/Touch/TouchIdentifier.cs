@@ -34,7 +34,7 @@ public class TouchIdentifier : MonoBehaviour {
 
         if(collision.tag == "ANimalContainer")
         {
-            Debug.Log(collision.name);
+            //Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
             AnimalStatus _tempAnimalStatus = collision.GetComponent<AnimalStatus>();
             //Debug.Log(_tempStatus);
@@ -60,7 +60,21 @@ public class TouchIdentifier : MonoBehaviour {
             } 
         }
 
-        if(collision.tag == "enemy")
+
+        if (collision.tag == "Plant")
+        {
+            BaseStatus status = collision.GetComponentInParent<BaseStatus>();
+
+            Debug.Log(status);
+            if (status.collectCheck == true)
+            {
+
+
+                GroundMangement.singleton._tempPlantStatus.Collected();
+                status.collectCheck = false;
+            }
+        }
+        if (collision.tag == "enemy")
         {
             EnemiesFollowing enemy = collision.GetComponent<EnemiesFollowing>();
             enemy.hp -= 1;

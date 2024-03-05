@@ -117,19 +117,23 @@ public class PlantStatus : BaseStatus
             plantAnimTimer -= Time.deltaTime;
             if ( afterWatertime <= 0 && isWater == true)
             {
-                ObjectStage++; 
+                ObjectStage++;
 
                 if (ObjectStage >= gm.selectedPlant.ObjectStages.Length)
                 {
-                    //collectCheck = true;
+                    
                     ObjectStage = gm.selectedPlant.ObjectStages.Length - 1;
+                    collectCheck = true;
                 }
-                
+               
                 if (plantAnimTimer <= 0)
                 {
+                    afterWatertime = 5;
                     UpdatePlant();
                     plantAnimTimer = _selfObjectInfo.timeBtwstage;
-                } 
+                }
+
+                
             }
         }
 

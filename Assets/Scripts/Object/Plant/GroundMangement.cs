@@ -24,7 +24,7 @@ public class GroundMangement : MonoBehaviour
 
     public InfoObject selectedPlant;
 
-    BaseStatus _tempPlantStatus;
+    public BaseStatus _tempPlantStatus;
 
     public float timer;
 

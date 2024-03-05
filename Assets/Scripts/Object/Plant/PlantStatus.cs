@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
+    //public int countUnlockGround = 0;
+    EnemiesFollowing enemy;
     float plantAnimTimer;
     public int _spacePrice;
     public GameObject StatusPrefab;
@@ -34,6 +36,7 @@ public class PlantStatus : BaseStatus
     void Start()
     {
         gm = GroundMangement.singleton;
+        enemy = GetComponent<EnemiesFollowing>();
         waterTime = 0; // Adjust the initial grow time as needed
     }
  
@@ -220,7 +223,6 @@ public class PlantStatus : BaseStatus
 
         if(Inventory.singleton.coin < _spacePrice && !_isBought)
         {
-            
             isLock = true;
             IsBought(isLock);
         }
@@ -228,8 +230,9 @@ public class PlantStatus : BaseStatus
         {
             //Inventory.singleton.coin -= _spacePrice;
             isLock = false;
-            
             IsBought(isLock);
+
+            
         }
         
 
@@ -254,6 +257,8 @@ public class PlantStatus : BaseStatus
         {
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
+            GroundMangement.singleton.countUnlockGround += 1;
+            Debug.Log("Count Unlock Ground : " + GroundMangement.singleton.countUnlockGround);
         }
         else if (_isBought)
         {
@@ -270,8 +275,11 @@ public class PlantStatus : BaseStatus
     {
         if (collision.tag == "enemy")
         {
-            //Destroy(plant.gameObject, 1);
-            Invoke("destroyPlantFromEnemy", 1);
+            if(enemy.hp > 0)
+            {
+                //Destroy(plant.gameObject, 1);
+                Invoke("destroyPlantFromEnemy", 1);
+            }
         }
     }
 

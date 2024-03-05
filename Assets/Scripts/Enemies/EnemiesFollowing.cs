@@ -33,16 +33,17 @@ public class EnemiesFollowing : MonoBehaviour
 
     void Update()
     {
+        
         if (leaveCheck >= 2)
         {
             Debug.Log("Out of Edge");
             LeanPool.Despawn(gameObject);
             EnemySpawner.singleton.currentEnemyCount--;
             leaveCheck = 0;
+            hp = 1;
         }
 
-        plant = GameObject.FindWithTag("Plant");
-
+        
         /*if(plant != null)
         {
         if (plant.activeSelf && EnemySpawner.singleton.currentEnemyCount == 0 && EnemySpawner.singleton.currentEnemyCount < EnemySpawner.singleton.maxEnemyCount)
@@ -54,8 +55,12 @@ public class EnemiesFollowing : MonoBehaviour
 
         if (hp <= 0 )
         {
-
+            plant = null;
             transform.position = Vector2.MoveTowards(transform.position, spawnPosition, speed * Time.deltaTime);
+        }
+        else
+        {
+            plant = GameObject.FindWithTag("Plant");
         }
 
         // ******** Enemy Behaviour *************** 

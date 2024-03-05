@@ -14,6 +14,8 @@ public class GroundMangement : MonoBehaviour
 
     public static GroundMangement singleton;
 
+    public int countUnlockGround = 0;
+
     public GameObject storePanel;
     
     PlantStatus[] status;
@@ -80,7 +82,7 @@ public class GroundMangement : MonoBehaviour
         if (_tempPlantStatus.IsPlanted)
         {
            closePanel();
-            if (_tempPlantStatus.ObjectStage >= 5)
+            if (_tempPlantStatus.ObjectStage >= selectedPlant.ObjectStages.Length)
             {
                 _tempPlantStatus.Collected();
                 _tempPlantStatus.collectCheck = true;

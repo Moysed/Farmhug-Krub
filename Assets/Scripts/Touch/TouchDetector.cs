@@ -49,23 +49,29 @@ public class TouchDetector : MonoBehaviour {
         }
 
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+{
+    Vector2 currentTouchPosition = Input.GetTouch(0).position;
+ 
+    // Define the boundaries of the swipe area
+    Rect swipeArea = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
+ 
+    if (swipeArea.Contains(currentTouchPosition))
+    {
+        if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
         {
-            Vector2 currentTouchPosition = Input.GetTouch(0).position;
-
-            if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
+            if (lastTouchPosition != Vector2.zero)
             {
-                if (lastTouchPosition != Vector2.zero)
-                {
-                    Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
-
-
-                    _Camera.transform.Translate(Vector3.right * -deltaPosition.x * swipeSpeed * Time.deltaTime, Space.World);
-                    _Camera.transform.Translate(Vector3.up * -deltaPosition.y * swipeSpeed * Time.deltaTime, Space.World);
-                }
-
-                lastTouchPosition = currentTouchPosition;
+                Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
+ 
+                // Perform swipe only if within the swipe area
+                _Camera.transform.Translate(Vector3.right * -deltaPosition.x * swipeSpeed * Time.deltaTime, Space.World);
+                _Camera.transform.Translate(Vector3.up * -deltaPosition.y * swipeSpeed * Time.deltaTime, Space.World);
             }
+ 
+            lastTouchPosition = currentTouchPosition;
         }
+    }
+}
         if (settingPanel[0].activeSelf)
         {
             settingPanel[1].active = false;

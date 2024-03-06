@@ -15,6 +15,8 @@ public class TouchDetector : MonoBehaviour {
 
     private Vector2 lastTouchPosition;
 
+    public BoxCollider2D box;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -48,30 +50,10 @@ public class TouchDetector : MonoBehaviour {
             }
         }
 
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
-{
-    Vector2 currentTouchPosition = Input.GetTouch(0).position;
- 
-    // Define the boundaries of the swipe area
-    Rect swipeArea = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
- 
-    if (swipeArea.Contains(currentTouchPosition))
-    {
-        if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
-        {
-            if (lastTouchPosition != Vector2.zero)
-            {
-                Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
- 
-                // Perform swipe only if within the swipe area
-                _Camera.transform.Translate(Vector3.right * -deltaPosition.x * swipeSpeed * Time.deltaTime, Space.World);
-                _Camera.transform.Translate(Vector3.up * -deltaPosition.y * swipeSpeed * Time.deltaTime, Space.World);
-            }
- 
-            lastTouchPosition = currentTouchPosition;
-        }
-    }
-}
+        
+
+
+
         if (settingPanel[0].activeSelf)
         {
             settingPanel[1].active = false;
@@ -93,12 +75,49 @@ public class TouchDetector : MonoBehaviour {
 
     }
 
+    void CameraMove(Touch touch)
+    {
+        if (Input.touchCount == 1)
+        {
+            Vector2 currentTouchPosition = touch.position;
+
+            // Define the limits of camera movement
+            float minX = -2;
+            float maxX = 1.8f;
+            float minY = -4;
+            float maxY = 4;
+
+            if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
+            {
+                if (lastTouchPosition != Vector2.zero)
+                {
+                    Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
+
+                    // Calculate the new camera position
+                    Vector3 newPos = _Camera.transform.position;
+                    newPos.x = Mathf.Clamp(newPos.x - deltaPosition.x * swipeSpeed * Time.deltaTime, minX, maxX);
+                    newPos.y = Mathf.Clamp(newPos.y - deltaPosition.y * swipeSpeed * Time.deltaTime, minY, maxY);
+
+                    // Update the camera position
+                    _Camera.transform.position = newPos;
+                }
+
+                lastTouchPosition = currentTouchPosition;
+            }
+        }
+    }
+
+
+
     public virtual void OnTouchBegan(Touch touch)
     {
         
         GetTouchIdentifierWithTouch(touch);
 
-       
+        lastTouchPosition = touch.position;
+
+
+
     }
     public virtual void OnTouchEnded(Touch touch)
     {
@@ -109,6 +128,8 @@ public class TouchDetector : MonoBehaviour {
         
             UpdateTouchIdentifier (_touchPool [touch.fingerId], touch);
         TouchRest(touch);
+        //Input.GetTouch(0);
+        CameraMove(touch);
     }
     public virtual void OnTouchStay(Touch touch) {
        

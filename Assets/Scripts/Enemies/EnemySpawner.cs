@@ -37,7 +37,10 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _plant = GameObject.FindWithTag("Plant");
+        
+            _plant = GameObject.FindWithTag("Plant");
+        
+        
         if (_plant != null && _plant.activeSelf)
         {
             spawnTimer -= Time.deltaTime;
@@ -45,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
 
 
             // If the spawn timer reaches zero or less and current enemy count is less than maximum
-            if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount && GroundMangement.singleton.countUnlockGround >= 3)
+            if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount )
             {
                 // Spawn a new enemy
                 SpawnEnemy();

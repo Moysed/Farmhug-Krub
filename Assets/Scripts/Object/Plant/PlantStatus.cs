@@ -275,8 +275,13 @@ public class PlantStatus : BaseStatus
     {
         if (collision.tag == "enemy")
         {
+            enemy = collision.GetComponent<EnemiesFollowing>();
             if(enemy.hp > 0)
             {
+                if(enemy.plant.active = false)
+                {
+                    enemy.plant = default;
+                }
                 //Destroy(plant.gameObject, 1);
                 Invoke("destroyPlantFromEnemy", 1);
             }

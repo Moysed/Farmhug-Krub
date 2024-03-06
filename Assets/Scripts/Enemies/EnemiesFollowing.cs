@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class EnemiesFollowing : MonoBehaviour
 {
-    
-    GameObject plant;
+    public GameObject plant;
+
+    bool Isend_ = true;
     public float speed;
     public int hp;
     [SerializeField] float timer;
@@ -17,23 +18,32 @@ public class EnemiesFollowing : MonoBehaviour
     float side;
     void Start()
     {
+        
         timer = 0;
         hp = 1;
         Selfpos = new Vector2(Random.Range(10, 20), Random.Range(10, 20));
         transform.position = Selfpos;
 
         //plant = GameObject.FindWithTag("Plant");
-        if (plant == null)
-        {
-            Debug.LogError("Plant GameObject not found with tag 'Plant'");
-        }
+        
 
         float side = Random.Range(0f, 1f); // Random value to determine side of the screen
     }
 
+   
+
     void Update()
     {
-        
+
+        if (Isend_)
+        {
+            
+            plant = GameObject.FindGameObjectWithTag("Plant");
+            Isend_ = false;
+        }
+
+        //Debug.Log(plant);
+
         if (leaveCheck >= 2)
         {
             Debug.Log("Out of Edge");
@@ -41,6 +51,7 @@ public class EnemiesFollowing : MonoBehaviour
             EnemySpawner.singleton.currentEnemyCount--;
             leaveCheck = 0;
             hp = 1;
+                Isend_ = true;
         }
 
         
@@ -58,14 +69,12 @@ public class EnemiesFollowing : MonoBehaviour
             plant = null;
             transform.position = Vector2.MoveTowards(transform.position, spawnPosition, speed * Time.deltaTime);
         }
-        else
-        {
-            plant = GameObject.FindWithTag("Plant");
-        }
+       
 
         // ******** Enemy Behaviour *************** 
         if (plant != null && plant.activeSelf )
         {
+            
             distance = Vector2.Distance(transform.position, plant.transform.position);
             Vector2 direction = plant.transform.position - transform.position;
 
@@ -74,7 +83,7 @@ public class EnemiesFollowing : MonoBehaviour
 
             RandPos();
         }
-        else
+        if( plant != null && plant.active == false)
         {
             RandPos();
             transform.position = Vector2.MoveTowards(transform.position, spawnPosition, speed * Time.deltaTime);

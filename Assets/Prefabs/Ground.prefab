@@ -114,7 +114,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
@@ -238,10 +238,11 @@ MonoBehaviour:
   isLock: 1
   IsPlanted: 0
   IsPeted: 0
+  sign: {fileID: 840599138741823758}
   FloatingTextPrefab: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}
   _spacePrice: 4
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
-  statusPos: {x: -7.57, y: 0.63, z: 0}
+  statusPos: {x: 4.94, y: 3.71, z: 0}
   waterTime: 0
   isWater: 0
   plant: {fileID: 6208606215576805197}

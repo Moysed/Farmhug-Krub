@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MusicPlay : MonoBehaviour
 {
+  
     public Slider volumeSlider;
     public GameObject ObjMusic;
 
@@ -64,6 +65,10 @@ public class MusicPlay : MonoBehaviour
     public void VolumeUpdate(float volume)
     {
         MusicVolume = volume;
+        if(MusicVolume <= 0)
+        {
+            
+        }
     }
 
     public void MusicReset()

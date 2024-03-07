@@ -3106,6 +3106,10 @@ PrefabInstance:
       propertyPath: _spacePrice
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+      propertyPath: FloatingTextPrefab
+      value: 
+      objectReference: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5623,6 +5627,10 @@ PrefabInstance:
       propertyPath: _spacePrice
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4001810006725526513, guid: 6dd0fd314a6e7448a89ea0159f2cb28d, type: 3}
+      propertyPath: FloatingTextPrefab
+      value: 
+      objectReference: {fileID: 2272001029051869967, guid: d981e03b280e9c54cafd4190529f18b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

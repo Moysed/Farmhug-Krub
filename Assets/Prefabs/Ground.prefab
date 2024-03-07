@@ -237,7 +237,8 @@ MonoBehaviour:
   isLock: 1
   IsPlanted: 0
   IsPeted: 0
-  _spacePrice: 10
+  FloatingTextPrefab: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}
+  _spacePrice: 4
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
   statusPos: {x: -7.57, y: 0.63, z: 0}
   waterTime: 0

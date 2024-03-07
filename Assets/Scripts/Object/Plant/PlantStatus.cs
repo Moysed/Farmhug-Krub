@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
     //public int countUnlockGround = 0;
+    public GameObject FloatingTextPrefab;
     EnemiesFollowing enemy;
     float plantAnimTimer;
     public int _spacePrice;
@@ -228,7 +230,7 @@ public class PlantStatus : BaseStatus
         }
         else if(Inventory.singleton.coin >= _spacePrice)
         {
-            //Inventory.singleton.coin -= _spacePrice;
+            
             isLock = false;
             IsBought(isLock);
 
@@ -257,11 +259,17 @@ public class PlantStatus : BaseStatus
         {
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
+            if (FloatingTextPrefab)
+            {
+                ShowFloatingText(" - "+_spacePrice);
+            }
             GroundMangement.singleton.countUnlockGround += 1;
             Debug.Log("Count Unlock Ground : " + GroundMangement.singleton.countUnlockGround);
         }
         else if (_isBought)
         {
+            
+            
             Debug.Log("Already bought");
         }
         else
@@ -269,6 +277,13 @@ public class PlantStatus : BaseStatus
             Debug.Log("Not enough coin");
         }
 
+    }
+
+    void ShowFloatingText(string text)
+    {
+        
+        var go = Instantiate(FloatingTextPrefab , transform.position, Quaternion.identity);
+        go.GetComponent<TextMeshPro>().text = text;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

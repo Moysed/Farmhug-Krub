@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    public SpriteRenderer sign;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
     public int feedTime;
@@ -227,6 +228,7 @@ public class AnimalStatus : BaseStatus
         {
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
+            sign.gameObject.SetActive(false);
         }
         else if (_isBought)
         {

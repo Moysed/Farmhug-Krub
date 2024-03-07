@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlantStatus : BaseStatus
 {
     //public int countUnlockGround = 0;
+    public SpriteRenderer sign;
     public GameObject FloatingTextPrefab;
     EnemiesFollowing enemy;
     float plantAnimTimer;
@@ -259,6 +260,8 @@ public class PlantStatus : BaseStatus
         {
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
+
+            sign.gameObject.SetActive(false);
             if (FloatingTextPrefab)
             {
                 ShowFloatingText(" - "+_spacePrice);

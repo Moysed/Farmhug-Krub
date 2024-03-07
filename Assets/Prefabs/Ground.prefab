@@ -237,7 +237,7 @@ MonoBehaviour:
   isLock: 1
   IsPlanted: 0
   IsPeted: 0
-  FloatingTextPrefab: {fileID: 2272001029051869967, guid: d981e03b280e9c54cafd4190529f18b8, type: 3}
+  FloatingTextPrefab: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}
   _spacePrice: 4
   StatusPrefab: {fileID: 2388769790734169553, guid: 7393f034e812a487fb9316bd363bfe17, type: 3}
   statusPos: {x: -7.57, y: 0.63, z: 0}
@@ -247,7 +247,6 @@ MonoBehaviour:
   plantCollider: {fileID: 3504059331523778184}
   afterWatertime: 0
   _isBought: 0
-  landPanel: {fileID: 0}
   instanceMode: 1
 --- !u!61 &8392162931535059171
 BoxCollider2D:

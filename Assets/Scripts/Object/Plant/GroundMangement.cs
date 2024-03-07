@@ -12,6 +12,9 @@ public class GroundMangement : MonoBehaviour
     [SerializeField] float topPosY, middlePosY;
     [SerializeField] float tweenDuration;
 
+    public List<PlantStatus> plants;
+    public GameObject landPanel;
+
     public static GroundMangement singleton;
 
     public int countUnlockGround = 0;
@@ -42,6 +45,7 @@ public class GroundMangement : MonoBehaviour
         //if(_tempPlantStatus.isLock == true)
         //{
             storePanel.SetActive(false);
+            landPanel.gameObject.SetActive(false);
           //  Debug.Log(_tempPlantStatus.isLock);
         //}
     }
@@ -53,6 +57,7 @@ public class GroundMangement : MonoBehaviour
         {
             fm.isPlanting = false;
         }
+
     }
 
     public void Isplanted(BaseStatus _objBase)

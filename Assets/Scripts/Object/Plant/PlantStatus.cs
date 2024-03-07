@@ -25,6 +25,7 @@ public class PlantStatus : BaseStatus
 
     public bool _isBought = false;
  
+    //public GameObject landPanel;
     
  
     public enum InstanceMode
@@ -257,6 +258,8 @@ public class PlantStatus : BaseStatus
     {
         if (!b && _isBought == false)
         {
+            //GroundMangement.singleton.landPanel.gameObject.SetActive(true);
+
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
             if (FloatingTextPrefab)
@@ -268,8 +271,6 @@ public class PlantStatus : BaseStatus
         }
         else if (_isBought)
         {
-            
-            
             Debug.Log("Already bought");
         }
         else
@@ -312,4 +313,16 @@ public class PlantStatus : BaseStatus
         plant.gameObject.SetActive(false);
         //Lean.Pool.LeanPool.Despawn(StatusPrefab.gameObject);
     }
+
+    /*public void BuyLand()
+    {
+        Inventory.singleton.coin -= _spacePrice;
+            _isBought = true;
+            if (FloatingTextPrefab)
+            {
+                ShowFloatingText(" - "+_spacePrice);
+            }
+            GroundMangement.singleton.countUnlockGround += 1;
+            Debug.Log("Count Unlock Ground : " + GroundMangement.singleton.countUnlockGround);
+    }*/
 }

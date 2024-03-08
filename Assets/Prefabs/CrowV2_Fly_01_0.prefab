@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7856206624970710410}
   - component: {fileID: 4515354632720362945}
   - component: {fileID: 1935330681880116862}
-  - component: {fileID: 6085413047086119825}
+  - component: {fileID: 8914062963007083154}
   m_Layer: 6
   m_Name: CrowV2_Fly_01_0
   m_TagString: enemy
@@ -154,8 +154,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6085413047086119825
-BoxCollider2D:
+--- !u!58 &8914062963007083154
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -186,16 +186,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.7950249}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 6.18, y: 5.5900497}
-    newSize: {x: 6.18, y: 5.5900497}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 2.8511586}
   serializedVersion: 2
-  m_Size: {x: 6.18, y: 5.5900497}
-  m_EdgeRadius: 0
+  m_Radius: 2.360265

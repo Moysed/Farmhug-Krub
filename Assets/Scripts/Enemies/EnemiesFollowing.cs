@@ -108,6 +108,12 @@ public class EnemiesFollowing : MonoBehaviour
         {
             leaveCheck += 1;
         }
+
+        if (collision.tag == "Scarecrow")
+        {
+            Debug.Log("Scarecrow Hit");
+            hp -= 1;
+        }
     }
 
     void RandPos()

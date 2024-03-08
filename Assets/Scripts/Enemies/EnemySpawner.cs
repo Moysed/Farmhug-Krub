@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
 
 
             // If the spawn timer reaches zero or less and current enemy count is less than maximum
-            if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount )
+            if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount && GroundMangement.singleton.countUnlockGround >= 3)
             {
                 // Spawn a new enemy
                 SpawnEnemy();

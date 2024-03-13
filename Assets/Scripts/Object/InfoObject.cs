@@ -9,5 +9,7 @@ public class InfoObject : ScriptableObject
     public Sprite[] ObjectStages;
     public float timeBtwstage = 2f;
     public int price;
+
+    public float _growthTime;
     //public int sellPrice;
 }

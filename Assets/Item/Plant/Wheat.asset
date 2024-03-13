@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0c0e277deb754894e8a170f419e64bcc, type: 3}
   timeBtwstage: 2
   price: 3
+  _growthTime: 10

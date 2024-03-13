@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemiesFollowing : MonoBehaviour
 {
     public GameObject plant;
+    public SpriteRenderer crow;
 
     bool Isend_ = true;
     public float speed;

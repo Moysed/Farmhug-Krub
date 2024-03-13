@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    private scarecrowInfo scarecrow;
     public static Inventory singleton;
     //public float sellTime;
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store product types and quantities
@@ -27,6 +28,7 @@ public class Inventory : MonoBehaviour
     }
     void Start()
     {
+        
         cm = FindObjectOfType<CoopManager>();
         fm = FindObjectOfType<FarmManager>();
         autoSell = GetComponent<SellManager>();
@@ -160,4 +162,16 @@ public class Inventory : MonoBehaviour
             return 0;
         }
     }
+
+    /*public void buyScarecrow()
+    {
+        if(coin >= scarecrow.price)
+        {
+            coin -= scarecrow.price;
+        }
+        else if(coin < scarecrow.price)
+        {
+            Debug.Log("Not Enough Money");
+        }
+    }*/
 }

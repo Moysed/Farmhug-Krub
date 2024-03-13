@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlantStatus : BaseStatus
 {
     //public int countUnlockGround = 0;
+    //public GameObject bar;
     public SpriteRenderer sign;
     public GameObject FloatingTextPrefab;
     EnemiesFollowing enemy;
@@ -18,7 +19,8 @@ public class PlantStatus : BaseStatus
     public  bool isWater = false;
     GroundMangement gm;
     public SpriteRenderer plant;
-    float destroyTime = 0;
+    
+    private float growthtime;
     
     [SerializeField]
      BoxCollider2D plantCollider;
@@ -26,7 +28,7 @@ public class PlantStatus : BaseStatus
 
     public bool _isBought = false;
  
-    
+    FloatingBar progressionbar;
  
     public enum InstanceMode
     {
@@ -38,9 +40,12 @@ public class PlantStatus : BaseStatus
 
     void Start()
     {
+        //bar.SetActive(false);
+        progressionbar = GetComponentInChildren<FloatingBar>();
         gm = GroundMangement.singleton;
         enemy = GetComponent<EnemiesFollowing>();
         waterTime = 0; // Adjust the initial grow time as needed
+        
     }
  
     void Update()
@@ -106,8 +111,11 @@ public class PlantStatus : BaseStatus
                         afterWatertime = 5;
                         //isWater = true;
                         isWater = true;
+                        
                         SFXPlaying.singleton.PlayWatering();
- 
+
+                        //bar.gameObject.SetActive(true);
+
                         Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
  
                         //plantInventory.AddToInventory(hit.collider.gameObject.name);
@@ -120,15 +128,20 @@ public class PlantStatus : BaseStatus
         //Stage Update
         if (IsPlanted == true)
         {
+            
+            
             plantAnimTimer -= Time.deltaTime;
             if ( afterWatertime <= 0 && isWater == true)
             {
+                growthtime += Time.deltaTime;
+                
                 ObjectStage++;
 
                 if (ObjectStage >= gm.selectedPlant.ObjectStages.Length)
                 {
                     
                     ObjectStage = gm.selectedPlant.ObjectStages.Length - 1;
+                    //bar.gameObject.SetActive(false);
                     collectCheck = true;
                 }
                
@@ -136,11 +149,19 @@ public class PlantStatus : BaseStatus
                 {
                     afterWatertime = 5;
                     UpdatePlant();
+                    //if(bar.gameObject.activeSelf)
+                    //{
+                        progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
+                    //}
+                    //progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
                     plantAnimTimer = _selfObjectInfo.timeBtwstage;
                 }
 
                 
             }
+
+           
+            
         }
 
         if (gm.inventory.autoSell.sellTime == 0)
@@ -177,6 +198,9 @@ public class PlantStatus : BaseStatus
         gm.selectedPlant = newPlant;
         ObjectStage = 0;
         ObjectName = newPlant.name;
+        progressionbar.slider.maxValue = _selfObjectInfo._growthTime;
+
+        
         
         UpdatePlant();
         plant.gameObject.SetActive(true);
@@ -191,6 +215,7 @@ public class PlantStatus : BaseStatus
         isWater = false;
         plant.gameObject.SetActive(false);
         gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+        progressionbar.slider.value = 0;
     }
  
     // Single Game object

@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8e445f3f83a87224fa3a25f2e2be324d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.510021
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8e445f3f83a87224fa3a25f2e2be324d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2807584
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8e445f3f83a87224fa3a25f2e2be324d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73,6 +73,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 8e445f3f83a87224fa3a25f2e2be324d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6501991357123298246}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 8e445f3f83a87224fa3a25f2e2be324d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2978640285282236742}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 8e445f3f83a87224fa3a25f2e2be324d, type: 3}
 --- !u!1 &1091490063053616596 stripped
 GameObject:
@@ -141,10 +144,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.054725647, y: -0.099999905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -155,5 +158,18 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.7094507, y: 5.2}
   m_EdgeRadius: 0
+--- !u!114 &2978640285282236742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091490063053616596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21694b110adb9483f9984d0417299e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 20

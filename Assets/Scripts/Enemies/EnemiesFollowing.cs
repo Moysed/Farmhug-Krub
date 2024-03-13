@@ -106,13 +106,18 @@ public class EnemiesFollowing : MonoBehaviour
     {
         if (collision.tag == "CamEdge")
         {
-            leaveCheck += 1;
+            leaveCheck = 2;
         }
 
-        if (collision.tag == "Scarecrow")
+       
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Scarecrow")
         {
-            Debug.Log("Scarecrow Hit");
-            hp -= 1;
+            hp--;
+            Debug.Log(hp);
         }
     }
 

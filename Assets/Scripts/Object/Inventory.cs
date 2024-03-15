@@ -67,6 +67,19 @@ public class Inventory : MonoBehaviour
         Debug.Log("Added " + productType + " to inventory. Total: " + inventory[productType]);
     }
 
+    public void AddSeedtoInventory(string seedType)
+    {
+        if (inventory.ContainsKey(seedType))
+        {
+            inventory[seedType]++;
+        }
+        else
+        {
+            inventory.Add(seedType, 1);
+        }
+        Debug.Log("Bought " + seedType + " to inventory. Total: " + inventory[seedType]);
+    }
+
     // Sell a specific amount of a product type from the inventory
     public void SellFromInventory(string productType, int amount)
     {

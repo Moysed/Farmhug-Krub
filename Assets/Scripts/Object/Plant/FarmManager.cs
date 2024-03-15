@@ -27,7 +27,7 @@ public class FarmManager : MonoBehaviour
     public void SelectPlant(PlantItem newPlant)
     {
             selectPlant = newPlant;
-            if(inventory.coin >= selectPlant.plant.price)
+            if(selectPlant != null)
             {
                 isPlanting = true;
                 //inventory.coin -= selectPlant.plant.price;

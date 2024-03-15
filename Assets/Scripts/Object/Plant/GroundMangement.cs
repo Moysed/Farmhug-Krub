@@ -17,7 +17,8 @@ public class GroundMangement : MonoBehaviour
     public int countUnlockGround = 0;
 
     public GameObject storePanel;
-    
+    public GameObject seedPanel;
+
     PlantStatus[] status;
 
     public Inventory inventory;
@@ -41,6 +42,7 @@ public class GroundMangement : MonoBehaviour
         inventory = FindObjectOfType<Inventory>();
         //if(_tempPlantStatus.isLock == true)
         //{
+        seedPanel.SetActive(false);
             storePanel.SetActive(false);
           //  Debug.Log(_tempPlantStatus.isLock);
         //}
@@ -64,8 +66,8 @@ public class GroundMangement : MonoBehaviour
             if (_tempPlantStatus.ObjectStage == 0)
             {
                 //Debug.Log(_tempPlantStatus.isLock);
-                storePanel.SetActive(true);
-                storePanelIntro();
+                seedPanel.SetActive(true);
+                
             }
         }
 
@@ -103,8 +105,9 @@ public class GroundMangement : MonoBehaviour
         _tempPlantStatus = null;
     }
 
-    void storePanelIntro()
+     public void storePanelIntro()
     {
+        storePanel.SetActive(true);
         storePanelRect.DOAnchorPosY(middlePosY, tweenDuration).SetUpdate(true);
     }
 
@@ -112,4 +115,7 @@ public class GroundMangement : MonoBehaviour
     {
         await storePanelRect.DOAnchorPosY(topPosY, tweenDuration).SetUpdate(true).AsyncWaitForCompletion();
     }
+
+
+   
 }

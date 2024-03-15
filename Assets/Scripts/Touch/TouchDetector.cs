@@ -41,9 +41,9 @@ public class TouchDetector : MonoBehaviour {
                 case TouchPhase.Moved:
                     OnTouchMoved(t);
                     break;
-                case TouchPhase.Stationary:
-                    OnTouchStay(t);
-                    break;
+               // case TouchPhase.Stationary:
+                   // OnTouchStay(t);
+                    //break;
                 case TouchPhase.Canceled:
                     OnTouchCancel(t);
                     break;
@@ -87,7 +87,7 @@ public class TouchDetector : MonoBehaviour {
             float minY = -4;
             float maxY = 4;
 
-            if (settingPanel[0].active == false && settingPanel[1].active == false)
+            if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
             {
                 if (lastTouchPosition != Vector2.zero)
                 {
@@ -111,7 +111,7 @@ public class TouchDetector : MonoBehaviour {
 
     public virtual void OnTouchBegan(Touch touch)
     {
-        if (settingPanel[0].active == false && settingPanel[1].active == false)
+        if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
             GetTouchIdentifierWithTouch(touch);
 
         lastTouchPosition = touch.position;

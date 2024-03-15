@@ -15,6 +15,7 @@ TagManager:
   - CamEdge
   - Scarecrow
   - ScareCrowItem
+  - SFX
   layers:
   - Default
   - TransparentFX

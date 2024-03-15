@@ -28,7 +28,7 @@ public class SFXPlaying : MonoBehaviour
         Duck.Stop();
         Cow.Stop();
     }
-    public void PlayClick()
+    /*public void PlayClick()
     {
         Click.Play();
     }
@@ -51,5 +51,5 @@ public class SFXPlaying : MonoBehaviour
     public void PlayCow()
     {
         Cow.Play();
-    }
+    }*/
 }

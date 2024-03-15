@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private scarecrowInfo scarecrow;
+    //private scarecrowInfo scarecrow;
     public static Inventory singleton;
     //public float sellTime;
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store product types and quantities
@@ -28,7 +28,6 @@ public class Inventory : MonoBehaviour
     }
     void Start()
     {
-        
         cm = FindObjectOfType<CoopManager>();
         fm = FindObjectOfType<FarmManager>();
         autoSell = GetComponent<SellManager>();
@@ -68,7 +67,7 @@ public class Inventory : MonoBehaviour
     // Sell a specific amount of a product type from the inventory
     public void SellFromInventory(string productType, int amount)
     {
-        if (inventory.ContainsKey(productType) )
+        if (inventory.ContainsKey(productType))
         {
             if (inventory[productType] >= amount)
             {
@@ -106,7 +105,7 @@ public class Inventory : MonoBehaviour
                     amount = 0;
 
                 }
-                if (productType == "Berry" && amount != 0 && inventory[productType] != 0)
+                if (productType == "Carrot" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
                     coin += 4 * inventory[productType];

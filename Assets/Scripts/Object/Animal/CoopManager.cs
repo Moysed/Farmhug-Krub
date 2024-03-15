@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoopManager : MonoBehaviour
 {
+    SFXManager sfx;
     public AnimalItem selectAnimal;
     public bool isPeting = false;
 
@@ -11,6 +12,12 @@ public class CoopManager : MonoBehaviour
     
     public InfoObject animal;
     private Inventory inventory;
+
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
+
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -32,6 +39,8 @@ public class CoopManager : MonoBehaviour
             }
             coin.UpdateCoin(inventory.coin);
 
+            sfx.PlaySFX(sfx.Plant);
+/*
             if(selectAnimal.animal.ObjectName == "Pig")
             {
                 SFXPlaying.singleton.PlayPig();
@@ -44,6 +53,6 @@ public class CoopManager : MonoBehaviour
             {
                 SFXPlaying.singleton.PlayDuck();
             }
-        
+*/ 
     }
 }

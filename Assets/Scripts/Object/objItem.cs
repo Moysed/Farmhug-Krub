@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class objItem : MonoBehaviour
 {
-    public scarecrowInfo scarecrow;
+    //public scarecrowInfo scarecrow;
 
     //FarmManager farm;
 
@@ -13,7 +13,7 @@ public class objItem : MonoBehaviour
         //farm = FindObjectOfType<FarmManager>();
     }
 
-    public void BuyPlant()
+    /*public void BuyPlant()
     {
         if(Inventory.singleton.coin >= scarecrow.price)
         {
@@ -28,5 +28,5 @@ public class objItem : MonoBehaviour
             Debug.Log("Not Enough Coin");
         }
         
-    }
+    }*/
 }

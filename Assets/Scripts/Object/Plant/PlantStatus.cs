@@ -8,6 +8,9 @@ public class PlantStatus : BaseStatus
 {
     //public int countUnlockGround = 0;
     //public GameObject bar;
+
+    SFXManager sfx;
+
     public SpriteRenderer sign;
     public GameObject FloatingTextPrefab;
     EnemiesFollowing enemy;
@@ -36,6 +39,11 @@ public class PlantStatus : BaseStatus
         Pool
     }
  
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
+
     public InstanceMode instanceMode = InstanceMode.Pool;
 
     void Start()
@@ -112,7 +120,8 @@ public class PlantStatus : BaseStatus
                         //isWater = true;
                         isWater = true;
                         
-                        SFXPlaying.singleton.PlayWatering();
+                        //SFXPlaying.singleton.PlayWatering();
+                        sfx.PlaySFX(sfx.Watering);
 
                         //bar.gameObject.SetActive(true);
 

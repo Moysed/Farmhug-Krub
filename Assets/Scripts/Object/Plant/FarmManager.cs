@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour
 {
+    SFXManager sfx;
     public PlantItem selectPlant;
     public bool isPlanting = false;
 
@@ -12,6 +13,11 @@ public class FarmManager : MonoBehaviour
     private Inventory inventory;
 
     public InfoObject plant;
+
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
 
     void Start()
     {
@@ -32,6 +38,8 @@ public class FarmManager : MonoBehaviour
             }
             coin.UpdateCoin(inventory.coin);
             
-            SFXPlaying.singleton.PlayPlant();
+            //SFXPlaying.singleton.PlayPlant();
+            sfx.PlaySFX(sfx.Plant);
+
     }
 }

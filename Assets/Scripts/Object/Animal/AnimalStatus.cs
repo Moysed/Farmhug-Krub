@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    SFXManager sfx;
     public SpriteRenderer sign;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
@@ -35,6 +36,11 @@ public class AnimalStatus : BaseStatus
  
     public InstanceMode instanceMode = InstanceMode.Pool;
  
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
+
     void Start()
     {
         pm = PetManagement.singleton;
@@ -102,6 +108,7 @@ public class AnimalStatus : BaseStatus
                             
                             isfeed = true;
                             //Debug.Log("Is Feed : " + isfeed);
+                            sfx.PlaySFX(sfx.Watering);
 
                             Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
 

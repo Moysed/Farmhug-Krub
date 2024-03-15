@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     private CoopManager cm;
     private FarmManager fm;
     public int coin = 15;
+    //SFXManager sfx;
 
     int[] sellPrice;
 
@@ -25,6 +26,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         singleton = this;
+        //sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
     }
     void Start()
     {
@@ -47,6 +49,7 @@ public class Inventory : MonoBehaviour
         }
 
         autoSell.AutoSell();
+
     }
 
     // Add a plant to the inventory

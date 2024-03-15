@@ -225,6 +225,7 @@ public class PlantStatus : BaseStatus
         plant.gameObject.SetActive(false);
         gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
         progressionbar.slider.value = 0;
+        sfx.PlaySFX(sfx.Harvest);
     }
  
     // Single Game object
@@ -302,6 +303,7 @@ public class PlantStatus : BaseStatus
             }
             GroundMangement.singleton.countUnlockGround += 1;
             Debug.Log("Count Unlock Ground : " + GroundMangement.singleton.countUnlockGround);
+            sfx.PlaySFX(sfx.BuyGround);
         }
         else if (_isBought)
         {

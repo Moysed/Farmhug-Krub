@@ -211,6 +211,7 @@ public class AnimalStatus : BaseStatus
         isfeed = false;
         animal.gameObject.SetActive(false);
         pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+        sfx.PlaySFX(sfx.Mandrake);
     }
 
     public override void CheckIsLocked(int spacePrice)
@@ -236,6 +237,7 @@ public class AnimalStatus : BaseStatus
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
             sign.gameObject.SetActive(false);
+            sfx.PlaySFX(sfx.BuyGround);
         }
         else if (_isBought)
         {
@@ -247,13 +249,5 @@ public class AnimalStatus : BaseStatus
         }
 
     }
-    /*if(isLock == true)
-    {
-        Inventory.singleton.coin -= 0;
-    }
-    else if(isLock == false)
-    {
-        Inventory.singleton.coin -= _spacePrice;
-    }*/
 }
 

@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRadius = 5f;
     public int maxEnemyCount = 10; // Maximum number of enemies allowed
 
- 
+    SFXManager sfx;
 
     [SerializeField]
     private float spawnTimer;
@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         singleton = this;
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
     }
 
     // Start is called before the first frame update
@@ -101,5 +102,6 @@ public class EnemySpawner : MonoBehaviour
         //LeanPool.Links.Count
         // Increment current enemy count
         currentEnemyCount++;
+        sfx.PlaySFX(sfx.Crow);
     }
 }

@@ -1987,6 +1987,12 @@ MonoBehaviour:
   Watering: {fileID: 8300000, guid: ceebd77f8c0ec4a539c7dd3d2fa19708, type: 3}
   Click: {fileID: 8300000, guid: 0bc096d3d1938496691f9b3bd8783ec7, type: 3}
   Plant: {fileID: 8300000, guid: 9df1bfb5844f040b5a7f4529bf77c0ae, type: 3}
+  Crow: {fileID: 8300000, guid: 0a6cfa086e4414cd8af7a672eb25a4ba, type: 3}
+  Mandrake: {fileID: 8300000, guid: bf55e9cf322ca4aa592d86bc94752aa1, type: 3}
+  Harvest: {fileID: 8300000, guid: 350f56f1cd6eb4ea4a7e47acd5d29034, type: 3}
+  BuyPlant: {fileID: 8300000, guid: 2d175f07d28634826bcd81a88322cdd0, type: 3}
+  BuyGround: {fileID: 8300000, guid: adc9e54b6e1b643e59f2137d5a7c47d8, type: 3}
+  Sold: {fileID: 8300000, guid: f353c13c828b442d88bcc6471c614e7c, type: 3}
 --- !u!4 &1542709465
 Transform:
   m_ObjectHideFlags: 0

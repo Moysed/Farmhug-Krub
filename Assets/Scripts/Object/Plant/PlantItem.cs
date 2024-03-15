@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class PlantItem : MonoBehaviour
 {
     public InfoObject plant;
-
+    SFXManager sfx;
     FarmManager farm;
+
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
 
     void Start()
     {
@@ -23,6 +28,7 @@ public class PlantItem : MonoBehaviour
             farm.SelectPlant(this);
             GroundMangement.singleton.closePanel();
             GroundMangement.singleton.tempPlanting();
+            sfx.PlaySFX(sfx.BuyPlant);
         }
         else
         {

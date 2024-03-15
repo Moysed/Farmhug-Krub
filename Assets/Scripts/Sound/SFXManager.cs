@@ -13,6 +13,12 @@ public class SFXManager : MonoBehaviour
     public AudioClip Watering;
     public AudioClip Click;
     public AudioClip Plant;
+    public AudioClip Crow;
+    public AudioClip Mandrake;
+    public AudioClip Harvest;
+    public AudioClip BuyPlant;
+    public AudioClip BuyGround;
+    public AudioClip Sold;
 
     /* void Awake()
     {

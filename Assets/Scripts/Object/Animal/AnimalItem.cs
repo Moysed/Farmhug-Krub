@@ -5,8 +5,13 @@ using UnityEngine;
 public class AnimalItem : MonoBehaviour
 {
     public InfoObject animal;
-
+    SFXManager sfx;
     CoopManager coop;
+
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
 
     void Start()
     {
@@ -22,6 +27,7 @@ public class AnimalItem : MonoBehaviour
         coop.SelectAnimal(this);
         PetManagement.singleton.closePanel();
         PetManagement.singleton.tempAnimal();
+        sfx.PlaySFX(sfx.BuyPlant);
         }
         else
         {

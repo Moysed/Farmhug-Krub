@@ -39,7 +39,7 @@ public class FarmManager : MonoBehaviour
             coin.UpdateCoin(inventory.coin);
             
             //SFXPlaying.singleton.PlayPlant();
-            sfx.PlaySFX(sfx.Plant);
+            //sfx.PlaySFX(sfx.Plant);
 
     }
 }

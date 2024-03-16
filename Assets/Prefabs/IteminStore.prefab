@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167842580052765193, guid: 813254af0896c494ab6c603ea1718a2e, type: 3}
       propertyPath: m_Name
-      value: Berry
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 7916056484466889136, guid: 813254af0896c494ab6c603ea1718a2e, type: 3}
       propertyPath: m_Pivot.x

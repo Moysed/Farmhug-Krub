@@ -69,6 +69,7 @@ public class TouchIdentifier : MonoBehaviour {
                 GroundMangement.singleton._tempPlantStatus.Collected();
                 status.collectCheck = false;
             }
+            
         }
         if (collision.tag == "enemy")
         {

@@ -87,7 +87,7 @@ public class GroundMangement : MonoBehaviour
            closePanel();
             if (_tempPlantStatus.ObjectStage >= selectedPlant.ObjectStages.Length)
             {
-                _tempPlantStatus.Collected();
+               // _tempPlantStatus.Collected();
                 _tempPlantStatus.collectCheck = true;
             }
         }
@@ -97,6 +97,7 @@ public class GroundMangement : MonoBehaviour
     {
        await  storePanelOuttro();
         storePanel.SetActive(false);
+        seedPanel.SetActive(false);
     }
 
     public void tempPlanting()

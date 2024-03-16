@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
     SFXManager sfx;
+    public GameObject FloatingTextPrefab;
     public SpriteRenderer sign;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
@@ -125,27 +127,27 @@ public class AnimalStatus : BaseStatus
             animalAnimTimer -= Time.deltaTime;
             if ( afterFeedtime <= 0 && isfeed == true )  
             {   
-                ObjectStage++;
-
-                if (ObjectStage >= pm.selectedAnimal.ObjectStages.Length)
+                
+               
+                if(ObjectStage == _selfObjectInfo.ObjectStages.Length - 1)
                 {
-                    ObjectStage = 2;
-                    //ObjectStage = pm.selectedAnimal.ObjectStages.Length - 1;
                     collectCheck = true;
                 }
-                else if(ObjectStage < pm.selectedAnimal.ObjectStages.Length)
-                {
-                    collectCheck = false;
-                }
+               
+               
 
                 if (animalAnimTimer <= 0)
                 {
+                    if (ObjectStage < _selfObjectInfo.ObjectStages.Length -1)
+                        ObjectStage++;
                     UpdateAnimal();
-
+                    
                     progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
 
                     animalAnimTimer = _selfObjectInfo.timeBtwstage;
-                } 
+                }
+
+               
             }
         }
        
@@ -217,20 +219,26 @@ public class AnimalStatus : BaseStatus
 
     public override void Collected()
     {
-        if(collectCheck == true)
+        if (collectCheck)
         {
-        Debug.Log("Harvested");
-        IsPeted = false;
-        pm.cm.isPeting = false;
-        ObjectStage = 0;
-        isfeed = false;
-        animal.gameObject.SetActive(false);
-        pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+            Debug.Log("Harvested");
+            IsPeted = false;
+            pm.cm.isPeting = false;
+            ObjectStage = 0;
+            isfeed = false;
+            animal.gameObject.SetActive(false);
+            pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
 
-        progressionbar.slider.value = 0;
-        
-        sfx.PlaySFX(sfx.Mandrake);
+            progressionbar.slider.value = 0;
+
+            sfx.PlaySFX(sfx.Mandrake);
         }
+        else
+        {
+
+        }
+       
+        
     }
 
     public override void CheckIsLocked(int spacePrice)
@@ -255,7 +263,15 @@ public class AnimalStatus : BaseStatus
         {
             Inventory.singleton.coin -= _spacePrice;
             _isBought = true;
+
             sign.gameObject.SetActive(false);
+            if (FloatingTextPrefab)
+            {
+                ShowFloatingText(" - " + _spacePrice);
+            }
+            //gm.seedPanel.SetActive(true);
+
+
             sfx.PlaySFX(sfx.BuyGround);
         }
         else if (_isBought)
@@ -267,6 +283,13 @@ public class AnimalStatus : BaseStatus
             Debug.Log("Not enough coin");
         }
 
+    }
+
+    void ShowFloatingText(string text)
+    {
+
+        var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity);
+        go.GetComponent<TextMeshPro>().text = text;
     }
 }
 

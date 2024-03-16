@@ -57,19 +57,19 @@ public class TouchDetector : MonoBehaviour {
         if (settingPanel[0].activeSelf)
         {
             settingPanel[1].active = false;
-            //settingPanel[2].active = false;
+            settingPanel[2].active = false;
         }
 
         if (settingPanel[1].activeSelf)
         {
             settingPanel[0].active = false;
-            //settingPanel[2].active = false;
+            settingPanel[2].active = false;
         }
-        /*if (settingPanel[2].activeSelf)
+        if (settingPanel[2].activeSelf)
         {
             settingPanel[1].active = false;
             settingPanel[0].active = false;
-        }*/
+        }
        
        
 

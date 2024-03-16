@@ -72,25 +72,21 @@ public class PetManagement : MonoBehaviour
         Debug.Log(_tempAnimalStatus);
         if (!cm.isPeting && _tempAnimalStatus.isLock == false)
         {
-            Debug.Log(_tempAnimalStatus.isLock);
+            //Debug.Log(_tempAnimalStatus.isLock);
             storePanel.SetActive(true);
             storePanelIntro();
         }
 
-        /* if (!cm.isPeting && _tempAnimalStatus._isBought == true)
-        {
-            Debug.Log(_tempAnimalStatus._isBought);
-            storePanel.SetActive(true);
-            storePanelIntro();
-        } */
+     
 
         if (_tempAnimalStatus.IsPeted)
         {
             closePanel();
-            if (_tempAnimalStatus.ObjectStage >= 1)
+            if (_tempAnimalStatus.ObjectStage >= selectedAnimal.ObjectStages.Length)
             {
                 _tempAnimalStatus.Collected();
                 _tempAnimalStatus.collectCheck = true;
+               
             }
         }
     }

@@ -356,6 +356,7 @@ MonoBehaviour:
   isLock: 1
   IsPlanted: 0
   IsPeted: 0
+  FloatingTextPrefab: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}
   sign: {fileID: 4463439417351444306}
   StatusPrefab: {fileID: 433899035083048242, guid: 279eb0acc5bde55448132e54f16de98d, type: 3}
   statusPos: {x: -0.69, y: 7.87, z: 0}

@@ -151,17 +151,17 @@ public class PlantStatus : BaseStatus
                 
                 ObjectStage++;
 
-                if (ObjectStage >= gm.selectedPlant.ObjectStages.Length)
+                if (ObjectStage >= gm.selectedPlant.ObjectStages.Length - 1)
                 {
                     
-                    ObjectStage = gm.selectedPlant.ObjectStages.Length - 1;
-                    //bar.gameObject.SetActive(false);
+                    
                     collectCheck = true;
                 }
                
                 if (plantAnimTimer <= 0)
                 {
                     afterWatertime = 5;
+                    
                     UpdatePlant();
                     //if(bar.gameObject.activeSelf)
                     //{

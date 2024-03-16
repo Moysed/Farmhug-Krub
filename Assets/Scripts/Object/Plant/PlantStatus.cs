@@ -64,6 +64,11 @@ public class PlantStatus : BaseStatus
         }*/
 
         //water Time
+        if(plant.gameObject.active == false)
+        {
+            progressionbar.slider.value = 0;
+        }
+
         if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
         {
             if(afterWatertime <= 0)
@@ -303,6 +308,8 @@ public class PlantStatus : BaseStatus
             }
             GroundMangement.singleton.countUnlockGround += 1;
             Debug.Log("Count Unlock Ground : " + GroundMangement.singleton.countUnlockGround);
+            gm.seedPanel.SetActive(true);
+            
             sfx.PlaySFX(sfx.BuyGround);
         }
         else if (_isBought)
@@ -335,6 +342,7 @@ public class PlantStatus : BaseStatus
                 if(enemy.plant.active = false)
                 {
                     enemy.plant = default;
+                    progressionbar.slider.value = 0;
                 }
                 //Destroy(plant.gameObject, 1);
                 Invoke("destroyPlantFromEnemy", 1);

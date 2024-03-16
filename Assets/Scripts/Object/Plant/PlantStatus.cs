@@ -356,7 +356,14 @@ public class PlantStatus : BaseStatus
         {
             StatusPrefab.gameObject.SetActive(false);
         }*/
+        Debug.Log("Eated");
+        IsPlanted = false;
+        gm.fm.isPlanting = false;
+        ObjectStage = 0;
+        isWater = false;
         plant.gameObject.SetActive(false);
+        //gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+        progressionbar.slider.value = 0;
         //Lean.Pool.LeanPool.Despawn(StatusPrefab.gameObject);
     }
 }

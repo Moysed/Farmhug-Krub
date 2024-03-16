@@ -11,43 +11,53 @@ public class ScarecrowBar : MonoBehaviour
     [SerializeField] private Image uiFill;
     //[SerializeField] private Text uiText;
 
-    public int Duration;
+    public float Duration;
 
-    private int remainingDuration;
+    private float remainingDuration;
 
     //private bool Pause;
 
     private void Start()
     {
-        //scarecrow = GetComponent<ScarecrowObject>();
+        scarecrow = GetComponent<ScarecrowObject>();
         //Duration = scarecrow.MaxTime;
         Being(Duration);
     }
 
-    private void Being(int Second)
+    private void Being(float Second)
     {
         remainingDuration = Second;
-        StartCoroutine(UpdateTimer());
+        
     }
 
-    private IEnumerator UpdateTimer()
+    private async void Update()
     {
-        while(remainingDuration >= 0)
-        {
-            
-                //uiText.text = $"{remainingDuration / 60:00}:{remainingDuration % 60:00}";
+        
+            if (remainingDuration >= 0)
+            {
                 uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remainingDuration);
-                remainingDuration--;
-                yield return new WaitForSeconds(1f);
-            
-            
-        }
-        //OnEnd();
+                remainingDuration -= Time.deltaTime;
+
+            }
+
+            if (remainingDuration <= 0)
+            {
+                    OnEnd();
+                    Invoke("sth", 1);
+          
+            }
+        
     }
 
-    /*private void OnEnd()
+
+    private void OnEnd()
     {
-        //End Time , if want Do something
+        remainingDuration = Duration;
         print("End");
-    }*/
+    }
+
+    void sth()
+    {
+        scarecrow.gameObject.SetActive(false);
+    }
 }

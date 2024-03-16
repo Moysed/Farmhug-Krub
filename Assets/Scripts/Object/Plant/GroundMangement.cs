@@ -43,7 +43,7 @@ public class GroundMangement : MonoBehaviour
         //if(_tempPlantStatus.isLock == true)
         //{
         seedPanel.SetActive(false);
-            storePanel.SetActive(false);
+        storePanel.SetActive(false);
           //  Debug.Log(_tempPlantStatus.isLock);
         //}
     }

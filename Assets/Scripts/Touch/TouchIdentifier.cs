@@ -9,6 +9,8 @@ public class TouchIdentifier : MonoBehaviour {
     public Vector2 startPosition;
     public Vector3 deltaPosition;
 
+    public TouchDetector t;
+
     /*private AnimalStatus animal;
 
     public void Start()
@@ -16,6 +18,12 @@ public class TouchIdentifier : MonoBehaviour {
         animal = GetComponent<AnimalStatus>();
     }*/
    
+    private void Start() 
+    {
+        //t = GetComponent<TouchDetector>();
+        t = FindObjectOfType<TouchDetector>();
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         //collider = collision;
@@ -68,9 +76,9 @@ public class TouchIdentifier : MonoBehaviour {
             {
                 GroundMangement.singleton._tempPlantStatus.Collected();
                 status.collectCheck = false;
-            }
-            
+            } 
         }
+
         if (collision.tag == "enemy")
         {
             EnemiesFollowing enemy = collision.GetComponent<EnemiesFollowing>();
@@ -81,5 +89,10 @@ public class TouchIdentifier : MonoBehaviour {
             }
             Debug.Log(enemy.hp);
         }
+
+        /*if(collision.tag == "ScareCrowItem")
+        {
+            t.settingPanel[3].active = true;
+        }*/
     }
 }

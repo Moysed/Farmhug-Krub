@@ -49,10 +49,13 @@ public class AnimalItem : MonoBehaviour
         {
             if(Inventory.singleton.inventory[animal.name] >= 1)
             {
+                if(PetManagement.singleton._tempAnimalStatus!= null)
+                {
                 Inventory.singleton.inventory[animal.name]--;
                 coop.SelectAnimal(this);
                 PetManagement.singleton.closePanel();
                 PetManagement.singleton.tempAnimal();
+                }
             }
           
         }

@@ -124,6 +124,7 @@ public class AnimalStatus : BaseStatus
  
         if (IsPeted == true)
         {
+            //pm.storePanel.SetActive(true);
             animalAnimTimer -= Time.deltaTime;
             if ( afterFeedtime <= 0 && isfeed == true )  
             {   

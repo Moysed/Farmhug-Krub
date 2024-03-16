@@ -15,6 +15,7 @@ public class PetManagement : MonoBehaviour
     public static PetManagement singleton;
 
     public GameObject storePanel;
+    //public GameObject seedPanel;
 
     AnimalStatus[] status;
 
@@ -42,6 +43,7 @@ public class PetManagement : MonoBehaviour
         //if(_tempAnimalStatus.isLock == true)
         //{
             //Inventory.singleton.coin -= ;
+            //seedPanel.SetActive(false);
             storePanel.SetActive(false);
         //    Debug.Log(_tempAnimalStatus.isLock);
         //}
@@ -72,15 +74,23 @@ public class PetManagement : MonoBehaviour
         Debug.Log(_tempAnimalStatus);
         if (!cm.isPeting && _tempAnimalStatus.isLock == false)
         {
+            if (_tempAnimalStatus.ObjectStage == 0)
+            {
+                //Debug.Log(_tempPlantStatus.isLock);
+                storePanel.SetActive(true);
+                storePanelIntro();
+                
+            }
             //Debug.Log(_tempAnimalStatus.isLock);
-            storePanel.SetActive(true);
-            storePanelIntro();
+            //storePanel.SetActive(true);
+            //storePanelIntro();
         }
 
      
 
         if (_tempAnimalStatus.IsPeted)
         {
+            storePanel.SetActive(false );
             closePanel();
             if (_tempAnimalStatus.ObjectStage >= selectedAnimal.ObjectStages.Length)
             {
@@ -94,6 +104,7 @@ public class PetManagement : MonoBehaviour
     {
         await storePanelOuttro();
         storePanel.SetActive(false);
+        //seedPanel.SetActive(false);
     }
 
     public void tempAnimal()
@@ -104,6 +115,7 @@ public class PetManagement : MonoBehaviour
 
     void storePanelIntro()
     {
+        //seedPanel.SetActive(false);
         storePanelRect.DOAnchorPosY(middlePosY, tweenDuration).SetUpdate(true);
     }
 

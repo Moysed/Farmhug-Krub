@@ -83,6 +83,7 @@ public class GroundMangement : MonoBehaviour
 
         if (_tempPlantStatus.IsPlanted)
         {
+            seedPanel.SetActive(false );
            closePanel();
             if (_tempPlantStatus.ObjectStage >= selectedPlant.ObjectStages.Length)
             {

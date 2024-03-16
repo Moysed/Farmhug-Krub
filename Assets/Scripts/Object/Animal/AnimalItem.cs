@@ -23,15 +23,29 @@ public class AnimalItem : MonoBehaviour
         if(Inventory.singleton.coin >= animal.price)
         {
         Inventory.singleton.coin -= animal.price;
+            Inventory.singleton.AddSeedtoInventory(animal.name);
         Debug.Log("Buy :" + animal.ObjectName);
-        coop.SelectAnimal(this);
-        PetManagement.singleton.closePanel();
-        PetManagement.singleton.tempAnimal();
         sfx.PlaySFX(sfx.BuyPlant);
         }
         else
         {
             Debug.Log("Not Enough Coin");
         }
+    }
+
+    public void ChooseAnimal()
+    {
+        if(Inventory.singleton.inventory.ContainsKey(animal.name))
+        {
+            if(Inventory.singleton.inventory[animal.name] >= 1)
+            {
+                Inventory.singleton.inventory[animal.name]--;
+                coop.SelectAnimal(this);
+                PetManagement.singleton.closePanel();
+                PetManagement.singleton.tempAnimal();
+            }
+          
+        }
+        
     }
 }

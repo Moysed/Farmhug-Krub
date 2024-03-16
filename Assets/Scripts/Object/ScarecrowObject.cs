@@ -6,7 +6,7 @@ public class ScarecrowObject : MonoBehaviour
 {
     public GameObject[] scarecrow;
     int price = 20;
-    public float MaxTime = 10;
+    public float MaxTime = 60;
     float lifeTime1;
     float lifeTime2;
     float lifeTime3;

@@ -117,7 +117,7 @@ public class TouchDetector : MonoBehaviour {
 
     public virtual void OnTouchBegan(Touch touch)
     {
-        if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false)
+        if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false && settingPanel[3].active == false)
             GetTouchIdentifierWithTouch(touch);
 
         lastTouchPosition = touch.position;

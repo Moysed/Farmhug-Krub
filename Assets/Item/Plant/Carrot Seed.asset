@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d2563fa243f694d8d767660de20935, type: 3}
-  m_Name: Corn
+  m_Name: Carrot Seed
   m_EditorClassIdentifier: 
-  ObjectName: Corn
+  ObjectName: Carrot
   ObjectStages:
-  - {fileID: 21300000, guid: a32847caea407534781aa33b4e9f4fc3, type: 3}
-  - {fileID: 21300000, guid: aa71ac71b4b4611438d5a3a9b9401d50, type: 3}
-  - {fileID: 21300000, guid: 2655039b56e68714f987c070487362ef, type: 3}
-  - {fileID: 21300000, guid: c987c4ba699b23d418ae6133bb78dc94, type: 3}
-  - {fileID: 21300000, guid: d6744f7013a0e0c4d9b5f4e12077069b, type: 3}
+  - {fileID: 21300000, guid: b64ed751a8d06be4d818fe6fd5ff0e27, type: 3}
+  - {fileID: 21300000, guid: d4eda8a3bb2da1b43a0d4ef141013f1f, type: 3}
+  - {fileID: 21300000, guid: ff063f9a0379e0541aab159afc1a826a, type: 3}
+  - {fileID: 21300000, guid: 6e10df267be7aa2449627dd81e604269, type: 3}
+  - {fileID: 21300000, guid: f2c50504d7db1cd4d8df1e3bb31d78e2, type: 3}
   timeBtwstage: 2
-  price: 1
+  price: 3
   _growthTime: 10

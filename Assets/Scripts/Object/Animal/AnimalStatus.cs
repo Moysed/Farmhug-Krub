@@ -19,7 +19,7 @@ public class AnimalStatus : BaseStatus
     
     public bool _isBought = false;
     public SpriteRenderer animal;
-   
+    FloatingBar progressionbar;
  
     [SerializeField]
     PolygonCollider2D animalCollider;
@@ -45,6 +45,7 @@ public class AnimalStatus : BaseStatus
     {
         pm = PetManagement.singleton;
         feedTime = 0; // Adjust the initial grow time as needed
+        progressionbar = GetComponentInChildren<FloatingBar>();
     }
  
     void Update()
@@ -129,11 +130,20 @@ public class AnimalStatus : BaseStatus
                 if (ObjectStage >= pm.selectedAnimal.ObjectStages.Length)
                 {
                     ObjectStage = 2;
+                    //ObjectStage = pm.selectedAnimal.ObjectStages.Length - 1;
+                    collectCheck = true;
+                }
+                else if(ObjectStage < pm.selectedAnimal.ObjectStages.Length)
+                {
+                    collectCheck = false;
                 }
 
                 if (animalAnimTimer <= 0)
                 {
                     UpdateAnimal();
+
+                    progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
+
                     animalAnimTimer = _selfObjectInfo.timeBtwstage;
                 } 
             }
@@ -187,6 +197,9 @@ public class AnimalStatus : BaseStatus
         IsPeted = true;
         ObjectStage = 0;
         ObjectName = newAnimal.name;
+
+        progressionbar.slider.maxValue = _selfObjectInfo._growthTime;
+
         UpdateAnimal();
         animal.gameObject.SetActive(true);
     }
@@ -204,6 +217,8 @@ public class AnimalStatus : BaseStatus
 
     public override void Collected()
     {
+        if(collectCheck == true)
+        {
         Debug.Log("Harvested");
         IsPeted = false;
         pm.cm.isPeting = false;
@@ -211,7 +226,11 @@ public class AnimalStatus : BaseStatus
         isfeed = false;
         animal.gameObject.SetActive(false);
         pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+
+        progressionbar.slider.value = 0;
+        
         sfx.PlaySFX(sfx.Mandrake);
+        }
     }
 
     public override void CheckIsLocked(int spacePrice)

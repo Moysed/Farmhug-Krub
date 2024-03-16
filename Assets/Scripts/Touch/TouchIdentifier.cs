@@ -53,8 +53,6 @@ public class TouchIdentifier : MonoBehaviour {
             Debug.Log(status);
             if (status.collectCheck == true)
             {
-                
-
                 PetManagement.singleton._tempAnimalStatus.Collected();
                 status.collectCheck = false;
             } 
@@ -68,8 +66,6 @@ public class TouchIdentifier : MonoBehaviour {
             Debug.Log(status);
             if (status.collectCheck == true)
             {
-
-
                 GroundMangement.singleton._tempPlantStatus.Collected();
                 status.collectCheck = false;
             }

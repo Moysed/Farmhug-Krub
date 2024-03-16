@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class AnimalItem : MonoBehaviour
 {
+    public TextMeshProUGUI text;
     public InfoObject animal;
     SFXManager sfx;
     CoopManager coop;
@@ -16,6 +19,13 @@ public class AnimalItem : MonoBehaviour
     void Start()
     {
         coop = FindObjectOfType<CoopManager>();
+    }
+
+     private void Update()
+    {
+
+        if (Inventory.singleton.inventory.ContainsKey(animal.name) && text != null)
+            text.text = Inventory.singleton.inventory[animal.name].ToString();
     }
 
     public void BuyAnimal()

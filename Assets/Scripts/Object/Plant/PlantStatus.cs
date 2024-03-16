@@ -222,15 +222,15 @@ public class PlantStatus : BaseStatus
  
     public override void Collected()
     {
-        Debug.Log("Harvested");
-        IsPlanted = false;
-        gm.fm.isPlanting = false;
-        ObjectStage = 0;
-        isWater = false;
-        plant.gameObject.SetActive(false);
-        gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
-        progressionbar.slider.value = 0;
-        sfx.PlaySFX(sfx.Harvest);
+            Debug.Log("Harvested");
+            IsPlanted = false;
+            gm.fm.isPlanting = false;
+            ObjectStage = 0;
+            isWater = false;
+            plant.gameObject.SetActive(false);
+            gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+            progressionbar.slider.value = 0;
+            sfx.PlaySFX(sfx.Harvest);
     }
  
     // Single Game object

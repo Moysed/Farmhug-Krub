@@ -42,11 +42,9 @@ public class ScarecrowBar : MonoBehaviour
 
             if (remainingDuration <= 0)
             {
-                    OnEnd();
-                    Invoke("sth", 1);
-          
+                    sth();
+                    OnEnd(); 
             }
-        
     }
 
 

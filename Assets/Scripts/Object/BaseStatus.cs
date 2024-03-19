@@ -10,13 +10,21 @@ public class BaseStatus : MonoBehaviour
     public bool collectCheck = false;
     public string ObjectName;
     public bool isLock = true;
+    public bool isBought = false;
 
     //Plant
     public bool IsPlanted = false;
-
+    public bool isWater = false;
+    public int waterTime;
+    public float afterWatertime = 0;
+    public float plantAnimTimer;
 
     //Animal
     public bool IsPeted = false;
+    public bool isfeed = false;
+    public int feedTime;
+    public float afterFeedtime = 0;
+    public float animalAnimTimer;
 
     public virtual void CallUpdate()
     {
@@ -41,6 +49,11 @@ public class BaseStatus : MonoBehaviour
     }
 
     public virtual void IsBought(bool buy)
+    {
+
+    }
+
+    public virtual void isWatering()
     {
 
     }

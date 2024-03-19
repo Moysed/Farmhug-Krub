@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Unity.UI;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class LoadingScene : MonoBehaviour
 {

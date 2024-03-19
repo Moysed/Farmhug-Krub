@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cefec50c0ddb643698784bb1cb9ba9f8
+guid: 2caf3aaf27e391843915501a478518c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,337 +149,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_0
+      name: CrowV2_Fly_01_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 160
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 43
+        y: 1838
+        width: 618
+        height: 559
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 563382ad0b65ea0499d4e7b9ab2e73f9
-      internalID: 956419918
+      spriteID: c10009fb09174439b910a54f5716fc04
+      internalID: 1916349086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_1
+      name: CrowV2_Fly_01_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 160
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 740
+        y: 1854
+        width: 618
+        height: 389
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc353a9bbb66554ba9f474e4ec02738
-      internalID: 1835638886
+      spriteID: b5293be3bb2634ef89cad91d8208f1d0
+      internalID: -1660517516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_2
+      name: CrowV2_Fly_01_3
       rect:
         serializedVersion: 2
-        x: 113
-        y: 160
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 1437
+        y: 1873
+        width: 618
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7db72e68fc3fb04b97fdb74c7e9b0d5
-      internalID: 883798789
+      spriteID: b36ca876a57d5492198bfa2b7606c8cc
+      internalID: 63590231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_3
+      name: CrowV2_Fly_01_5
       rect:
         serializedVersion: 2
-        x: 161
-        y: 160
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 2134
+        y: 1721
+        width: 619
+        height: 485
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75b23519f63b3fc429e55f9d736d3f18
-      internalID: -732694311
+      spriteID: 67bf0bc4b0b624d3b8693bdce04d348a
+      internalID: 523091004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_4
+      name: CrowV2_Fly_01_7
       rect:
         serializedVersion: 2
-        x: 17
-        y: 112
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 43
+        y: 918
+        width: 615
+        height: 495
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7347f91ea88b2e548916f18c62c42b74
-      internalID: -41024649
+      spriteID: 36732adb6a39a4eff909904b7d408ad9
+      internalID: -149917987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_5
+      name: CrowV2_Fly_01_8
       rect:
         serializedVersion: 2
-        x: 65
-        y: 112
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 740
+        y: 907
+        width: 615
+        height: 499
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2fc296728769974f9f8849543a8039c
-      internalID: 1038419793
+      spriteID: a5cdd60384abe4f05bb757423b726462
+      internalID: -1374214840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_6
+      name: CrowV2_Fly_01_9
       rect:
         serializedVersion: 2
-        x: 113
-        y: 112
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 1437
+        y: 1012
+        width: 615
+        height: 394
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 109495940c5a14f44a1eac4def7a45a2
-      internalID: -1537956073
+      spriteID: 1d5542b248ef94a69a0639d85d0269bf
+      internalID: -6137559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_7
+      name: CrowV2_Fly_01_10
       rect:
         serializedVersion: 2
-        x: 161
-        y: 112
-        width: 14
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 2135
+        y: 1070
+        width: 614
+        height: 337
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e6bad04fcf39cc4ba71fdd8c4c94736
-      internalID: -1979653892
+      spriteID: e9a57f8e95c1f4bcaa7c0d646d0db805
+      internalID: 1889559539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_8
+      name: CrowV2_Fly_01_12
       rect:
         serializedVersion: 2
-        x: 18
-        y: 64
-        width: 11
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 44
+        y: 270
+        width: 618
+        height: 343
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbafc381570bc3741b84906b3b0d59a2
-      internalID: -1379400649
+      spriteID: d1944b7291009440fb7b1fbb03728774
+      internalID: -1322751005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_9
+      name: CrowV2_Fly_01_15
       rect:
         serializedVersion: 2
-        x: 67
-        y: 64
-        width: 10
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 735
+        y: 253
+        width: 622
+        height: 462
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ce8f6273934ed547b3dae1c04f01e33
-      internalID: 69319744
+      spriteID: 1db5dd0bc585e45a28840053bc43e6c4
+      internalID: -629695160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_10
+      name: CrowV2_Fly_01_16
       rect:
         serializedVersion: 2
-        x: 115
-        y: 64
-        width: 10
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 1437
+        y: 253
+        width: 618
+        height: 540
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7cd4af8f0b100943a2fcef536b739f0
-      internalID: 1977367482
+      spriteID: 628498c769cdb4843a522fa188de4d3b
+      internalID: 100355959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Charakter Spritesheet_11
+      name: CrowV2_Fly_01_18
       rect:
         serializedVersion: 2
-        x: 163
-        y: 64
-        width: 10
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
+        x: 2132
+        y: 253
+        width: 620
+        height: 541
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7950d0b91fc9c7a40a81f67a3047a9e7
-      internalID: 2093293833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Charakter Spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 16
-        width: 12
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f39766dfab6a2e54db47e56be5ae93dc
-      internalID: -1064722698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Charakter Spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 16
-        width: 11
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d85ce22cc2d34f94881b54a6239f0dfb
-      internalID: 789272967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Charakter Spritesheet_14
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 16
-        width: 10
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47fad6f1df578e642870e7382420f5be
-      internalID: 374280793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Charakter Spritesheet_15
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 16
-        width: 10
-        height: 16
-      alignment: 9
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c1006c2c16f915478a7bfe9c10ff813
-      internalID: 979206165
+      spriteID: 59f79a6239dd44f99981627e9ffa07cd
+      internalID: 555630430
       vertices: []
       indices: 
       edges: []
@@ -495,22 +411,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Basic Charakter Spritesheet_0: 956419918
-      Basic Charakter Spritesheet_1: 1835638886
-      Basic Charakter Spritesheet_10: 1977367482
-      Basic Charakter Spritesheet_11: 2093293833
-      Basic Charakter Spritesheet_12: -1064722698
-      Basic Charakter Spritesheet_13: 789272967
-      Basic Charakter Spritesheet_14: 374280793
-      Basic Charakter Spritesheet_15: 979206165
-      Basic Charakter Spritesheet_2: 883798789
-      Basic Charakter Spritesheet_3: -732694311
-      Basic Charakter Spritesheet_4: -41024649
-      Basic Charakter Spritesheet_5: 1038419793
-      Basic Charakter Spritesheet_6: -1537956073
-      Basic Charakter Spritesheet_7: -1979653892
-      Basic Charakter Spritesheet_8: -1379400649
-      Basic Charakter Spritesheet_9: 69319744
+      CrowV2_Fly_01_0: 1916349086
+      CrowV2_Fly_01_1: -1660517516
+      CrowV2_Fly_01_10: 1889559539
+      CrowV2_Fly_01_11: 24832765
+      CrowV2_Fly_01_12: -1322751005
+      CrowV2_Fly_01_13: 105512351
+      CrowV2_Fly_01_14: -120998874
+      CrowV2_Fly_01_15: -629695160
+      CrowV2_Fly_01_16: 100355959
+      CrowV2_Fly_01_17: -1010444947
+      CrowV2_Fly_01_18: 555630430
+      CrowV2_Fly_01_19: 2146559662
+      CrowV2_Fly_01_2: -638847324
+      CrowV2_Fly_01_20: -1612185262
+      CrowV2_Fly_01_3: 63590231
+      CrowV2_Fly_01_4: 768357136
+      CrowV2_Fly_01_5: 523091004
+      CrowV2_Fly_01_6: 2113454918
+      CrowV2_Fly_01_7: -149917987
+      CrowV2_Fly_01_8: -1374214840
+      CrowV2_Fly_01_9: -6137559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

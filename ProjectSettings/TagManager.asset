@@ -9,13 +9,16 @@ TagManager:
   - BGM
   - Ground
   - Status
-  - PlantStatus'
   - ANimalContainer
   - enemy
   - CamEdge
   - Scarecrow
   - ScareCrowItem
   - SFX
+  - Left
+  - Right
+  - Seed
+  - PlantStatus
   layers:
   - Default
   - TransparentFX
@@ -64,4 +67,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1947500477
+    locked: 0
+  - name: Player
+    uniqueID: 3980204243
     locked: 0

@@ -50,10 +50,6 @@ public class TouchDetector : MonoBehaviour {
             }
         }
 
-        
-
-
-
         if (settingPanel[0].activeSelf)
         {
             settingPanel[1].active = false;
@@ -121,9 +117,6 @@ public class TouchDetector : MonoBehaviour {
             GetTouchIdentifierWithTouch(touch);
 
         lastTouchPosition = touch.position;
-
-
-
     }
     public virtual void OnTouchEnded(Touch touch)
     {
@@ -224,4 +217,11 @@ public class TouchDetector : MonoBehaviour {
 
         touchId.gameObject.SetActive(false) ;
     }
+
+    /*void UpdatePlayerMove(Touch touch)
+    {
+        TouchIdentifier touchId = GetTouchIdentifierWithTouch(touch);
+
+        PlayerScript.singleton.transform.localPosition = convertScreenToWorld(touch.position);
+    }*/
 }

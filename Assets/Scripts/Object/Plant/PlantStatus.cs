@@ -6,31 +6,19 @@ using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
-    //public int countUnlockGround = 0;
-    //public GameObject bar;
-
     SFXManager sfx;
-
     public SpriteRenderer sign;
     public GameObject FloatingTextPrefab;
     EnemiesFollowing enemy;
-    float plantAnimTimer;
     public int _spacePrice;
     public GameObject StatusPrefab;
     public Vector3 statusPos;
-    public int waterTime;
-    public  bool isWater = false;
     GroundMangement gm;
     public SpriteRenderer plant;
-    
-    private float growthtime;
-    
-    [SerializeField]
-     BoxCollider2D plantCollider;
-    public float afterWatertime = 0;
 
-    public bool _isBought = false;
- 
+    [SerializeField]
+    BoxCollider2D plantCollider;
+
     FloatingBar progressionbar;
  
     public enum InstanceMode
@@ -58,29 +46,49 @@ public class PlantStatus : BaseStatus
  
     void Update()
     {
-        /*if(GroundMangement.singleton.fm.isPlanting == true && isLock == false)
-        {
-            Inventory.singleton.coin -= _spacePrice;
-        }*/
-
         //water Time
         if(plant.gameObject.active == false)
         {
             progressionbar.slider.value = 0;
         }
 
-        if(IsPlanted && waterTime >= 0 && waterTime <= 600 )
-        {
-            if(afterWatertime <= 0)
-            {
-                waterTime++;
-            }
-
-        }
-        if (IsPlanted == true)
+        if(IsPlanted == true)
         {
             afterWatertime -= Time.deltaTime;
+            plantAnimTimer -= Time.deltaTime;
+            if (waterTime >= 0 && waterTime <= 600)
+            {
+                if (afterWatertime <= 0)
+                {
+                    waterTime++;
+                }
+            }
+
+            if (afterWatertime <= 0 && isWater == true)
+            {
+                //growthtime += Time.deltaTime;
+
+                if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 1)
+                {
+                    collectCheck = true;
+                }
+
+                if (plantAnimTimer <= 0)
+                {
+                    if (ObjectStage < _selfObjectInfo.ObjectStages.Length - 1)
+                    {
+                        ObjectStage++;
+                    }
+
+                    afterWatertime = 5;
+
+                    UpdatePlant();
+                    progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
+                    plantAnimTimer = _selfObjectInfo.timeBtwstage;
+                }
+            }
         }
+
         if(gm.selectedPlant != null)
             if (ObjectStage == gm.selectedPlant.ObjectStages.Length - 1)
             {
@@ -103,81 +111,6 @@ public class PlantStatus : BaseStatus
             destroyStatus();
         }
 
-        //Status Touch
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit hit;
- 
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
- 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.CompareTag("PlantStatus'"))
-                {
-                    Plant plant = hit.collider.GetComponent<Plant>();
-                    if (plant._ownerPlantObjectPrefabs.name.Contains(this.name))
-                    {
-                       
-                        //Debug.Log("Tapped on Object:" + this.name);
-                        //Debug.Log("Is Water : " + isWater);
-                        afterWatertime = 5;
-                        //isWater = true;
-                        isWater = true;
-                        
-                        //SFXPlaying.singleton.PlayWatering();
-                        sfx.PlaySFX(sfx.Watering);
-
-                        //bar.gameObject.SetActive(true);
-
-                        Lean.Pool.LeanPool.Despawn(hit.collider.gameObject);
- 
-                        //plantInventory.AddToInventory(hit.collider.gameObject.name);
-                        waterTime = 0; // Reset grow time
-                    } 
-                }
-            }
-        }
- 
-        //Stage Update
-        if (IsPlanted == true)
-        {
-            
-            
-            plantAnimTimer -= Time.deltaTime;
-            if ( afterWatertime <= 0 && isWater == true)
-            {
-                growthtime += Time.deltaTime;
-                
-                ObjectStage++;
-
-                if (ObjectStage >= gm.selectedPlant.ObjectStages.Length - 1)
-                {
-                    
-                    
-                    collectCheck = true;
-                }
-               
-                if (plantAnimTimer <= 0)
-                {
-                    afterWatertime = 5;
-                    
-                    UpdatePlant();
-                    //if(bar.gameObject.activeSelf)
-                    //{
-                        progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
-                    //}
-                    //progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
-                    plantAnimTimer = _selfObjectInfo.timeBtwstage;
-                }
-
-                
-            }
-
-           
-            
-        }
-
         if (gm.inventory.autoSell.sellTime == 0)
         {
             if(_selfObjectInfo != null)
@@ -187,19 +120,12 @@ public class PlantStatus : BaseStatus
     Plant _selfPlantStatus;
     void ShowStatus()
     {
-        _selfPlantStatus = InstantiateObject(StatusPrefab).GetComponent<Plant>();
-        _selfPlantStatus.tag = "PlantStatus'";
-
-        // Set the new plant's position
-        _selfPlantStatus.transform.position = statusPos;
-        _selfPlantStatus._ownerPlantObjectPrefabs = this;
-        // Reset grow time for the new plant
-        //waterTime = 10f;
+        StatusPrefab.SetActive(true);
     }
 
     void destroyStatus()
     {
-        Lean.Pool.LeanPool.Despawn(_selfPlantStatus.gameObject);
+        StatusPrefab.SetActive(false);
     }
  
     // Single Game Object
@@ -222,22 +148,48 @@ public class PlantStatus : BaseStatus
  
     public override void Collected()
     {
-            Debug.Log("Harvested");
-            IsPlanted = false;
-            gm.fm.isPlanting = false;
-            ObjectStage = 0;
-            isWater = false;
-            plant.gameObject.SetActive(false);
-            gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
-            progressionbar.slider.value = 0;
-            sfx.PlaySFX(sfx.Harvest);
+        
+        Debug.Log("Harvested");
+        IsPlanted = false;
+        gm.fm.isPlanting = false;
+        ObjectStage = 0;
+        isWater = false;
+        //plant.gameObject.SetActive(false);
+        gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
+        progressionbar.slider.value = 0;
+        sfx.PlaySFX(sfx.Harvest);
+
+        if (collectCheck)
+        {
+            if (PlayerScript.singleton.onLeft == true)
+            {
+                PlayerScript.singleton.ChangeAnimationstate("IsHarvestLeft", "Isidle");
+                
+
+            }
+            if (PlayerScript.singleton.onRight == true)
+            {
+                PlayerScript.singleton.ChangeAnimationstate("IsHarvestRight", "Isidle");
+                
+
+            }
+            Invoke("resetHavestAnim", 1f);
+        }
+    }
+
+    void Harvest()
+    {
+        plant.gameObject.SetActive(false);
     }
  
     // Single Game object
     void UpdatePlant()
     {
-        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
+        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length) 
+        {
             ObjectStage = _selfObjectInfo.ObjectStages.Length;
+        }
+            
  
         plant.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
         plantCollider.size = plant.sprite.bounds.size;
@@ -264,42 +216,29 @@ public class PlantStatus : BaseStatus
     {
         _spacePrice = spacePrice;
 
-        if(Inventory.singleton.coin < _spacePrice && !_isBought)
+        if(Inventory.singleton.coin < _spacePrice && !isBought)
         {
             isLock = true;
             IsBought(isLock);
         }
         else if(Inventory.singleton.coin >= _spacePrice)
         {
-            
             isLock = false;
             IsBought(isLock);
-
-            
         }
-        
 
-        if(_isBought)
+        if(isBought == true)
         {
             isLock = false;
         }
-
-        /*if(isLock == true)
-        {
-            Inventory.singleton.coin -= 0;
-        }
-        else if(isLock == false)
-        {
-            Inventory.singleton.coin -= _spacePrice;
-        }*/
     }
 
     public override void IsBought(bool b)
     {
-        if (!b && _isBought == false)
+        if (!b && isBought == false)
         {
             Inventory.singleton.coin -= _spacePrice;
-            _isBought = true;
+            isBought = true;
 
             sign.gameObject.SetActive(false);
             if (FloatingTextPrefab)
@@ -312,7 +251,7 @@ public class PlantStatus : BaseStatus
             
             sfx.PlaySFX(sfx.BuyGround);
         }
-        else if (_isBought)
+        else if (isBought)
         {
             
             
@@ -322,7 +261,6 @@ public class PlantStatus : BaseStatus
         {
             Debug.Log("Not enough coin");
         }
-
     }
 
     void ShowFloatingText(string text)
@@ -339,31 +277,76 @@ public class PlantStatus : BaseStatus
             enemy = collision.GetComponent<EnemiesFollowing>();
             if(enemy.hp > 0)
             {
-                if(enemy.plant.active = false)
-                {
+                
                     enemy.plant = default;
                     progressionbar.slider.value = 0;
-                }
+                    IsPlanted = false;
+                    gm.fm.isPlanting = false;
+                
                 //Destroy(plant.gameObject, 1);
-                Invoke("destroyPlantFromEnemy", 1);
+                destroyPlantFromEnemy();
             }
         }
     }
 
     void destroyPlantFromEnemy()
     {
-        /*if(StatusPrefab.gameObject.active == true)
-        {
-            StatusPrefab.gameObject.SetActive(false);
-        }*/
         Debug.Log("Eated");
         IsPlanted = false;
         gm.fm.isPlanting = false;
         ObjectStage = 0;
         isWater = false;
         plant.gameObject.SetActive(false);
-        //gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
         progressionbar.slider.value = 0;
-        //Lean.Pool.LeanPool.Despawn(StatusPrefab.gameObject);
+    }
+
+    public override void isWatering()
+    {
+        afterWatertime = 5;
+        isWater = true;
+        sfx.PlaySFX(sfx.Watering);
+        waterTime = 0; // Reset grow time
+        StatusPrefab.SetActive(false);
+
+        if(PlayerScript.singleton.onLeft == true)
+        {
+            PlayerScript.singleton.ChangeAnimationstate("IsWateringRight", "Isidle");
+            Invoke("resetWateringAnim", 1);
+        }
+        if (PlayerScript.singleton.onRight == true)
+        {
+            PlayerScript.singleton.ChangeAnimationstate("IsWateringLeft", "Isidle");
+            Invoke("resetWateringAnim", 1);
+        }
+    }
+
+    void resetWateringAnim()
+    {
+        if (PlayerScript.singleton.onLeft == true)
+        {
+            PlayerScript.singleton.ChangeAnimationstate("Isidle", "IsWateringRight");
+            //PlayerScript.singleton.onLeft = false;
+        }
+        if (PlayerScript.singleton.onRight == true)
+        {
+            PlayerScript.singleton.ChangeAnimationstate("Isidle", "IsWateringLeft");
+            //PlayerScript.singleton.onRight = false;
+        }
+    }
+
+    public void resetHavestAnim()
+    {
+        if (PlayerScript.singleton.onLeft == true)
+        {
+            PlayerScript.singleton.ChangeAnimationstate("Isidle", "IsHarvestLeft");
+            //PlayerScript.singleton.onLeft = false;
+        }
+        if (PlayerScript.singleton.onRight == true)
+        {
+            Debug.Log(PlayerScript.singleton.onRight);
+            PlayerScript.singleton.ChangeAnimationstate("Isidle", "IsHarvestRight");
+            //PlayerScript.singleton.onRight = false;
+        }
+        plant.gameObject.SetActive(false);
     }
 }

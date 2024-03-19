@@ -55,6 +55,7 @@ public class TouchDetector : MonoBehaviour {
             settingPanel[1].active = false;
             settingPanel[2].active = false;
             settingPanel[3].active = false;
+            settingPanel[4].active = false;
         }
 
         if (settingPanel[1].activeSelf)
@@ -62,15 +63,26 @@ public class TouchDetector : MonoBehaviour {
             settingPanel[0].active = false;
             settingPanel[2].active = false;
             settingPanel[3].active = false;
+            settingPanel[4].active = false;
         }
         if (settingPanel[2].activeSelf)
         {
+            settingPanel[4].active = false;
             settingPanel[3].active = false;
             settingPanel[1].active = false;
             settingPanel[0].active = false;
         }
         if (settingPanel[3].activeSelf)
         {
+            settingPanel[4].active = false;
+            settingPanel[2].active = false;
+            settingPanel[1].active = false;
+            settingPanel[0].active = false;
+        }
+
+        if (settingPanel[4].activeSelf)
+        {
+            settingPanel[3].active = false;
             settingPanel[2].active = false;
             settingPanel[1].active = false;
             settingPanel[0].active = false;

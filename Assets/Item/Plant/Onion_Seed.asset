@@ -16,7 +16,7 @@ MonoBehaviour:
   ObjectStages:
   - {fileID: 21300000, guid: 6b50aee606a664c41b2217cb2535e737, type: 3}
   - {fileID: 21300000, guid: f5aa212812a9843448ff45c6c64d90c6, type: 3}
-  - {fileID: 21300000, guid: 6e14c77e9017e47cd91e5aa063c86749, type: 3}
+  - {fileID: 21300000, guid: 32adbda37d59d4d07b8a8bcc35097399, type: 3}
   timeBtwstage: 2
   price: 3
   _growthTime: 4

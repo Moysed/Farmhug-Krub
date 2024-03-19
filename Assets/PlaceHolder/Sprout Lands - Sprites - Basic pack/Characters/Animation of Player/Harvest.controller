@@ -36,7 +36,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Harvest_Right
-  m_Speed: 0.3
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7562599598492283131}
@@ -147,7 +147,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Harvest_Left
-  m_Speed: 0.3
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 421706597133630221}
@@ -397,27 +397,27 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7654829497202589353}
-    m_Position: {x: -60, y: 990, z: 0}
+    m_Position: {x: 290, y: 770, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1893906990453587334}
-    m_Position: {x: -20, y: 850, z: 0}
+    m_Position: {x: 330, y: 630, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1424278671482750152}
-    m_Position: {x: 180, y: 950, z: 0}
+    m_Position: {x: 530, y: 730, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -520700266762898440}
-    m_Position: {x: 210, y: 760, z: 0}
+    m_Position: {x: 560, y: 540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2085864084283911300}
-    m_Position: {x: 0, y: 700, z: 0}
+    m_Position: {x: 350, y: 480, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -220, y: 750, z: 0}
-  m_EntryPosition: {x: -220, y: 850, z: 0}
-  m_ExitPosition: {x: 830, y: 910, z: 0}
+  m_AnyStatePosition: {x: 130, y: 530, z: 0}
+  m_EntryPosition: {x: 130, y: 630, z: 0}
+  m_ExitPosition: {x: 1180, y: 690, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1893906990453587334}
 --- !u!1101 &8883677729666388248

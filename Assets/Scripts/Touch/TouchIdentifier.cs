@@ -82,7 +82,6 @@ public class TouchIdentifier : MonoBehaviour
 
         if (collision.tag == "Status")
         {
-            Debug.Log("hi");
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
             AnimalStatus _tempAnimalStatus = collision.GetComponent<AnimalStatus>();
 
@@ -95,7 +94,6 @@ public class TouchIdentifier : MonoBehaviour
 
         if (collision.tag == "PlantStatus")
         {
-            Debug.Log("hi");
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
             PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
 

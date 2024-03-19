@@ -8,6 +8,7 @@ public class PlantStatus : BaseStatus
 {
     SFXManager sfx;
     public SpriteRenderer sign;
+    public SpriteRenderer wet;
     public GameObject FloatingTextPrefab;
     EnemiesFollowing enemy;
     public int _spacePrice;
@@ -64,28 +65,35 @@ public class PlantStatus : BaseStatus
                 }
             }
 
-            if (afterWatertime <= 0 && isWater == true)
+            if (isWater == true)
             {
-                //growthtime += Time.deltaTime;
-
-                if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 1)
+                wet.gameObject.SetActive(true);
+                if(afterWatertime <= 0)
                 {
-                    collectCheck = true;
-                }
-
-                if (plantAnimTimer <= 0)
-                {
-                    if (ObjectStage < _selfObjectInfo.ObjectStages.Length - 1)
+                    if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 1)
                     {
-                        ObjectStage++;
+                        collectCheck = true;
                     }
 
-                    afterWatertime = 5;
+                    if (plantAnimTimer <= 0)
+                    {
+                        if (ObjectStage < _selfObjectInfo.ObjectStages.Length - 1)
+                        {
+                            ObjectStage++;
+                        }
 
-                    UpdatePlant();
-                    progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
-                    plantAnimTimer = _selfObjectInfo.timeBtwstage;
+                        afterWatertime = 5;
+
+                        UpdatePlant();
+                        progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
+                        plantAnimTimer = _selfObjectInfo.timeBtwstage;
+                    }
                 }
+            }
+
+            if (ObjectStage > 0) 
+            {
+                wet.gameObject.SetActive(false);
             }
         }
 
@@ -173,7 +181,7 @@ public class PlantStatus : BaseStatus
                 
 
             }
-            Invoke("resetHavestAnim", 1f);
+            Invoke("resetHavestAnim", 1.5f);
         }
     }
 
@@ -189,8 +197,7 @@ public class PlantStatus : BaseStatus
         {
             ObjectStage = _selfObjectInfo.ObjectStages.Length;
         }
-            
- 
+        
         plant.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
         plantCollider.size = plant.sprite.bounds.size;
         plantCollider.offset = new Vector2(0, plant.size.y / 2);

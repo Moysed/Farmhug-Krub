@@ -9,25 +9,20 @@ public class ScarecrowBar : MonoBehaviour
     
     ScarecrowObject scarecrow;
     [SerializeField] private Image uiFill;
-    //[SerializeField] private Text uiText;
 
-    public float Duration;
+    public float Duration = 60;
 
     private float remainingDuration;
 
-    //private bool Pause;
-
     private void Start()
     {
-        scarecrow = GetComponent<ScarecrowObject>();
-        //Duration = scarecrow.MaxTime;
         Being(Duration);
     }
 
     private void Being(float Second)
     {
         remainingDuration = Second;
-        
+        scarecrow.gameObject.SetActive(true);
     }
 
     private async void Update()
@@ -40,22 +35,15 @@ public class ScarecrowBar : MonoBehaviour
 
             }
 
-            if (remainingDuration <= 0)
+            if (remainingDuration < 0)
             {
-                    sth();
                     OnEnd(); 
             }
     }
-
 
     private void OnEnd()
     {
         remainingDuration = Duration;
         print("End");
-    }
-
-    void sth()
-    {
-        scarecrow.gameObject.SetActive(false);
     }
 }

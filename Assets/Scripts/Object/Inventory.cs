@@ -95,7 +95,7 @@ public class Inventory : MonoBehaviour
                     inventory[productType] = 0;
                     amount = 0;
                 }
-                if (productType == "Cow" && amount != 0 && inventory[productType] != 0)
+                /*if (productType == "Cow" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
                     coin += 0 * inventory[productType];
@@ -119,9 +119,8 @@ public class Inventory : MonoBehaviour
                     totalIncome += 2 * inventory[productType];
                     inventory[productType] = 0;
                     amount = 0;
-
-                }
-                if (productType == "Carrot" && amount != 0 && inventory[productType] != 0)
+                }*/
+                if (productType == "Strawberry" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
                     coin += 4 * inventory[productType];
@@ -130,7 +129,7 @@ public class Inventory : MonoBehaviour
                     amount = 0;
 
                 }
-                if (productType == "Corn" && amount != 0 && inventory[productType] != 0)
+                if (productType == "Onion" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
                     coin += 2 * inventory[productType];
@@ -139,7 +138,7 @@ public class Inventory : MonoBehaviour
                     amount = 0;
 
                 }
-                if (productType == "Wheat" && amount != 0 && inventory[productType] != 0)
+                if (productType == "Pumpkin" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
                     coin += 4 * inventory[productType];
@@ -177,16 +176,4 @@ public class Inventory : MonoBehaviour
             return 0;
         }
     }
-
-    /*public void buyScarecrow()
-    {
-        if(coin >= scarecrow.price)
-        {
-            coin -= scarecrow.price;
-        }
-        else if(coin < scarecrow.price)
-        {
-            Debug.Log("Not Enough Money");
-        }
-    }*/
 }

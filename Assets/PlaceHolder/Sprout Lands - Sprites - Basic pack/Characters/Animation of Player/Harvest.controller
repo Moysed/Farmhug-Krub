@@ -23,7 +23,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -78,7 +78,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -106,7 +106,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -134,7 +134,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -174,7 +174,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Watering_Left
-  m_Speed: 0.2
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2724240600420884584}
@@ -187,7 +187,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 89b66311c4a99498ca9d852fdccec088, type: 2}
+  m_Motion: {fileID: 7400000, guid: c6d4022d94c6548399beb53704753d00, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: IsWateringLeft
@@ -268,7 +268,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -281,7 +281,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Watering_Right
-  m_Speed: 0.2
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4013325244339209890}
@@ -294,7 +294,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 89b66311c4a99498ca9d852fdccec088, type: 2}
+  m_Motion: {fileID: 7400000, guid: c6d4022d94c6548399beb53704753d00, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -323,7 +323,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -336,7 +336,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle
-  m_Speed: 0.3
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6178182432453861939}
@@ -381,7 +381,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -397,27 +397,27 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7654829497202589353}
-    m_Position: {x: 290, y: 770, z: 0}
+    m_Position: {x: 940, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1893906990453587334}
-    m_Position: {x: 330, y: 630, z: 0}
+    m_Position: {x: 980, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1424278671482750152}
-    m_Position: {x: 530, y: 730, z: 0}
+    m_Position: {x: 1180, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -520700266762898440}
-    m_Position: {x: 560, y: 540, z: 0}
+    m_Position: {x: 1210, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2085864084283911300}
-    m_Position: {x: 350, y: 480, z: 0}
+    m_Position: {x: 1000, y: -320, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 130, y: 530, z: 0}
-  m_EntryPosition: {x: 130, y: 630, z: 0}
-  m_ExitPosition: {x: 1180, y: 690, z: 0}
+  m_AnyStatePosition: {x: 780, y: -270, z: 0}
+  m_EntryPosition: {x: 780, y: -170, z: 0}
+  m_ExitPosition: {x: 1430, y: -160, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1893906990453587334}
 --- !u!1101 &8883677729666388248
@@ -443,7 +443,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1

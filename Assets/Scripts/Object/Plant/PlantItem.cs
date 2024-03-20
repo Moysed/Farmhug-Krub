@@ -33,14 +33,12 @@ public class PlantItem : MonoBehaviour
             Inventory.singleton.coin -= plant.price;
             Inventory.singleton.AddSeedtoInventory(plant.name);
             
-            
             sfx.PlaySFX(sfx.BuyPlant);
         }
         else
         {
             Debug.Log("Not Enough Coin");
-        }
-        
+        }   
     }
 
     public void ChoosePlant()
@@ -56,11 +54,8 @@ public class PlantItem : MonoBehaviour
                     farm.SelectPlant(this);
                     GroundMangement.singleton.closePanel();
                     GroundMangement.singleton.tempPlanting();
-                }
-                
+                }   
             }
-            
         }
-        
     }
 }

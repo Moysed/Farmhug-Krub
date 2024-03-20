@@ -10,7 +10,7 @@ public class ScarecrowBar : MonoBehaviour
     ScarecrowObject scarecrow;
     [SerializeField] private Image uiFill;
 
-    public float Duration = 60;
+    public float Duration;
 
     private float remainingDuration;
 

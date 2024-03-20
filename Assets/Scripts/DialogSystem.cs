@@ -11,10 +11,14 @@ public class DialogSystem : MonoBehaviour
     public bool endWord = false; //จบประโยค = true
     public float textPersentage = 0f; //ดูว่าครบประโยครึยัง ครบ = 100%
     public TextAsset textFile;
+    public GameObject TapText;
+    public GameObject Button;
 
     void Start()
     {
         GetDialog(0); //เริ่มบรรทัด0
+        TapText.gameObject.SetActive(true);
+        Button.gameObject.SetActive(false);
     }
 
     void Update()
@@ -42,6 +46,8 @@ public class DialogSystem : MonoBehaviour
         {
             dialog.text = "กด Play เพื่อเริ่มเกม";
             TextinButton.text = "Play";
+             TapText.gameObject.SetActive(false);
+            Button.gameObject.SetActive(true);
         }
     }
 

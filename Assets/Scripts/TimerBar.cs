@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TimerBar : MonoBehaviour
 {
     Image autosellBar;
-    public float maxTime = 30f;
+    public float maxTime;
     float timeLeft;
     public GameObject sellTimeText;
 

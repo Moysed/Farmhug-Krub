@@ -12,7 +12,7 @@ public class AnimalStatus : BaseStatus
     public GameObject FloatingTextPrefab;
     public SpriteRenderer sign;
     public GameObject StatusPrefab;
-    public Vector3 statusPos;
+    //public Vector3 statusPos;
     PetManagement pm;
     public int _spacePrice;
     public SpriteRenderer animal;
@@ -50,7 +50,7 @@ public class AnimalStatus : BaseStatus
         {
             afterFeedtime -= Time.deltaTime;
             animalAnimTimer -= Time.deltaTime;
-            if (feedTime >= 0 && feedTime <= 600)
+            if (feedTime >= 0 && feedTime <= 1200)
             {
                 if (afterFeedtime <= 0)
                 {
@@ -87,14 +87,14 @@ public class AnimalStatus : BaseStatus
             }
         }
 
-        if (feedTime == 600 && !isfeed)
+        if (feedTime == 1200 && !isfeed && isfeed == false)
         {
             Debug.Log("Feeding");
             ShowStatus();
         }
-        else if (feedTime > 600)
+        else if (feedTime > 1200)
         {
-            feedTime = 601;
+            feedTime = 1201;
         }
 
         if (pm.inventory.autoSell.sellTime == 0)

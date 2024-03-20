@@ -7,6 +7,10 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider sfxSlider;
 
+    public GameObject Audio;
+    public GameObject noAudio;
+
+
     void Start()
     {
         if(PlayerPrefs.HasKey("sfxVolume"))
@@ -16,6 +20,20 @@ public class VolumeSettings : MonoBehaviour
         else
         {
             SetSFXVolume();
+        }
+    }
+
+    private void Update()
+    {
+        if(sfxSlider.value <= 0.0001)
+        {
+            noAudio.SetActive(true);
+            Audio.SetActive(false);
+        }
+        else
+        {
+            noAudio.SetActive(false);
+            Audio.SetActive(true);
         }
     }
 

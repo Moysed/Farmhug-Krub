@@ -101,9 +101,11 @@ public class TouchDetector : MonoBehaviour {
             float minY = -4;
             float maxY = 4;
 
-            if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false && settingPanel[3].active == false)
-            {
-                if (lastTouchPosition != Vector2.zero)
+             for(int i = 0; i < 5 ; i++)
+        {
+               if (!settingPanel[i].activeSelf)
+                 {
+               if (lastTouchPosition != Vector2.zero)
                 {
                     Vector2 deltaPosition = currentTouchPosition - lastTouchPosition;
 
@@ -117,18 +119,30 @@ public class TouchDetector : MonoBehaviour {
                 }
 
                 lastTouchPosition = currentTouchPosition;
-            }
+                }
+        
+        }
+        
         }
     }
+    
 
 
 
     public virtual void OnTouchBegan(Touch touch)
     {
-        if (settingPanel[0].active == false && settingPanel[1].active == false && settingPanel[2].active == false && settingPanel[3].active == false)
+       
             GetTouchIdentifierWithTouch(touch);
 
         lastTouchPosition = touch.position;
+        for(int i = 0; i < 5 ; i++)
+        {
+ if (settingPanel[i].activeSelf)
+        {
+              TouchRest(touch);
+        }
+        }
+        
     }
     public virtual void OnTouchEnded(Touch touch)
     {
@@ -229,6 +243,7 @@ public class TouchDetector : MonoBehaviour {
 
         touchId.gameObject.SetActive(false) ;
     }
+
 
     /*void UpdatePlayerMove(Touch touch)
     {

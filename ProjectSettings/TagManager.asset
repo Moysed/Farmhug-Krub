@@ -18,6 +18,7 @@ TagManager:
   - Left
   - Right
   - Seed
+  - UI
   - PlantStatus
   layers:
   - Default
@@ -56,18 +57,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 2252260213
+    locked: 0
   - name: Ground
     uniqueID: 2429758069
     locked: 0
   - name: Object
     uniqueID: 4219552271
     locked: 0
+  - name: Player
+    uniqueID: 3980204243
+    locked: 0
   - name: Status
     uniqueID: 2358676675
     locked: 0
   - name: Enemy
     uniqueID: 1947500477
-    locked: 0
-  - name: Player
-    uniqueID: 3980204243
     locked: 0

@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     private CoopManager cm;
     private FarmManager fm;
-    public int coin = 15;
+    public int coin = 100;
     //SFXManager sfx;
 
     int[] sellPrice;
@@ -34,8 +34,6 @@ public class Inventory : MonoBehaviour
         fm = FindObjectOfType<FarmManager>();
         autoSell = GetComponent<SellManager>();
         sellPrice = new int[5];
-        //coin = 15;
-        //sellTime = 30;
     }
 
     void Update()
@@ -49,7 +47,6 @@ public class Inventory : MonoBehaviour
         }
 
         autoSell.AutoSell();
-
     }
 
     // Add a plant to the inventory
@@ -90,8 +87,8 @@ public class Inventory : MonoBehaviour
                 if(productType == "Mandrake" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 5 * inventory[productType];
-                    totalIncome += 5 * inventory[productType];
+                    coin += 600 * inventory[productType];
+                    totalIncome += 600 * inventory[productType];
                     inventory[productType] = 0;
                     amount = 0;
                 }
@@ -123,8 +120,8 @@ public class Inventory : MonoBehaviour
                 if (productType == "Strawberry" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 4 * inventory[productType];
-                    totalIncome += 4 * inventory[productType];
+                    coin += 50 * inventory[productType];
+                    totalIncome += 50 * inventory[productType];
                     inventory[productType] = 0;
                     amount = 0;
 
@@ -132,8 +129,8 @@ public class Inventory : MonoBehaviour
                 if (productType == "Onion" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 2 * inventory[productType];
-                    totalIncome += 2 * inventory[productType];
+                    coin += 100 * inventory[productType];
+                    totalIncome += 100 * inventory[productType];
                     inventory[productType] = 0;
                     amount = 0;
 
@@ -141,8 +138,8 @@ public class Inventory : MonoBehaviour
                 if (productType == "Pumpkin" && amount != 0 && inventory[productType] != 0)
                 {
                     Debug.Log("Sold " + amount + " " + productType + "(s) from inventory. Remaining: " + inventory[productType]);
-                    coin += 4 * inventory[productType];
-                    totalIncome += 4 * inventory[productType];
+                    coin += 150 * inventory[productType];
+                    totalIncome += 150 * inventory[productType];
                     inventory[productType] = 0;
                     amount = 0;
 

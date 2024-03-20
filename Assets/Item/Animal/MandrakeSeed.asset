@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 22c3b336ce69b9b46abb41ccca297af5, type: 3}
   - {fileID: 21300000, guid: e15f762682b6b5546b423280d8aea8ad, type: 3}
   - {fileID: 21300000, guid: 02b09e40a2d42fc46912402f2264f050, type: 3}
-  timeBtwstage: 5
-  price: 10
-  _growthTime: 10
+  timeBtwstage: 40
+  price: 300
+  _growthTime: 80

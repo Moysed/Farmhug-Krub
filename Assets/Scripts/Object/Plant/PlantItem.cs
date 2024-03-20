@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlantItem : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public Text text;
     public InfoObject plant;
     SFXManager sfx;
     FarmManager farm;

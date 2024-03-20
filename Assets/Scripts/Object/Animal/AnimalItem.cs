@@ -6,7 +6,7 @@ using TMPro;
 
 public class AnimalItem : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public Text text;
     public InfoObject animal;
     SFXManager sfx;
     CoopManager coop;

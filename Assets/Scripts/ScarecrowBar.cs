@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class ScarecrowBar : MonoBehaviour
 {
-    
     ScarecrowObject scarecrow;
     [SerializeField] private Image uiFill;
 

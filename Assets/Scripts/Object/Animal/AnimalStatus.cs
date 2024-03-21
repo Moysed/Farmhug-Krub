@@ -20,7 +20,7 @@ public class AnimalStatus : BaseStatus
     FloatingBar progressionbar;
 
     [SerializeField]
-    PolygonCollider2D animalCollider;
+    BoxCollider2D animalCollider;
 
     public enum InstanceMode
     {
@@ -79,17 +79,24 @@ public class AnimalStatus : BaseStatus
 
                 if (afterFeedtime <= 0)
                 {
-                    if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 2)
-                    {
-                        collectCheck = true;
-                    }
-
                     if (animalAnimTimer <= 0)
                     {
+                        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
+                        {
+                            isSelected = false;
+                            ObjectStage = _selfObjectInfo.ObjectStages.Length;
+                        }
+
                         if (ObjectStage < _selfObjectInfo.ObjectStages.Length)
                         {
+                            isSelected = false;
                             ObjectStage++;
                             UpdateAnimal();
+                        }
+
+                        if (ObjectStage > _selfObjectInfo.ObjectStages.Length - 2)
+                        {
+                            collectCheck = true;
                         }
                         afterFeedtime = 5;
 
@@ -148,7 +155,7 @@ public class AnimalStatus : BaseStatus
             ObjectStage = _selfObjectInfo.ObjectStages.Length;
         }
 
-        animalCollider.offset = new Vector2(0, animal.size.y / 5);
+        animalCollider.offset = new Vector2(0, animal.size.y / 10);
     }
 
     GameObject InstantiateObject(GameObject obj)

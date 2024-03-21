@@ -38,7 +38,7 @@ public class PlantStatus : BaseStatus
     void Start()
     {
         bar.SetActive(false);
-        spawnplayerpos = this.transform.position;
+       spawnplayerpos = this.transform.position;
         gm = GroundMangement.singleton;
         enemy = GetComponent<EnemiesFollowing>();
         waterTime = 0; // Adjust the initial grow time as needed
@@ -57,7 +57,7 @@ public class PlantStatus : BaseStatus
         if (isSelected)
         {
             Debug.Log(isSelected);
-            ground_.color = Color.yellow / 0.5f;
+            ground_.color = Color.yellow / 0.5f ;
         }
         if (!isSelected)
         {
@@ -90,20 +90,25 @@ public class PlantStatus : BaseStatus
                 wet.gameObject.SetActive(true);
                 if(afterWatertime <= 0)
                 {
-                    if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 2)
-                    {
-                        collectCheck = true;
-                    }
+
                     if (plantAnimTimer <= 0)
                     {
                         if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
                         {
+                            isSelected = false;
                             ObjectStage = _selfObjectInfo.ObjectStages.Length;
                         }
                         if (ObjectStage < _selfObjectInfo.ObjectStages.Length)
                         {
+                            isSelected = false;
                             ObjectStage++;
                             UpdatePlant();
+                        }
+ 
+                        if (ObjectStage > _selfObjectInfo.ObjectStages.Length - 2)
+                        {
+ 
+                            collectCheck = true;
                         }
                         afterWatertime = 5;
  

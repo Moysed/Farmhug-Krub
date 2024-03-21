@@ -19,18 +19,50 @@ public class TouchIdentifier : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //collider = collision;
         if (collision.tag == "Ground")
         {
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
             PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
 
-            //ebug.Log(_tempStatus);
-            _tempPlantStatus.CheckIsLocked(_tempPlantStatus._spacePrice);
-            GroundMangement.singleton.Isplanted(_tempStatus);
+            if(_tempPlantStatus.isLock == true)
+            {
+                _tempPlantStatus.ShowDecisionPanel();
+            }
+            if(_tempPlantStatus.isLock == false)
+            {
+                GroundMangement.singleton.Isplanted(_tempStatus);
+            }
         }
 
-        if (collision.tag == "ANimalContainer")
+        if(collision.tag == "ANimalContainer")
+        {
+            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+            AnimalStatus _tempAnimalStatus = collision.GetComponent<AnimalStatus>();
+
+            if (_tempStatus == null)
+                _tempStatus = collision.GetComponentInParent<BaseStatus>();
+
+                if(_tempAnimalStatus.isLock == true)
+                {
+                    _tempAnimalStatus.ShowDecisionPanel();
+                }
+                if(_tempAnimalStatus.isLock == false)
+                {
+                    PetManagement.singleton.IsPeted(_tempStatus);
+                }
+        }
+
+        /*if (collision.tag == "Buy")
+        {
+            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
+            PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
+
+            _tempPlantStatus.HideDecisionPanel();
+            _tempPlantStatus.CheckIsLocked(_tempPlantStatus._spacePrice);
+            GroundMangement.singleton.Isplanted(_tempStatus);
+        }*/
+
+        /*if (collision.tag == "ANimalContainer")
         {
             //Debug.Log(collision.name);
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
@@ -39,10 +71,10 @@ public class TouchIdentifier : MonoBehaviour
 
             if (_tempStatus == null)
                 _tempStatus = collision.GetComponentInParent<BaseStatus>();
-            _tempAnimalStatus.CheckIsLocked(_tempAnimalStatus._spacePrice);
+            _tempAnimalStatus.CheckIsLocked();
             PetManagement.singleton.IsPeted(_tempStatus);
             //Debug.Log(_tempStatus);
-        }
+        }*/
 
         if (collision.tag == "Animal")
         {

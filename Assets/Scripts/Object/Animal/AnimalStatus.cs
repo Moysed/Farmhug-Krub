@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    public GameObject DecisionPanel;
     public GameObject bar;
     SFXManager sfx;
     public GameObject FloatingTextPrefab;
@@ -211,10 +212,8 @@ public class AnimalStatus : BaseStatus
         }
     }
 
-    public override void CheckIsLocked(int spacePrice)
+    public override void CheckIsLocked()
     {
-        _spacePrice = spacePrice;
-
         if (Inventory.singleton.coin < _spacePrice)
         {
             isLock = true;
@@ -266,5 +265,15 @@ public class AnimalStatus : BaseStatus
         sfx.PlaySFX(sfx.Watering);
         feedTime = 0; // Reset grow time
         StatusPrefab.SetActive(false);
+    }
+
+    public void ShowDecisionPanel()
+    {
+        DecisionPanel.gameObject.SetActive(true);
+    }
+
+    public void HideDecisionPanel()
+    {
+        DecisionPanel.SetActive(false);
     }
 }

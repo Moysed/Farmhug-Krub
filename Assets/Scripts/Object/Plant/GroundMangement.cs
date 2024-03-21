@@ -65,6 +65,7 @@ public class GroundMangement : MonoBehaviour
         {
             if (_tempPlantStatus.ObjectStage == 0)
             {
+                _tempPlantStatus.isSelected = true;
                 //Debug.Log(_tempPlantStatus.isLock);
                 seedPanel.SetActive(true);
             }

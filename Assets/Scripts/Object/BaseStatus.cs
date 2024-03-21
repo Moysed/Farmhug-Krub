@@ -44,7 +44,7 @@ public class BaseStatus : MonoBehaviour
 
     public virtual void OnSell() { }
 
-    public virtual void CheckIsLocked(int spacePrice)
+    public virtual void CheckIsLocked()
     {
         
     }

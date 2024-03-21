@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlantStatus : BaseStatus
 {
+    public GameObject DecisionPanel;
     public GameObject bar;
     public GameObject _player;
     SFXManager sfx;
@@ -156,8 +157,6 @@ public class PlantStatus : BaseStatus
             if(_selfObjectInfo != null)
             gm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }
- 
-       
     }
     void ShowStatus()
     {
@@ -219,9 +218,8 @@ public class PlantStatus : BaseStatus
             return Lean.Pool.LeanPool.Spawn(obj);
     }
 
-    public override void CheckIsLocked(int spacePrice)
+    public override void CheckIsLocked()
     {
-        _spacePrice = spacePrice;
         if(Inventory.singleton.coin < _spacePrice && !isBought)
         {
             isLock = true;
@@ -332,6 +330,16 @@ public class PlantStatus : BaseStatus
         //PlayerScript.singleton.onAnimrun = false;
         //resetPlayerPos();
         _player.transform.localPosition = PlayerScript.singleton.Spawnpos;
+    }
+
+    public void ShowDecisionPanel()
+    {
+        DecisionPanel.gameObject.SetActive(true);
+    }
+
+    public void HideDecisionPanel()
+    {
+        DecisionPanel.SetActive(false);
     }
  
     /*void resetPlayerPos()

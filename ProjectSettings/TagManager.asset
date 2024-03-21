@@ -20,6 +20,7 @@ TagManager:
   - Seed
   - UI
   - PlantStatus
+  - Buy
   layers:
   - Default
   - TransparentFX

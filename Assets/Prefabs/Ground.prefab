@@ -267,6 +267,7 @@ MonoBehaviour:
   ObjectName: 
   isLock: 1
   isBought: 0
+  isSelected: 0
   IsPlanted: 0
   isWater: 0
   waterTime: 0
@@ -279,7 +280,7 @@ MonoBehaviour:
   animalAnimTimer: 0
   bar: {fileID: 7444528309418550616}
   _player: {fileID: 0}
-  ground_: {fileID: 0}
+  ground_: {fileID: 8303620939304216143}
   sign: {fileID: 840599138741823758}
   wet: {fileID: 8289866296313505434}
   FloatingTextPrefab: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}

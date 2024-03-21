@@ -11,6 +11,7 @@ public class BaseStatus : MonoBehaviour
     public string ObjectName;
     public bool isLock = true;
     public bool isBought = false;
+    public bool isSelected = false;
 
     //Plant
     public bool IsPlanted = false;

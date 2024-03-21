@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    public GameObject bar;
     SFXManager sfx;
     public GameObject FloatingTextPrefab;
     public SpriteRenderer sign;
@@ -20,9 +21,6 @@ public class AnimalStatus : BaseStatus
 
     [SerializeField]
     PolygonCollider2D animalCollider;
-
-    //[SerializeField]
-    //InfoObject _selfAnimalObjectInfo;
 
     public enum InstanceMode
     {
@@ -39,13 +37,25 @@ public class AnimalStatus : BaseStatus
 
     void Start()
     {
+        bar.gameObject.SetActive(false);
+
         pm = PetManagement.singleton;
         feedTime = 0; // Adjust the initial grow time as needed
-        progressionbar = GetComponentInChildren<FloatingBar>();
+        
     }
 
     void Update()
     {
+        progressionbar = GetComponentInChildren<FloatingBar>();
+
+        if (progressionbar != null)
+        {
+            if (animal.gameObject.active == false)
+            {
+                progressionbar.slider.value = 0;
+            }
+        }
+
         if (IsPeted == true)
         {
             afterFeedtime -= Time.deltaTime;
@@ -58,25 +68,46 @@ public class AnimalStatus : BaseStatus
                 }
             }
 
-            if (afterFeedtime <= 0 && isfeed == true)
+            if(isfeed == true)
             {
-                if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 1)
+                bar.SetActive(true);
+
+                if(progressionbar != null)
                 {
-                    collectCheck = true;
+                    progressionbar.slider.maxValue = _selfObjectInfo._growthTime;
                 }
 
-                if (animalAnimTimer <= 0)
+                if (afterFeedtime <= 0)
                 {
-                    if (ObjectStage < _selfObjectInfo.ObjectStages.Length - 1)
+                    if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 2)
                     {
-                        ObjectStage++;
+                        collectCheck = true;
                     }
 
-                    UpdateAnimal();
-                    progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
-                    animalAnimTimer = _selfObjectInfo.timeBtwstage;
+                    if (animalAnimTimer <= 0)
+                    {
+                        if (ObjectStage < _selfObjectInfo.ObjectStages.Length)
+                        {
+                            ObjectStage++;
+                            UpdateAnimal();
+                        }
+                        afterFeedtime = 5;
+
+                        Debug.Log(collectCheck);
+                        Debug.Log(ObjectStage);
+                        if (progressionbar != null)
+                            progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
+                        animalAnimTimer = _selfObjectInfo.timeBtwstage;
+                    }
                 }
             }
+        }
+
+        if(ObjectStage == 2)
+        {
+            if (progressionbar != null)
+                progressionbar.slider.value = 0;
+            bar.SetActive(false);
         }
 
         if (pm.selectedAnimal != null)
@@ -142,7 +173,7 @@ public class AnimalStatus : BaseStatus
         ObjectStage = 0;
         ObjectName = newAnimal.name;
 
-        progressionbar.slider.maxValue = _selfObjectInfo._growthTime;
+        
 
         UpdateAnimal();
         animal.gameObject.SetActive(true);
@@ -168,9 +199,7 @@ public class AnimalStatus : BaseStatus
             isfeed = false;
             animal.gameObject.SetActive(false);
             pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
-
-            progressionbar.slider.value = 0;
-
+            
             sfx.PlaySFX(sfx.Mandrake);
         }
     }
@@ -230,4 +259,3 @@ public class AnimalStatus : BaseStatus
         StatusPrefab.SetActive(false);
     }
 }
-

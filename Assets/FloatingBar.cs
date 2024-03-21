@@ -6,18 +6,5 @@ using UnityEngine.UI;
 public class FloatingBar : MonoBehaviour
 {
   [SerializeField]
-public Slider slider;
-   //public GameObject s;
-
-  public void SetupProgressBar(float Maxvalue)
-  {
-
-    slider.maxValue = Maxvalue;
-    
-  }
-
-  public void UpdateProgress(float currentvalue){
- 
-    slider.value = currentvalue;
-  }
+  public Slider slider;
 }

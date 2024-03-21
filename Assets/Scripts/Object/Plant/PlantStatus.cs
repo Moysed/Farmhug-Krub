@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class PlantStatus : BaseStatus
 {
+    public GameObject bar;
     public GameObject _player;
     SFXManager sfx;
- 
+    public SpriteRenderer ground_;
     public SpriteRenderer sign;
     public SpriteRenderer wet;
     public GameObject FloatingTextPrefab;
@@ -42,20 +43,24 @@ public class PlantStatus : BaseStatus
  
     void Start()
     {
+        bar.SetActive(false);
        spawnplayerpos = this.transform.position;
-        progressionbar = GetComponentInChildren<FloatingBar>();
+        
         gm = GroundMangement.singleton;
         enemy = GetComponent<EnemiesFollowing>();
         waterTime = 0; // Adjust the initial grow time as needed
-        
     }
  
     void Update()
     {
-        //water Time
-        if(plant.gameObject.active == false)
+        progressionbar = GetComponentInChildren<FloatingBar>();
+
+        if (progressionbar != null)
         {
-            progressionbar.slider.value = 0;
+            if (plant.gameObject.active == false)
+            {
+                progressionbar.slider.value = 0;
+            }
         }
  
         if(IsPlanted == false)
@@ -77,24 +82,36 @@ public class PlantStatus : BaseStatus
  
             if (isWater == true)
             {
+                if (progressionbar != null)
+                {
+                    progressionbar.slider.maxValue = _selfObjectInfo._growthTime;
+                }
+             
                 wet.gameObject.SetActive(true);
                 if(afterWatertime <= 0)
                 {
-                    if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 1)
+                    if (ObjectStage == _selfObjectInfo.ObjectStages.Length - 2)
                     {
+                        
                         collectCheck = true;
                     }
  
                     if (plantAnimTimer <= 0)
                     {
-                        if (ObjectStage < _selfObjectInfo.ObjectStages.Length - 1)
+                       
+                        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
                         {
-                            ObjectStage++;
+                            ObjectStage = _selfObjectInfo.ObjectStages.Length;
                         }
- 
+                        if (ObjectStage < _selfObjectInfo.ObjectStages.Length)
+                        {
+                            
+                            ObjectStage++;
+                            UpdatePlant();
+                        }
                         afterWatertime = 5;
- 
-                        UpdatePlant();
+
+                        if(progressionbar !=  null)
                         progressionbar.slider.value += _selfObjectInfo.timeBtwstage;
                         plantAnimTimer = _selfObjectInfo.timeBtwstage;
                     }
@@ -104,6 +121,13 @@ public class PlantStatus : BaseStatus
             if (ObjectStage > 0)
             {
                 wet.gameObject.SetActive(false);
+            }
+
+            if(ObjectStage == 2)
+            {
+                if(progressionbar != null)
+                progressionbar.slider.value = 0;
+                bar.gameObject.SetActive(false);
             }
         }
  
@@ -137,7 +161,6 @@ public class PlantStatus : BaseStatus
             gm.inventory.SellFromInventory(_selfObjectInfo.ObjectName, gm.inventory.GetPlantQuantity(_selfObjectInfo.ObjectName));
         }
     }
-    Plant _selfPlantStatus;
     void ShowStatus()
     {
         StatusPrefab.SetActive(true);
@@ -156,10 +179,9 @@ public class PlantStatus : BaseStatus
         gm.selectedPlant = newPlant;
         ObjectStage = 0;
         ObjectName = newPlant.name;
-        progressionbar.slider.maxValue = _selfObjectInfo._growthTime;
- 
+
         UpdatePlant();
-        plant.gameObject.SetActive(true);
+        plant.gameObject.SetActive(true);  
     }
  
     public override void Collected()
@@ -171,7 +193,6 @@ public class PlantStatus : BaseStatus
         ObjectStage = 0;
         isWater = false;
         gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
-        progressionbar.slider.value = 0;
         sfx.PlaySFX(sfx.Harvest);
         _player.transform.localPosition = new Vector3(spawnplayerpos.x,spawnplayerpos.y + 1.7f);
         if (collectCheck)
@@ -185,40 +206,29 @@ public class PlantStatus : BaseStatus
         }
     }
  
-    void Harvest()
-    {
-        plant.gameObject.SetActive(false);
-    }
+
  
     // Single Game object
     void UpdatePlant()
     {
-        if (ObjectStage >= _selfObjectInfo.ObjectStages.Length)
+        
+        if(ObjectStage < _selfObjectInfo.ObjectStages.Length)
         {
-            ObjectStage = _selfObjectInfo.ObjectStages.Length;
+            plant.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
+            plantCollider.size = plant.sprite.bounds.size;
+            plantCollider.offset = new Vector2(0, plant.size.y /10);
         }
         
-        plant.sprite = _selfObjectInfo.ObjectStages[ObjectStage];
-        plantCollider.size = plant.sprite.bounds.size;
-        plantCollider.offset = new Vector2(0, plant.size.y / 2);
     }
  
     GameObject InstantiateObject(GameObject obj)
     {
-       // if (instanceMode == InstanceMode.Instance)
-       //     return Instantiate(obj);
-       // else if (instanceMode == InstanceMode.Pool)
+    
             return Lean.Pool.LeanPool.Spawn(obj);
  
-       // return null;
     }
  
-    public override void CallUpdate()
-    {
-        //waterCheck
-        //base.CallUpdate();
-    }
- 
+  
     public override void CheckIsLocked(int spacePrice)
     {
         _spacePrice = spacePrice;
@@ -331,6 +341,7 @@ public class PlantStatus : BaseStatus
             //PlayerScript.singleton.onLeft = false;
         }
         _player.transform.localPosition = PlayerScript.singleton.Spawnpos;
+        bar.SetActive(true);
     }
  
     public void resetHavestAnim()
@@ -344,6 +355,7 @@ public class PlantStatus : BaseStatus
         plant.gameObject.SetActive(false);
         //PlayerScript.singleton.onAnimrun = false;
         //resetPlayerPos();
+        
         _player.transform.localPosition = PlayerScript.singleton.Spawnpos;
     }
 

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -75415025
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b6b4514504d7348cc9769bb8a07c3b33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -236,7 +236,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1865209227
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 381fcacbbcc104b5aa6a71eddbd0f992, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -277,7 +277,9 @@ MonoBehaviour:
   feedTime: 0
   afterFeedtime: 0
   animalAnimTimer: 0
+  bar: {fileID: 7444528309418550616}
   _player: {fileID: 0}
+  ground_: {fileID: 0}
   sign: {fileID: 840599138741823758}
   wet: {fileID: 8289866296313505434}
   FloatingTextPrefab: {fileID: 1044654987293602678, guid: 0398ecbe72deab4408ade15cbbf89ba3, type: 3}
@@ -545,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 10d2b9f1eae97a040925d4a67400cc24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09c1866c456d248ff861f0bf7c2eaad2, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -639,7 +641,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -75415025
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a9b109acd85134d7b8a4d580ae1be793, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -680,7 +682,7 @@ RectTransform:
   m_GameObject: {fileID: 7444528309418550616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6296875, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 132204273143698274}
@@ -689,7 +691,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.481}
-  m_SizeDelta: {x: 0.7354, y: 0.1014}
+  m_SizeDelta: {x: 1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5075065171217480914
 CanvasRenderer:
@@ -719,7 +721,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f972257c494abb4eb5338b552c0e9a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a90db1999a19241afa8ef2226d4b08f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -954,7 +956,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -75415025
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9cc54e688ca584017acaab8f3e262f77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScarecrowObject : MonoBehaviour
 {
     public GameObject[] scarecrow;
-    int price = 50;
+    int price = 200;
     public float MaxTime;
     float lifeTime1;
     float lifeTime2;

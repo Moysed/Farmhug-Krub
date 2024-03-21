@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlantStatus : BaseStatus
 {
@@ -16,7 +17,6 @@ public class PlantStatus : BaseStatus
     EnemiesFollowing enemy;
     public int _spacePrice;
     public GameObject StatusPrefab;
-    //public Vector3 statusPos;
     GroundMangement gm;
     public SpriteRenderer plant;
     [SerializeField]
@@ -247,7 +247,7 @@ public class PlantStatus : BaseStatus
             sign.gameObject.SetActive(false);
             if (FloatingTextPrefab)
             {
-                ShowFloatingText(" - "+_spacePrice);
+                ShowFloatingText(" - "+ _spacePrice);
             }
             GroundMangement.singleton.countUnlockGround += 1;
             Debug.Log("Count Unlock Ground : " + GroundMangement.singleton.countUnlockGround);
@@ -256,11 +256,12 @@ public class PlantStatus : BaseStatus
         }
         else if (isBought)
         {
-
             Debug.Log("Already bought");
         }
         else
         {
+            ShowFloatingText(" Not Enough Money ");
+            sfx.PlaySFX(sfx.NoMoney);
             Debug.Log("Not enough coin");
         }
     }

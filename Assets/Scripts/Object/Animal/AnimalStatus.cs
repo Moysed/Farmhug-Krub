@@ -247,6 +247,8 @@ public class AnimalStatus : BaseStatus
         }
         else
         {
+            ShowFloatingText(" Not Enough Money ");
+            sfx.PlaySFX(sfx.NoMoney);
             Debug.Log("Not enough coin");
         }
     }

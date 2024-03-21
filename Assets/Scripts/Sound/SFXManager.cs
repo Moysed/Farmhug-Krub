@@ -19,6 +19,7 @@ public class SFXManager : MonoBehaviour
     public AudioClip BuyPlant;
     public AudioClip BuyGround;
     public AudioClip Sold;
+    public AudioClip NoMoney;
 
     /* void Awake()
     {

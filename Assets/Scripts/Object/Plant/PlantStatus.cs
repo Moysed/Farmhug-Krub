@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlantStatus : BaseStatus
 {
+    public TextMeshProUGUI priceText;
     public GameObject DecisionPanel;
     public GameObject bar;
     public GameObject _player;
@@ -43,9 +44,11 @@ public class PlantStatus : BaseStatus
         gm = GroundMangement.singleton;
         enemy = GetComponent<EnemiesFollowing>();
         waterTime = 0; // Adjust the initial grow time as needed
+        priceText = GetComponentInChildren<TextMeshProUGUI>();
     }
     void Update()
     {
+        priceText.text = _spacePrice.ToString();
         progressionbar = GetComponentInChildren<FloatingBar>();
         //water Time
         if (progressionbar != null)

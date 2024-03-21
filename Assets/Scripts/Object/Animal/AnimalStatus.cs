@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    public TextMeshProUGUI priceText;
     public GameObject DecisionPanel;
     public GameObject bar;
     SFXManager sfx;
@@ -42,11 +43,13 @@ public class AnimalStatus : BaseStatus
 
         pm = PetManagement.singleton;
         feedTime = 0; // Adjust the initial grow time as needed
-        
+
+        priceText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     void Update()
     {
+        priceText.text = _spacePrice.ToString();
         progressionbar = GetComponentInChildren<FloatingBar>();
 
         if (progressionbar != null)

@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public TextMeshProUGUI strawberry;
+    public TextMeshProUGUI onion;
+    public TextMeshProUGUI mandrake;
+    public TextMeshProUGUI pumpkin;
+
     public static Inventory singleton;
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); // Use a dictionary to store product types and quantities
     private CoinManagement coinManager;
@@ -30,6 +36,12 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         CoinManagement.singleton.UpdateCoin(coin);
+            
+            strawberry.text = GetPlantQuantity("Strawberry").ToString();
+            onion.text = GetPlantQuantity("Onion").ToString();
+            pumpkin.text = GetPlantQuantity("Pumpkin").ToString();
+            mandrake.text = GetPlantQuantity("Mandrake").ToString();
+            
         //sellTime -= Time.deltaTime;
  
         if (coin <= 0)

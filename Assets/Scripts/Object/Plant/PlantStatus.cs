@@ -125,6 +125,7 @@ public class PlantStatus : BaseStatus
                     }
                 }
             }
+            
             if (ObjectStage > 0)
             {
                 wet.gameObject.SetActive(false);
@@ -284,20 +285,24 @@ public class PlantStatus : BaseStatus
     {
         if (collision.tag == "enemy")
         {
-            enemy = collision.GetComponent<EnemiesFollowing>();
+             enemy = collision.GetComponent<EnemiesFollowing>();
+
             if(enemy.hp > 0)
             {
+                
+                if(enemy.plant != null && plant.gameObject.activeSelf)
+                {
+                    destroyPlantFromEnemy();
                     enemy.plant = default;
                     if(progressionbar.slider != null)
                     {
                         progressionbar.slider.value = 0;
                     }
-                    IsPlanted = false;
-                    gm.fm.isPlanting = false;
 
-                //Destroy(plant.gameObject, 1);
-                destroyPlantFromEnemy();
+                }
             }
+            
+           
         }
     }
     void destroyPlantFromEnemy()
@@ -307,6 +312,7 @@ public class PlantStatus : BaseStatus
         gm.fm.isPlanting = false;
         ObjectStage = 0;
         isWater = false;
+        StatusPrefab.SetActive(false);
         plant.gameObject.SetActive(false);
         progressionbar.slider.value = 0;
     }

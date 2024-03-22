@@ -52,702 +52,251 @@ public class TouchDetector : MonoBehaviour {
 
         if (settingPanel[0].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           
+            for(int i = 1; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[1].activeSelf)
         {
-            settingPanel[0].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 1 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 2; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[2].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[0].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 2 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 3; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[3].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[0].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 3 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 4; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
+            
         }
 
         if (settingPanel[4].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[0].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 4 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 5; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
+           
         }
 
         if (settingPanel[5].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[0].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 5 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 6; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[6].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[0].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 6 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 7; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[7].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[0].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 7 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 8; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[8].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[0].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 8 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 9; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
+             
         }
 
         if (settingPanel[9].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[0].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 9 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 10; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[10].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[0].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 10 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 11; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[11].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[0].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 11 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 12; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[12].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[0].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 12 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 13; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[13].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[0].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 13 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 14; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[14].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[0].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 14 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 15; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[15].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[0].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 15 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 16; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[16].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[0].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 16 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 17; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[17].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[0].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 17 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 18; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[18].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[0].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 18 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 19; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[19].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[0].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+           for(int i = 0; i < 19 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 20; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[20].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[0].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 20 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 21; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[21].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[0].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 20 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 22; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[22].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[0].active = false;
-            settingPanel[23].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 22 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 23; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[23].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[0].active = false;
-            settingPanel[24].active = false;
+            for(int i = 0; i < 23 ; i++){
+                settingPanel[i].active = false;
+             }
+            for(int i = 24; i < settingPanel.Length ; i++){
+                settingPanel[i].active = false;
+             }
         }
 
         if (settingPanel[24].activeSelf)
         {
-            settingPanel[1].active = false;
-            settingPanel[2].active = false;
-            settingPanel[3].active = false;
-            settingPanel[4].active = false;
-            settingPanel[5].active = false;
-            settingPanel[6].active = false;
-            settingPanel[7].active = false;
-            settingPanel[8].active = false;
-            settingPanel[9].active = false;
-            settingPanel[10].active = false;
-            settingPanel[11].active = false;
-            settingPanel[12].active = false;
-            settingPanel[13].active = false;
-            settingPanel[14].active = false;
-            settingPanel[15].active = false;
-            settingPanel[16].active = false;
-            settingPanel[17].active = false;
-            settingPanel[18].active = false;
-            settingPanel[19].active = false;
-            settingPanel[20].active = false;
-            settingPanel[21].active = false;
-            settingPanel[22].active = false;
-            settingPanel[23].active = false;
-            settingPanel[0].active = false;
+            for(int i = 0; i < 24 ; i++){
+                settingPanel[i].active = false;
+             }
+            
         }
     }
 
@@ -820,31 +369,8 @@ public class TouchDetector : MonoBehaviour {
             GetTouchIdentifierWithTouch(touch);
 
         lastTouchPosition = touch.position;
-        if (settingPanel[0].activeSelf && 
-            settingPanel[1].activeSelf && 
-            settingPanel[2].activeSelf && 
-            settingPanel[3].activeSelf && 
-            settingPanel[4].activeSelf && 
-            settingPanel[5].activeSelf && 
-            settingPanel[6].activeSelf && 
-            settingPanel[7].activeSelf && 
-            settingPanel[8].activeSelf &&
-            settingPanel[9].activeSelf &&
-            settingPanel[10].activeSelf &&
-            settingPanel[11].activeSelf &&
-            settingPanel[12].activeSelf &&
-            settingPanel[13].activeSelf &&
-            settingPanel[14].activeSelf &&
-            settingPanel[15].activeSelf &&
-            settingPanel[16].activeSelf &&
-            settingPanel[17].activeSelf &&
-            settingPanel[18].activeSelf &&
-            settingPanel[19].activeSelf &&
-            settingPanel[20].activeSelf &&
-            settingPanel[21].activeSelf &&
-            settingPanel[22].activeSelf &&
-            settingPanel[23].activeSelf &&
-            settingPanel[24].activeSelf)
+        for(int  i = 0 ; i < 25 ; i++)
+        if (settingPanel[i].activeSelf)
             {
                 {
                     TouchRest(touch);

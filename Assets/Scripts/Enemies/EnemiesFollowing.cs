@@ -191,6 +191,10 @@ public class EnemiesFollowing : MonoBehaviour
                     {
                        _tempPlantStatus.progressionbar.slider.value = 0;
                        _tempPlantStatus.progressBarBoarder.gameObject.SetActive(false);
+                       if(_tempPlantStatus.wet.gameObject.activeSelf)
+                       {
+                            _tempPlantStatus.wet.gameObject.SetActive(false);
+                       }
                     }
 
                 }

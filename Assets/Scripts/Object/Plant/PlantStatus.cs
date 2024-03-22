@@ -202,6 +202,7 @@ public FloatingBar progressionbar;
         ObjectStage = 0;
         isWater = false;
         isSelected = false;
+        progressBarBoarder.SetActive(false);
         gm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
         sfx.PlaySFX(sfx.Harvest);
         _player.transform.localPosition = new Vector3(spawnplayerpos.x,spawnplayerpos.y + 1.5f);
@@ -214,8 +215,6 @@ public FloatingBar progressionbar;
             Invoke("resetHavestAnim", 1.5f);
         }
     }
-
- 
 
     // Single Game object
     void UpdatePlant()

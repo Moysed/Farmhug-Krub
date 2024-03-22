@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    public GameObject progressBarBoarder;
     public TextMeshProUGUI priceTextDecision;
     public TextMeshProUGUI priceText;
     public GameObject DecisionPanel;
@@ -211,7 +212,7 @@ public class AnimalStatus : BaseStatus
             isfeed = false;
             animal.gameObject.SetActive(false);
             pm.inventory.AddToInventory(_selfObjectInfo.ObjectName);
-            
+            progressBarBoarder.SetActive(false);
             sfx.PlaySFX(sfx.Mandrake);
         }
     }
@@ -271,6 +272,7 @@ public class AnimalStatus : BaseStatus
         sfx.PlaySFX(sfx.Watering);
         feedTime = 0; // Reset grow time
         StatusPrefab.SetActive(false);
+        progressBarBoarder.SetActive(true);
     }
 
     public void ShowDecisionPanel()

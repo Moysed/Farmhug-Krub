@@ -1197,6 +1197,7 @@ MonoBehaviour:
   feedTime: 0
   afterFeedtime: 0
   animalAnimTimer: 0
+  progressBarBoarder: {fileID: 117468817060205579}
   priceTextDecision: {fileID: 2716957190346625484}
   priceText: {fileID: 0}
   DecisionPanel: {fileID: 876913008890860869}

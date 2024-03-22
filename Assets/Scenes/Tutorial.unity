@@ -249,12 +249,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c4b8918fa80294f8da8468f8d4166944, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: a74f2c21745b94d39860320d86a32309, type: 3}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 25
+    m_MinSize: 0
+    m_MaxSize: 30
     m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -494,6 +494,7 @@ MonoBehaviour:
   BuyPlant: {fileID: 0}
   BuyGround: {fileID: 0}
   Sold: {fileID: 0}
+  NoMoney: {fileID: 0}
 --- !u!4 &422247034
 Transform:
   m_ObjectHideFlags: 0

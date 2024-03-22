@@ -309,8 +309,8 @@ public class TouchDetector : MonoBehaviour {
             // Define the limits of camera movement
             float minX = -2;
             float maxX = 1.8f;
-            float minY = -4;
-            float maxY = 4;
+            float minY = -3.9f;
+            float maxY = 3.9f;
 
              //for(int i = 0; i < 5 ; i++)
         //{
@@ -355,15 +355,10 @@ public class TouchDetector : MonoBehaviour {
 
                 lastTouchPosition = currentTouchPosition;
                 //}
-        
-        }
-        
+                }
         }
     }
     
-
-
-
     public virtual void OnTouchBegan(Touch touch)
     {  
             GetTouchIdentifierWithTouch(touch);

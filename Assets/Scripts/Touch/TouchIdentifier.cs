@@ -11,10 +11,12 @@ public class TouchIdentifier : MonoBehaviour
     public Vector3 deltaPosition;
     float _time;
     public TouchDetector t;
+    SFXManager sfx;
 
     private void Start()
     {
         t = FindObjectOfType<TouchDetector>();
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -24,13 +26,11 @@ public class TouchIdentifier : MonoBehaviour
             BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
             PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
 
+                GroundMangement.singleton.Isplanted(_tempStatus);
+            
             if(_tempPlantStatus.isLock == true)
             {
                 _tempPlantStatus.ShowDecisionPanel();
-            }
-            if(_tempPlantStatus.isLock == false)
-            {
-                GroundMangement.singleton.Isplanted(_tempStatus);
             }
         }
 
@@ -110,5 +110,12 @@ public class TouchIdentifier : MonoBehaviour
 
             _tempStatus.isWatering();
         }
+
+        /*if (collision.tag == "Credit")
+        {
+            sfx.PlaySFX(sfx.Click);
+            Debug.Log("credit");
+            Credit.singleton.unShow();
+        }*/
     }
 }

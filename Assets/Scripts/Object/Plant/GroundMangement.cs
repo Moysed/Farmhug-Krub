@@ -125,6 +125,4 @@ public class GroundMangement : MonoBehaviour
         Debug.Log(_tempPlantStatus.isSelected);
         _tempPlantStatus = null;
     }
- 
-   
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlantStatus : BaseStatus
 {
+    public TextMeshProUGUI priceTextDecision;
     public TextMeshProUGUI priceText;
     public GameObject DecisionPanel;
     public GameObject bar;
@@ -49,6 +50,7 @@ public class PlantStatus : BaseStatus
     void Update()
     {
         priceText.text = _spacePrice.ToString();
+        priceTextDecision.text = _spacePrice.ToString();
         progressionbar = GetComponentInChildren<FloatingBar>();
         //water Time
         if (progressionbar != null)
@@ -286,7 +288,10 @@ public class PlantStatus : BaseStatus
             if(enemy.hp > 0)
             {
                     enemy.plant = default;
-                    progressionbar.slider.value = 0;
+                    if(progressionbar.slider != null)
+                    {
+                        progressionbar.slider.value = 0;
+                    }
                     IsPlanted = false;
                     gm.fm.isPlanting = false;
 

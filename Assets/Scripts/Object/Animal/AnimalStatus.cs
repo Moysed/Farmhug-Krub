@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class AnimalStatus : BaseStatus
 {
+    public TextMeshProUGUI priceTextDecision;
     public TextMeshProUGUI priceText;
     public GameObject DecisionPanel;
     public GameObject bar;
@@ -49,6 +50,7 @@ public class AnimalStatus : BaseStatus
     void Update()
     {
         priceText.text = _spacePrice.ToString();
+        priceTextDecision.text = _spacePrice.ToString();
         progressionbar = GetComponentInChildren<FloatingBar>();
 
         if (progressionbar != null)

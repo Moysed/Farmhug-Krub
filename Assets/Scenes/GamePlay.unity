@@ -21819,7 +21819,7 @@ MonoBehaviour:
   mandrake: {fileID: 464589151}
   pumpkin: {fileID: 1482835300}
   autoSell: {fileID: 1769078134}
-  coin: 100
+  coin: 10000
 --- !u!114 &1769078134
 MonoBehaviour:
   m_ObjectHideFlags: 0

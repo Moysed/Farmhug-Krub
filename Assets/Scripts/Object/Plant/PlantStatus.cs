@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlantStatus : BaseStatus
 {
+    public GameObject progressBarBoarder;
     public TextMeshProUGUI priceTextDecision;
     public TextMeshProUGUI priceText;
     public GameObject DecisionPanel;
@@ -24,7 +25,8 @@ public class PlantStatus : BaseStatus
     public SpriteRenderer plant;
     [SerializeField]
     BoxCollider2D plantCollider;
-    FloatingBar progressionbar;
+    [SerializeField]
+public FloatingBar progressionbar;
  
  
     Vector3 spawnplayerpos;
@@ -80,6 +82,7 @@ public class PlantStatus : BaseStatus
             isSelected = false;
             afterWatertime -= Time.deltaTime;
             plantAnimTimer -= Time.deltaTime;
+            //progressBarBoarder.SetActive(true);
             if (waterTime >= 0 && waterTime <= 600)
             {
                 if (afterWatertime <= 0)
@@ -283,29 +286,9 @@ public class PlantStatus : BaseStatus
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "enemy")
-        {
-             enemy = collision.GetComponent<EnemiesFollowing>();
-
-            if(enemy.hp > 0)
-            {
-                
-                if(enemy.plant != null && plant.gameObject.activeSelf)
-                {
-                    destroyPlantFromEnemy();
-                    enemy.plant = default;
-                    if(progressionbar.slider != null)
-                    {
-                        progressionbar.slider.value = 0;
-                    }
-
-                }
-            }
-            
-           
-        }
+        
     }
-    void destroyPlantFromEnemy()
+    public void destroyPlantFromEnemy()
     {
         Debug.Log("Eated");
         IsPlanted = false;
@@ -323,6 +306,7 @@ public class PlantStatus : BaseStatus
         sfx.PlaySFX(sfx.Watering);
         waterTime = 0; // Reset grow time
         StatusPrefab.SetActive(false);
+        progressBarBoarder.SetActive(true);
         _player.transform.localPosition = new Vector3(spawnplayerpos.x,spawnplayerpos.y + 1.5f);
         if (PlayerScript.singleton.onAnimrun == true)
         {

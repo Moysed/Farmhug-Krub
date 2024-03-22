@@ -537,6 +537,7 @@ MonoBehaviour:
   feedTime: 0
   afterFeedtime: 0
   animalAnimTimer: 0
+  progressBarBoarder: {fileID: 7444528309418550616}
   priceTextDecision: {fileID: 6079088810791001637}
   priceText: {fileID: 9201590778434734853}
   DecisionPanel: {fileID: 6288704664610350205}
@@ -550,6 +551,7 @@ MonoBehaviour:
   StatusPrefab: {fileID: 3294666198349239595}
   plant: {fileID: 6208606215576805197}
   plantCollider: {fileID: 3504059331523778184}
+  progressionbar: {fileID: 0}
   instanceMode: 1
 --- !u!61 &8392162931535059171
 BoxCollider2D:

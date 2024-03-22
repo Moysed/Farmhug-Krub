@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemiesFollowing : MonoBehaviour
 {
+    PlantStatus _tempPlantStatus;
     public GameObject plant;
     public Animator animator;
     bool Isend_ = true;
@@ -165,6 +166,8 @@ public class EnemiesFollowing : MonoBehaviour
             hp = 1;
             Isend_ = true;
         }
+
+       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -173,6 +176,25 @@ public class EnemiesFollowing : MonoBehaviour
         {
             hp--;
             Debug.Log(hp);
+        }
+
+ if (collision.tag == "Plant")
+        {
+            if(hp > 0)
+            {
+                _tempPlantStatus = collision.GetComponentInParent<PlantStatus>(); 
+                if(plant != null && plant.activeSelf)
+                {
+                    _tempPlantStatus.destroyPlantFromEnemy();
+                    plant = default;
+                    if(_tempPlantStatus.progressionbar.slider != null)
+                    {
+                       _tempPlantStatus.progressionbar.slider.value = 0;
+                       _tempPlantStatus.progressBarBoarder.gameObject.SetActive(false);
+                    }
+
+                }
+            }
         }
     }
 

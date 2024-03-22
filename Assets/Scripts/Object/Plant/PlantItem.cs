@@ -10,19 +10,19 @@ public class PlantItem : MonoBehaviour
     public InfoObject plant;
     SFXManager sfx;
     FarmManager farm;
-
+ 
     void Awake()
     {
         sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
     }
-
+ 
     void Start()
     {
         farm = FindObjectOfType<FarmManager>();
     }
     private void Update()
     {
-
+ 
         if (Inventory.singleton.inventory.ContainsKey(plant.name) && text != null)
             text.text = Inventory.singleton.inventory[plant.name].ToString();
     }
@@ -30,17 +30,21 @@ public class PlantItem : MonoBehaviour
     {
         if(Inventory.singleton.coin >= plant.price)
         {
+            CoinManagement.singleton.AnimLosetrgigger();
             Inventory.singleton.coin -= plant.price;
             Inventory.singleton.AddSeedtoInventory(plant.name);
-            
+
+            Debug.Log("Buy :" + plant.ObjectName);
+
             sfx.PlaySFX(sfx.BuyPlant);
         }
         else
         {
+            sfx.PlaySFX(sfx.NoMoney);
             Debug.Log("Not Enough Coin");
         }   
     }
-
+ 
     public void ChoosePlant()
     {
         if(Inventory.singleton.inventory.ContainsKey(plant.name))

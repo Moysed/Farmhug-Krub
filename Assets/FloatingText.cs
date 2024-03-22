@@ -9,6 +9,4 @@ public class FloatingText : MonoBehaviour
     {
         Destroy(gameObject, DestroyTime);
     }
-
-   
 }

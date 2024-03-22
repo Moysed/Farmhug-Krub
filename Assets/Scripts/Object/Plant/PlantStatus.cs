@@ -40,7 +40,7 @@ public class PlantStatus : BaseStatus
     void Start()
     {
         bar.SetActive(false);
-       spawnplayerpos = this.transform.position;
+        spawnplayerpos = this.transform.position;
         gm = GroundMangement.singleton;
         enemy = GetComponent<EnemiesFollowing>();
         waterTime = 0; // Adjust the initial grow time as needed
@@ -85,6 +85,7 @@ public class PlantStatus : BaseStatus
                     waterTime++;
                 }
             }
+
             if (isWater == true)
             {
                 if (progressionbar != null)
@@ -134,6 +135,7 @@ public class PlantStatus : BaseStatus
                 bar.gameObject.SetActive(false);
             }
         }
+
         if(gm.selectedPlant != null)
         {
             if (ObjectStage == gm.selectedPlant.ObjectStages.Length - 1)
@@ -141,6 +143,7 @@ public class PlantStatus : BaseStatus
                 waterTime = 0;
             }
         }
+
         if (waterTime == 600 && plant.gameObject.activeSelf && isWater == false)
         {
             Debug.Log("Watering");
@@ -150,11 +153,13 @@ public class PlantStatus : BaseStatus
         {
             waterTime = 601;
         }
+
         if(plant.gameObject.activeSelf == false && IsPlanted == true)
         {
             IsPlanted = false;
             destroyStatus();
         }
+
         if (gm.inventory.autoSell.sellTime == 0)
         {
             if(_selfObjectInfo != null)
@@ -243,6 +248,8 @@ public class PlantStatus : BaseStatus
     {
         if (!b && isBought == false)
         {
+            CoinManagement.singleton.AnimLosetrgigger();
+            
             Inventory.singleton.coin -= _spacePrice;
             isBought = true;
             sign.gameObject.SetActive(false);

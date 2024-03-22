@@ -15,7 +15,6 @@ public class AnimalStatus : BaseStatus
     public GameObject FloatingTextPrefab;
     public SpriteRenderer sign;
     public GameObject StatusPrefab;
-    //public Vector3 statusPos;
     PetManagement pm;
     public int _spacePrice;
     public SpriteRenderer animal;
@@ -233,6 +232,8 @@ public class AnimalStatus : BaseStatus
     {
         if (!b && isBought == false)
         {
+            CoinManagement.singleton.AnimLosetrgigger();
+
             Inventory.singleton.coin -= _spacePrice;
             isBought = true;
 

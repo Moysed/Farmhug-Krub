@@ -11,7 +11,13 @@ public class ScarecrowObject : MonoBehaviour
     float lifeTime2;
     float lifeTime3;
     float lifeTime4;
+    SFXManager sfx;
 
+    void Awake()
+    {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXManager>();
+    }
+ 
     void Start()
     {
         lifeTime1 = MaxTime;
@@ -62,35 +68,71 @@ public class ScarecrowObject : MonoBehaviour
     {
         if(Inventory.singleton.coin >= price)
         {
-            scarecrow[0].active = true;
-            Inventory.singleton.coin -= price;
+            if(scarecrow[0].active == false)
+            {
+                CoinManagement.singleton.AnimLosetrgigger();
+                scarecrow[0].active = true;
+                Inventory.singleton.coin -= price;
+                sfx.PlaySFX(sfx.BuyPlant);
+            }
+        }
+        else
+        {
+            sfx.PlaySFX(sfx.NoMoney);
         }
     }
-
+ 
     public void placeScarecrow2()
     {
          if(Inventory.singleton.coin >= price)
         {
-            scarecrow[1].active = true;
-            Inventory.singleton.coin -= price;
+            if(scarecrow[1].active == false)
+            {
+                CoinManagement.singleton.AnimLosetrgigger();
+                scarecrow[1].active = true;
+                Inventory.singleton.coin -= price;
+                sfx.PlaySFX(sfx.BuyPlant);
+            }
+        }
+        else
+        {
+            sfx.PlaySFX(sfx.NoMoney);
         }
     }
-
+ 
     public void placeScarecrow3()
     {
          if(Inventory.singleton.coin >= price)
         {
-            scarecrow[2].active = true;
-            Inventory.singleton.coin -= price;
+            if(scarecrow[2].active == false)
+            {
+                CoinManagement.singleton.AnimLosetrgigger();
+                scarecrow[2].active = true;
+                Inventory.singleton.coin -= price;
+                sfx.PlaySFX(sfx.BuyPlant);
+            }
+        }
+        else
+        {
+            sfx.PlaySFX(sfx.NoMoney);
         }
     }
-
+ 
     public void placeScarecrow4()
     {
          if(Inventory.singleton.coin >= price)
         {
-            scarecrow[3].active = true;
-            Inventory.singleton.coin -= price;
+            if(scarecrow[3].active == false)
+            {
+                CoinManagement.singleton.AnimLosetrgigger();
+                scarecrow[3].active = true;
+                Inventory.singleton.coin -= price;
+                sfx.PlaySFX(sfx.BuyPlant);
+            }
+        }
+        else
+        {
+            sfx.PlaySFX(sfx.NoMoney);
         }
     }
 }

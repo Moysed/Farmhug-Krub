@@ -21,6 +21,7 @@ TagManager:
   - UI
   - PlantStatus
   - Buy
+  - PlanStatus
   layers:
   - Default
   - TransparentFX
@@ -75,4 +76,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1947500477
+    locked: 0
+  - name: BGOpacity70
+    uniqueID: 2775898537
     locked: 0

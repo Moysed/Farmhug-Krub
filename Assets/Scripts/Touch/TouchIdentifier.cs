@@ -52,30 +52,6 @@ public class TouchIdentifier : MonoBehaviour
                 }
         }
 
-        /*if (collision.tag == "Buy")
-        {
-            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
-            PlantStatus _tempPlantStatus = collision.GetComponent<PlantStatus>();
-
-            _tempPlantStatus.HideDecisionPanel();
-            _tempPlantStatus.CheckIsLocked(_tempPlantStatus._spacePrice);
-            GroundMangement.singleton.Isplanted(_tempStatus);
-        }*/
-
-        /*if (collision.tag == "ANimalContainer")
-        {
-            //Debug.Log(collision.name);
-            BaseStatus _tempStatus = collision.GetComponent<BaseStatus>();
-            AnimalStatus _tempAnimalStatus = collision.GetComponent<AnimalStatus>();
-            //Debug.Log(_tempStatus);
-
-            if (_tempStatus == null)
-                _tempStatus = collision.GetComponentInParent<BaseStatus>();
-            _tempAnimalStatus.CheckIsLocked();
-            PetManagement.singleton.IsPeted(_tempStatus);
-            //Debug.Log(_tempStatus);
-        }*/
-
         if (collision.tag == "Animal")
         {
             BaseStatus status = collision.GetComponentInParent<BaseStatus>();

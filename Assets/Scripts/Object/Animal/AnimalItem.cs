@@ -23,7 +23,6 @@ public class AnimalItem : MonoBehaviour
 
      private void Update()
     {
-
         if (Inventory.singleton.inventory.ContainsKey(animal.name) && text != null)
             text.text = Inventory.singleton.inventory[animal.name].ToString();
     }
@@ -32,13 +31,17 @@ public class AnimalItem : MonoBehaviour
     {
         if(Inventory.singleton.coin >= animal.price)
         {
-        Inventory.singleton.coin -= animal.price;
+            CoinManagement.singleton.AnimLosetrgigger();
+            Inventory.singleton.coin -= animal.price;
             Inventory.singleton.AddSeedtoInventory(animal.name);
-        Debug.Log("Buy :" + animal.ObjectName);
-        sfx.PlaySFX(sfx.BuyPlant);
+
+            Debug.Log("Buy :" + animal.ObjectName);
+
+            sfx.PlaySFX(sfx.BuyPlant);
         }
         else
         {
+            sfx.PlaySFX(sfx.NoMoney);
             Debug.Log("Not Enough Coin");
         }
     }
@@ -59,6 +62,5 @@ public class AnimalItem : MonoBehaviour
             }
           
         }
-        
     }
 }

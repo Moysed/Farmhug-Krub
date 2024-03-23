@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public static EnemySpawner singleton;
     public GameObject _plant;
     public GameObject enemyPrefab;
-    public float spawnInterval = 2f;
+    public float spawnInterval;
     public float spawnRadius = 5f;
     public int maxEnemyCount = 10; // Maximum number of enemies allowed
 
@@ -26,41 +26,31 @@ public class EnemySpawner : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-       
-        
-            spawnTimer = spawnInterval;
-        
-    
-        
+    { 
+        spawnInterval = 20;
+        spawnTimer = spawnInterval; 
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
-            _plant = GameObject.FindWithTag("Plant");
-        
+    { 
+        _plant = GameObject.FindWithTag("Plant");
         
         if (_plant != null && _plant.activeSelf)
         {
             spawnTimer -= Time.deltaTime;
-
-
 
             // If the spawn timer reaches zero or less and current enemy count is less than maximum
             if (spawnTimer <= 0 && currentEnemyCount < maxEnemyCount && GroundMangement.singleton.countUnlockGround >= 3)
             {
                 // Spawn a new enemy
                 SpawnEnemy();
-
-
             }
-
 
             if (spawnTimer < 0)
             {
                 // Reset the spawn timer
+                spawnInterval = Random.Range(20,50);
                 spawnTimer = spawnInterval;
             }
         }
